@@ -280,12 +280,11 @@
         <div class="col-12 col-md-6 col-lg-3">
           <h4 class="txt">Related Links</h4>
           <ul class="txt-light">
-            <li>link-1</li>
-            <li>link-2</li>
-            <li>link-3</li>
-            <li>link-4</li>
-            <li>link-5</li>
-            <li>link-6</li>
+            {% for related_link in footer_related_links %}
+              <li><a href="{{related_link.link }}"> {{related_link.link_name}}</a></li>
+            {% endfor %}
+
+
           </ul>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
@@ -298,12 +297,16 @@
               <p>Ghaziabad - 201009</p>
             </li>
           </div>
-          <div class="wrapped">
-            <i class="fas fa-envelope"></i>
-            <li class="inline txt-light">
-              akgecor@akgec.org
-            </li>
-          </div>
+            {% for contact in footer_contact %}
+
+            <div class="wrapped">
+                <i class="fas fa-envelope"></i>
+                <li class="inline txt-light">
+                    {{ contact.text_data }}
+                </li>
+            </div>
+            {% endfor %}
+
           <div class="wrapped">
             <i class="fas fa-phone-volume"></i>
             <li class="inline txt-light">8744052891-94
