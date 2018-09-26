@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{# simple base.html #}
+{% load staticfiles %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<title>
+    {% block title %}AKGEC-MCA{% endblock title %}
+</title>
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/base.css' %}">
+{% endblock stylesheets %}
 </head>
 <body>
-
+    <div class="content">
+    {% block content %}
+    {% endblock content %}
+    </div>
 </body>
 </html>

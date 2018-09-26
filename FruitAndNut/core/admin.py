@@ -1,3 +1,13 @@
 from django.contrib import admin
+from .models import RecentEvent, RecentEventSlider, FooterAbout, FooterContact, FooterRelatedLinks
 
-# Register your models here.
+
+admin.site.register(RecentEventSlider)
+admin.site.register(RecentEvent)
+admin.site.register(FooterRelatedLinks)
+admin.site.register(FooterContact)
+admin.site.register(FooterAbout)
+# admin.site.register()
+
+
+
