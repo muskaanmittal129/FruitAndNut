@@ -24,3 +24,8 @@ class FooterAbout(models.Model):
 class FooterContact(models.Model):
     text_data = models.TextField(blank=True)
 
+
+class LandingPortion(models.Model):
+    slider = models.ImageField(upload_to='images/landing_slider/', unique=True)
+    active = models.BooleanField(default=True)
+
