@@ -1,10 +1,9 @@
-{# simple base.html #}
 {% load staticfiles %}
 <html>
 <head>
-<title>
-    {% block title %}AKGEC-MCA{% endblock title %}
-</title>
+    {% block header %}
+    {% endblock header %}
+
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/base.css' %}">
 {% endblock stylesheets %}

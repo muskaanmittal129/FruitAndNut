@@ -1,3 +1,6 @@
+{% load staticfiles %}
+
+
 <div class="col-12 footer grey">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-3">
@@ -9,9 +12,7 @@
     <div class="col-12 col-md-6 col-lg-3">
       <h4 class="txt">About</h4>
       <p class="txt-light">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-        book.
+        {{ footer_about.text_data }}
       </p>
     </div>
 
@@ -30,36 +31,22 @@
 
     <div class="col-12 col-md-6 col-lg-3">
       <h4 class="txt">Contact-Us</h4>
-      <div class="wrapped">
-        <i class="fas fa-map-marker-alt"></i>
-        <li class="inline txt-light">27th Km Stone
-          <p>Delhi - Hapur Bypass Road,</p>
-          <p>Adhyatmik Nagar</p>
-          <p>Ghaziabad - 201009</p>
-        </li>
-      </div>
-
-
-        <div class="wrapped">
-            <i class="fas fa-envelope"></i>
-            <li class="inline txt-light">
-                {{ contact_list }}
-            </li>
-        </div>
+        {% for contact in footer_contact %}
+             <div class="wrapped">
+                 {% if forloop.counter == 1 %}
+                 <i class="fas fa-map-marker-alt"></i>
+                 {% elif forloop.counter == 2 %}
+                 <i class="fas fa-envelope"></i>
+                 {% elif forloop.counter == 3 %}
+                 <i class="fas fa-phone-volume"></i>
+                 {% elif forloop.counter == 4 %}
+                 <i class="fas fa-clock"></i>
+                 {% endif %}
+                 <li class="inline txt-light">
+                     {{ contact }}
+                 </li>
+             </div>
         {% endfor %}
-
-      <div class="wrapped">
-        <i class="fas fa-phone-volume"></i>
-        <li class="inline txt-light">8744052891-94
-          <p>7290034978, 7290034976</p>
-        </li>
-      </div>
-      <div class="wrapped">
-          <i class="fas fa-clock"></i>
-          <li class="inline txt-light">Monday to Friday and Working Saturdays: 8:30 am - 4:00 pm
-          <p>Sundays and Odd Saturdays: Closed</p>
-          </li>
-        </div>
     </div>
     <hr>
     <div class="col-12 si-powered">

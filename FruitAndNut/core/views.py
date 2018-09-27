@@ -4,11 +4,11 @@ from .models import RecentEvent, RecentEventSlider, FooterAbout, FooterContact, 
 
 
 class Home(generic.DetailView):
-    template_name = 'core/home.html'
+    template_name = 'core/home1.html'
     context = {}
 
     def get_footer_about(self):
-        self.context["footer_about"] = FooterAbout.objects.all()
+        self.context["footer_about"] = FooterAbout.objects.all()[0]
 
     def get_footer_contact(self):
         contact_list = [contact.text_data for contact in FooterContact.objects.all()]

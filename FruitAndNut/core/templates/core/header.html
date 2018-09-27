@@ -1,7 +1,9 @@
-<head>
-  <meta charset="utf-8">
+{% load staticfiles %}
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AKGEC-MCA</title>
+  <title>
+    {% block title %}AKGEC-MCA{% endblock title %}
+  </title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="icon" href="{% static 'core/images/Akgec_Logo.png' %}" sizes="16x16" type="image/png">
   <!--script js-->
@@ -14,4 +16,4 @@
     crossorigin="anonymous">
   <!--styling-->
   <link rel="stylesheet" href="{% static 'core/css/header_style.css' %}">
-</head>
+
