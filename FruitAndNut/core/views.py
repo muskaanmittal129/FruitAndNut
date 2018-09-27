@@ -4,7 +4,7 @@ from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks
 
 
 class Home(generic.DetailView):
-    template_name = 'core/home1.html'
+    template_name = 'core/home.html'
     context = {}
 
     def get_footer_about(self):
