@@ -11,7 +11,8 @@ class Home(generic.DetailView):
         self.context["footer_about"] = FooterAbout.objects.all()
 
     def get_footer_contact(self):
-        self.context["footer_contact"] = FooterContact.objects.all()
+        contact_list = [contact.text_data for contact in FooterContact.objects.all()]
+        self.context["footer_contact"] = contact_list
 
     def get_footer_related_links(self):
         self.context["footer_related_links"] = FooterRelatedLinks.objects.all()
