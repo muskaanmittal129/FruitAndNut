@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import RecentEvent, RecentEventSlider, FooterAbout, FooterContact, FooterRelatedLinks
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks
 
 
 class Home(generic.DetailView):
@@ -17,8 +17,12 @@ class Home(generic.DetailView):
     def get_footer_related_links(self):
         self.context["footer_related_links"] = FooterRelatedLinks.objects.all()
 
+    def get_recent_event(self):
+        self.context["recent_events"] = RecentEvent.objects.filter(active=True)
+
     def get(self, *args, **kwargs):
         self.get_footer_about()
         self.get_footer_contact()
         self.get_footer_related_links()
+        self.get_recent_event()
         return render(self.request, self.template_name, self.context)

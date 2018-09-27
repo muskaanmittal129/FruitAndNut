@@ -3,14 +3,12 @@ import datetime as dt
 
 # Create your models here.
 
+
 class RecentEvent(models.Model):
     description = models.TextField(blank=False)
-    date_of_field = models.DateField(default=dt.date.today)
-
-
-class RecentEventSlider(models.Model):
-    recent_event = models.ForeignKey(RecentEvent, on_delete=models.CASCADE)
+    date_of_event = models.DateField(default=dt.date.today)
     recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/', unique=True)
+    active = models.BooleanField(default=True)
     caption = models.CharField(max_length=200, blank=True)
 
 
