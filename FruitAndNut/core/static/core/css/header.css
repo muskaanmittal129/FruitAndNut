@@ -8,11 +8,11 @@ body{
 .white-text{color: #fff;} .white-bg{background-color: #fff; color: #212121}
 .op-bg{background: rgba(33,33,33,.7); border: 1px solid #ffc107}
 .fs{font-size: 2.5rem}
-.shdw{box-shadow: 10x 10px 8px #212121;}
+.shdw{box-shadow: 2px 2px 8px #eee;}
 .z-1{z-index: 1} .z-2{z-index: 2} .z-3{z-index: 3} .z-4{z-index: 4}
 .B-r2{border-radius: 20px}
 .Orange{color: #ffc107}
-.fluid-container, .container
+.container
 {
   /*background: linear-gradient(to right, #039be5,#2196f3);*/
   margin-top: 50px;
@@ -161,6 +161,7 @@ body{
 .footer li:hover{
   color: #fff;
 }
+
 .footer hr{
   border: 1px solid #fff; 
   width: 100%;
