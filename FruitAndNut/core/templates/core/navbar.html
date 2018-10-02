@@ -1,5 +1,20 @@
 {% load staticfiles %}
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="top-nav row">
+  <div class="col-1">
+    <img src="{% static 'core/images/Akgec_Logo.png' %}">
+  </div>
+  <div class="col-11">
+    <div class="row">
+      <div class="col-12">
+        <h2>AJAY KUMAR GARG MCA COLLEGE</h2>
+      </div>
+      <div class="col-12">
+        <p>(Affiliated to Dr. APJ Abdul Kalam Technical University, Lucknow, UP, College Code - 027)</p>
+      </div>
+    </div>
+  </div>
+</nav>
+<nav class="navbar navbar-expand-lg" id="navbar">
   <a class="navbar-brand" href="#">
     <img src="{% static 'core/images/Akgec_Logo.png' %}">
   </a>
@@ -27,6 +42,8 @@
           <a class="dropdown-item" href="#">Faculty</a>
           <a class="dropdown-item" href="#">Labs</a>
           <a class="dropdown-item" href="#">Gallery</a>
+          <a class="dropdown-item" href="#">Organisation Chart</a>
+          <a class="dropdown-item" href="#">Important Functionaries</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -35,12 +52,40 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="academics">
           <a class="dropdown-item" href="#">Affilation to AKTU</a>
-          <a class="dropdown-item" href="#">Academic Award</a>
+          <a class="dropdown-item" href="#">Academic Awards</a>
+          <a class="dropdown-item submenu" href="#">>College awards</a>
+          <a class="dropdown-item submenu" href="#">>University awards</a>
+          <a class="dropdown-item" href="#">Time Table</a>
           <a class="dropdown-item" href="#">Academic Calaender</a>
           <a class="dropdown-item" href="#">Syllabus</a>
           <a class="dropdown-item" href="#">Old Question Paper/Solution</a>
+          <a class="dropdown-item submenu" href="#">>Internal Exams</a>
+          <a class="dropdown-item submenu" href="#">>sUniversity Exams</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="R&D" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            R&D
+          </a>
+          <div class="dropdown-menu" aria-labelledby="R&D">
+            <a class="dropdown-item" href="#">Centers Of Excellence</a>
+            <a class="dropdown-item" href="#">Research and Industrial Consaltancy Centre</a>
+            <a class="dropdown-item" href="#">International Journal</a>
+            <a class="dropdown-item" href="#">Conferences</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="Life@" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Life@
+            </a>
+            <div class="dropdown-menu" aria-labelledby="LiFE@">
+              <a class="dropdown-item" href="#">Societies</a>
+              <a class="dropdown-item" href="#">Events</a>
+              <a class="dropdown-item" href="#">Social Responsibities</a>
+              <a class="dropdown-item" href="#">Hostels</a>
+              <a class="dropdown-item" href="#">Mediclam</a>
+            </div>
+          </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="admission" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admission
