@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty
+
 
 class FooterAboutAdmin(admin.ModelAdmin):
     search_fields = ['text_data']
@@ -41,11 +42,20 @@ class RecentEventAdmin(admin.ModelAdmin):
         model = RecentEvent
 
 
+class FacultyAdmin(admin.ModelAdmin):
+    search_fields = ['name','designation']
+    list_display =  ('name','designation')
+
+    class Meta:
+        model = Faculty
+
+
 admin.site.register(RecentEvent, RecentEventAdmin)
 admin.site.register(FooterRelatedLinks, FooterLinkAdmin)
 admin.site.register(FooterContact, FooterContactAdmin)
 admin.site.register(FooterAbout, FooterContactAdmin)
 admin.site.register(LandingPortion, LandingAdmin)
+admin.site.register(Faculty, FacultyAdmin)
 
 # admin.site.register()
 

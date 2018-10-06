@@ -1,3 +1,17 @@
+{% extends 'core/base.html' %}
+{% load static %}
+    {% block header %}
+        {% include 'core/header.html' %}
+    {% endblock header %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/faculty_style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/reach_us.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/footer.css' %}">
+    {% endblock stylesheets %}
+    {% block content %}
+        {% include 'core/navbar.html' %}
+
 
 <div class="container z-depth-1 mt-5 SmallScreenResponsive">
        <!-- Large modal -->
@@ -25,302 +39,306 @@
           <div class="col-lg-3 grey hideOnSmall text-center"><div class="sticky-top McaFculty">MCA Faculty</div></div>
           <div class="col-lg-9 col-sm-12 facultyCardSection">
             <div class="row CardRow pd-2 "><!--first card row-->
-
+                {% for faculty in faculty_info %}
                 <div class="col-lg-4 col-md-4 col-sm-6 mt-5 "> <!--card-1-->
                   <div class="card ">
                       <div class="Aqua  BackgroundTop">
                         <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
                         <div class="col-6 ImgSection">
-                        <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
+                        <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="{{ faculty.profile_pic.url }}" alt="Card image cap"  ></a>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-10 mx-auto">
                           <div class="card-body text-center">
-                            <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                            <p class="card-text">HOD <br> B.Tech, M.Tech</p>
+                            <h5 class="card-title mt-3p">{{ faculty.name}}</h5>
+                            <p class="card-text">{{ faculty.designation }}<br> {{faculty.qualification_ug}}, {{faculty.qualification_pg}}, {{faculty_qualification_phd}}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                  </div>
+                {% endfor %}
 
-                 <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-2-->
-                   <div class="card">
-                       <div class="Aqua  BackgroundTop">
-                         <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                         <div class="col-6 ImgSection">
-                         <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                         </div>
-                       </div>
-                       <div class="row">
-                         <div class="col-10 mx-auto">
-                           <div class="card-body text-center">
-                             <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                             <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                  </div>
+                 <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-2&ndash;&gt;-->
+                   <!--<div class="card">-->
+                       <!--<div class="Aqua  BackgroundTop">-->
+                         <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                         <!--<div class="col-6 ImgSection">-->
+                         <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                       <!--<div class="row">-->
+                         <!--<div class="col-10 mx-auto">-->
+                           <!--<div class="card-body text-center">-->
+                             <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                             <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                  <!--</div>-->
 
-                  <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-3-->
-                    <div class="card">
-                        <div class="Aqua  BackgroundTop">
-                          <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                          <div class="col-6 ImgSection">
-                          <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-10 mx-auto">
-                            <div class="card-body text-center">
-                              <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                              <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                   </div>
+                  <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-3&ndash;&gt;-->
+                    <!--<div class="card">-->
+                        <!--<div class="Aqua  BackgroundTop">-->
+                          <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                          <!--<div class="col-6 ImgSection">-->
+                          <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                          <!--<div class="col-10 mx-auto">-->
+                            <!--<div class="card-body text-center">-->
+                              <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                              <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                   <!--</div>-->
 
-             <!--second card row-->
+             <!--&lt;!&ndash;second card row&ndash;&gt;-->
 
-               <div class="col-lg-4 col-md-4 col-sm-6 mt-5 "> <!--card-1-->
-                 <div class="card">
-                     <div class="Aqua  BackgroundTop">
-                       <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                       <div class="col-6 ImgSection">
-                       <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-10 mx-auto">
-                         <div class="card-body text-center">
-                           <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                           <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
-                </div>
+               <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5 "> &lt;!&ndash;card-1&ndash;&gt;-->
+                 <!--<div class="card">-->
+                     <!--<div class="Aqua  BackgroundTop">-->
+                       <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                       <!--<div class="col-6 ImgSection">-->
+                       <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                     <!--<div class="row">-->
+                       <!--<div class="col-10 mx-auto">-->
+                         <!--<div class="card-body text-center">-->
+                           <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                           <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
 
-                <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-2-->
-                  <div class="card">
-                      <div class="Aqua  BackgroundTop">
-                        <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                        <div class="col-6 ImgSection">
-                        <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-10 mx-auto">
-                          <div class="card-body text-center">
-                            <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                            <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                 </div>
+                <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-2&ndash;&gt;-->
+                  <!--<div class="card">-->
+                      <!--<div class="Aqua  BackgroundTop">-->
+                        <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                        <!--<div class="col-6 ImgSection">-->
+                        <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-10 mx-auto">-->
+                          <!--<div class="card-body text-center">-->
+                            <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                            <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                 <!--</div>-->
 
-                 <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-3-->
-                   <div class="card">
-                       <div class="Aqua  BackgroundTop">
-                         <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                         <div class="col-6 ImgSection">
-                         <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                         </div>
-                       </div>
-                       <div class="row">
-                         <div class="col-10 mx-auto">
-                           <div class="card-body text-center">
-                             <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                             <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                  </div>
+                 <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-3&ndash;&gt;-->
+                   <!--<div class="card">-->
+                       <!--<div class="Aqua  BackgroundTop">-->
+                         <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                         <!--<div class="col-6 ImgSection">-->
+                         <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                       <!--<div class="row">-->
+                         <!--<div class="col-10 mx-auto">-->
+                           <!--<div class="card-body text-center">-->
+                             <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                             <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                  <!--</div>-->
 
               <!--third card row-->
 
-                <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-1-->
-                  <div class="card">
-                      <div class="Aqua  BackgroundTop">
-                        <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                        <div class="col-6 ImgSection">
-                        <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-10 mx-auto">
-                          <div class="card-body text-center">
-                            <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                            <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                 </div>
+                <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-1&ndash;&gt;-->
+                  <!--<div class="card">-->
+                      <!--<div class="Aqua  BackgroundTop">-->
+                        <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                        <!--<div class="col-6 ImgSection">-->
+                        <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="row">-->
+                        <!--<div class="col-10 mx-auto">-->
+                          <!--<div class="card-body text-center">-->
+                            <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                            <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                 <!--</div>-->
 
-                 <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-2-->
-                   <div class="card">
-                       <div class="Aqua  BackgroundTop">
-                         <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                         <div class="col-6 ImgSection">
-                         <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                         </div>
-                       </div>
-                       <div class="row">
-                         <div class="col-10 mx-auto">
-                           <div class="card-body text-center">
-                             <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                             <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                  </div>
+                 <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-2&ndash;&gt;-->
+                   <!--<div class="card">-->
+                       <!--<div class="Aqua  BackgroundTop">-->
+                         <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                         <!--<div class="col-6 ImgSection">-->
+                         <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                       <!--<div class="row">-->
+                         <!--<div class="col-10 mx-auto">-->
+                           <!--<div class="card-body text-center">-->
+                             <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                             <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                  <!--</div>-->
 
-                  <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-3-->
-                    <div class="card">
-                        <div class="Aqua  BackgroundTop">
-                          <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                          <div class="col-6 ImgSection">
-                          <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-10 mx-auto">
-                            <div class="card-body text-center">
-                              <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                              <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                   </div>
+                  <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-3&ndash;&gt;-->
+                    <!--<div class="card">-->
+                        <!--<div class="Aqua  BackgroundTop">-->
+                          <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                          <!--<div class="col-6 ImgSection">-->
+                          <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                          <!--<div class="col-10 mx-auto">-->
+                            <!--<div class="card-body text-center">-->
+                              <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                              <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                   <!--</div>-->
 
-               <!--fourth card row-->
+               <!--&lt;!&ndash;fourth card row&ndash;&gt;-->
 
-                 <div class="col-lg-4 col-md-4 col-sm-6 mt-5 "> <!--card-1-->
-                   <div class="card">
-                       <div class="Aqua  BackgroundTop">
-                         <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                         <div class="col-6 ImgSection">
-                         <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                         </div>
-                       </div>
-                       <div class="row">
-                         <div class="col-10 mx-auto">
-                           <div class="card-body text-center">
-                             <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                             <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                  </div>
+                 <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5 "> &lt;!&ndash;card-1&ndash;&gt;-->
+                   <!--<div class="card">-->
+                       <!--<div class="Aqua  BackgroundTop">-->
+                         <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                         <!--<div class="col-6 ImgSection">-->
+                         <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                       <!--<div class="row">-->
+                         <!--<div class="col-10 mx-auto">-->
+                           <!--<div class="card-body text-center">-->
+                             <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                             <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                     <!--</div>-->
+                  <!--</div>-->
 
-                  <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-2-->
-                    <div class="card">
-                        <div class="Aqua  BackgroundTop">
-                          <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                          <div class="col-6 ImgSection">
-                          <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-10 mx-auto">
-                            <div class="card-body text-center">
-                              <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                              <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                   </div>
+                  <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-2&ndash;&gt;-->
+                    <!--<div class="card">-->
+                        <!--<div class="Aqua  BackgroundTop">-->
+                          <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                          <!--<div class="col-6 ImgSection">-->
+                          <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                          <!--<div class="col-10 mx-auto">-->
+                            <!--<div class="card-body text-center">-->
+                              <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                              <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                   <!--</div>-->
 
-                   <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-3-->
-                     <div class="card">
-                         <div class="Aqua  BackgroundTop">
-                           <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                           <div class="col-6 ImgSection">
-                           <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                           </div>
-                         </div>
-                         <div class="row">
-                           <div class="col-10 mx-auto">
-                             <div class="card-body text-center">
-                               <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                               <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
-                    </div>
+                   <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-3&ndash;&gt;-->
+                     <!--<div class="card">-->
+                         <!--<div class="Aqua  BackgroundTop">-->
+                           <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                           <!--<div class="col-6 ImgSection">-->
+                           <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                         <!--<div class="row">-->
+                           <!--<div class="col-10 mx-auto">-->
+                             <!--<div class="card-body text-center">-->
+                               <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                               <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                             <!--</div>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                       <!--</div>-->
+                    <!--</div>-->
 
-                <!--fifth card row-->
+                <!--&lt;!&ndash;fifth card row&ndash;&gt;-->
 
-                     <div class="col-lg-4 col-md-4 col-sm-6 mt-5 Small-mt"> <!--card-1-->
-                       <div class="card">
-                           <div class="Aqua  BackgroundTop">
-                             <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                             <div class="col-6 ImgSection">
-                             <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                             </div>
-                           </div>
-                           <div class="row">
-                             <div class="col-10 mx-auto">
-                               <div class="card-body text-center">
-                                 <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                                 <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                               </div>
-                             </div>
-                           </div>
-                         </div>
-                      </div>
+                     <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5 Small-mt"> &lt;!&ndash;card-1&ndash;&gt;-->
+                       <!--<div class="card">-->
+                           <!--<div class="Aqua  BackgroundTop">-->
+                             <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                             <!--<div class="col-6 ImgSection">-->
+                             <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                             <!--</div>-->
+                           <!--</div>-->
+                           <!--<div class="row">-->
+                             <!--<div class="col-10 mx-auto">-->
+                               <!--<div class="card-body text-center">-->
+                                 <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                                 <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                               <!--</div>-->
+                             <!--</div>-->
+                           <!--</div>-->
+                         <!--</div>-->
+                      <!--</div>-->
 
-                      <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-2-->
-                        <div class="card">
-                            <div class="Aqua  BackgroundTop">
-                              <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                              <div class="col-6 ImgSection">
-                              <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-10 mx-auto">
-                                <div class="card-body text-center">
-                                  <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                                  <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                       </div>
+                      <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-2&ndash;&gt;-->
+                        <!--<div class="card">-->
+                            <!--<div class="Aqua  BackgroundTop">-->
+                              <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                              <!--<div class="col-6 ImgSection">-->
+                              <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                              <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                              <!--<div class="col-10 mx-auto">-->
+                                <!--<div class="card-body text-center">-->
+                                  <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                                  <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                                <!--</div>-->
+                              <!--</div>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                       <!--</div>-->
 
-                       <div class="col-lg-4 col-md-4 col-sm-6 mt-5"> <!--card-3-->
-                         <div class="card">
-                             <div class="Aqua  BackgroundTop">
-                               <a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>
-                               <div class="col-6 ImgSection">
-                               <a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>
-                               </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-10 mx-auto">
-                                 <div class="card-body text-center">
-                                   <h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>
-                                   <p class="card-text">HOD <br> B.Tech, M.Tech</p>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                        </div>
+                       <!--<div class="col-lg-4 col-md-4 col-sm-6 mt-5"> &lt;!&ndash;card-3&ndash;&gt;-->
+                         <!--<div class="card">-->
+                             <!--<div class="Aqua  BackgroundTop">-->
+                               <!--<a  data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-bars float-right pd-1 profile" style="color:white; font-size:20px; opacity:.8"></i></a>-->
+                               <!--<div class="col-6 ImgSection">-->
+                               <!--<a data-toggle="modal" data-target=".bd-example-modal-lg"><img class="card-img-top Border50 ImgOnHover img-fluid" src="img/Faculty.jpg" alt="Card image cap"  ></a>-->
+                               <!--</div>-->
+                             <!--</div>-->
+                             <!--<div class="row">-->
+                               <!--<div class="col-10 mx-auto">-->
+                                 <!--<div class="card-body text-center">-->
+                                   <!--<h5 class="card-title mt-3p">Prof. S.L. Kapoor</h5>-->
+                                   <!--<p class="card-text">HOD <br> B.Tech, M.Tech</p>-->
+                                 <!--</div>-->
+                               <!--</div>-->
+                             <!--</div>-->
+                           <!--</div>-->
+                        <!--</div>-->
 
                     </div>
 
           </div>
       </div>
  </div>
+ {% include 'core/reach_us.html' %}
+{% include 'core/footer.html' %}
+ {% endblock content %}

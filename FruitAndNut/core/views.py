@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty
 
 
 class Home(generic.DetailView):
@@ -30,3 +30,17 @@ class Home(generic.DetailView):
         self.get_recent_event()
         self.get_landing_porting()
         return render(self.request, self.template_name, self.context)
+
+
+class FacultyView(generic.ListView):
+    template_name = 'core/faculty.htm'
+    context ={}
+
+    def get_faculty(self):
+        faculty_info = Faculty.objects.all()
+        self.context['faculty_info'] = faculty_info
+
+    def get(self, request, *args, **kwargs):
+        self.get_faculty()
+        return render(self.request,self.template_name,self.context)
+
