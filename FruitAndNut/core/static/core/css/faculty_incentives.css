@@ -12,9 +12,19 @@ body{
 .B-r2{border-radius: 20px} .Border50{border-radius: 50%; border: 4px solid #fff;}
 .Orange{color: #ffc107 } .z-depth-1{box-shadow: 0 1px 10px #eee;}
 
-.LabText
+.Faculty_incentives_Text
 {
   word-spacing: 2px;
-  line-height: 20px;
-  font-size: .8rem;
+  line-height: 25px;
+  font-size: 1rem;
+}
+li
+{
+  list-style-type: none;
+  color: #1976d2;
+}
+i
+{
+  margin-right: 10px;
+  color: #424242;
 }
