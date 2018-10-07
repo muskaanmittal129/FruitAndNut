@@ -18,13 +18,12 @@ body{
   line-height: 25px;
   font-size: 1rem;
 }
-li
-{
+li{
   list-style-type: none;
   color: #1976d2;
 }
-i
-{
+
+i{
   margin-right: 10px;
   color: #424242;
 }
