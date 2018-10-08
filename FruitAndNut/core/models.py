@@ -19,6 +19,7 @@ class RecentEvent(models.Model):
 class FooterRelatedLinks(models.Model):
     link_name = models.CharField(max_length=30)
     link = models.URLField()
+    priority = models.PositiveIntegerField()
 
     class Meta:
         verbose_name = "Footer Related Link"

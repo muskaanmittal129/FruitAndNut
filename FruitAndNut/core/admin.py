@@ -19,9 +19,11 @@ class FooterContactAdmin(admin.ModelAdmin):
 
 
 class FooterLinkAdmin(admin.ModelAdmin):
-    search_fields = ['link_name', 'link']
-    list_display = ('link_name', 'link')
-
+    search_fields = ['priority', 'link_name', 'link']
+    list_display = ('priority','link_name', 'link')
+    list_display_links = None
+    list_editable = ('priority',)
+    ordering = ('priority',)
     class Meta:
         model = FooterRelatedLinks
 
