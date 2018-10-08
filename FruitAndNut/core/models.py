@@ -1,5 +1,6 @@
 from django.db import models
 import datetime as dt
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
@@ -126,8 +127,10 @@ class EventImages(models.Model):
 class ImportantFunctionary(models.Model):
     designation = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    # telephone = models.Charfield
-    # phone = models.CharField
+    telephone_regex = RegexValidator(regex=r'^d{4}([-]*)\d{7}$', message="Format:XXXX-XXXXXXX")
+    telephone = models.CharField(validators=[telephone_regex], max_length=12, blank=True)
+    phone_regex = RegexValidator(regex=r'^\d{10}$', message="Phone number without zero and having 10 numbers")
+    phone_number = models.CharField(validators=[phone_regex], max_length=10, blank=True)
 
     class Meta:
         verbose_name = "Important Functionary"
