@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,LabSection
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
+    LabSection
 
 
 class Home(generic.DetailView):
@@ -18,7 +19,7 @@ class Home(generic.DetailView):
         self.context["footer_related_links"] = FooterRelatedLinks.objects.all()
 
     def get_recent_event(self):
-        self.context["recent_events"] = RecentEvent.objects.filter(active=True)
+        self.context["event_info"] = RecentEvent.objects.filter(active=True)
 
     def get_landing_porting(self):
         self.context["landing_portion"] = LandingPortion.objects.filter(active=True)
@@ -76,3 +77,16 @@ class AlumniView(generic.ListView):
     def get(self, request, *args, **kwargs):
         self.get_testimonial()
         return render(self.request,self.template_name,self.context)
+
+
+# class RecentEventView(generic.ListView):
+#     template_name = 'core/recent_events.html'
+#     context ={}
+#
+#     def get_event(self):
+#         event_info = RecentEvent.objects.filter(active=True)
+#         self.context['event_info'] = event_info
+#
+#     def get(self, request, *args, **kwargs):
+#         self.get_event()
+#         return render(self.request,self.template_name,self.context)

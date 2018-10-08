@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="col-9 qoute">
-                                    <p>{{testimonial.testimonial_message|truncatewords:20}}<span id="dots">...</span><span
+                                    <p><span id="dots">{{testimonial.testimonial_message|truncatewords:20}}</span><span
                                             id="more">
                                         {{testimonial.testimonial_message}}
                                            </span></p>
@@ -77,6 +77,7 @@
                 dots.style.display = "inline";
                 btnText.innerHTML = "Read more";
                 moreText.style.display = "none";
+
             } else {
                 dots.style.display = "none";
                 btnText.innerHTML = "Read less";
