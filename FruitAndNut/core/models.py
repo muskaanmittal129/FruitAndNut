@@ -90,3 +90,58 @@ class Faculty(models.Model):
     # interaction_prof_institution = models.TextField(null=True)
 
 
+class OrganizationChart(models.Model):
+    organization_chart = models.ImageField(upload_to='images/organization_chart')
+
+    class Meta:
+        verbose_name = "Organization Chart"
+        verbose_name_plural = "Organization Chart"
+
+
+class Gallery(models.Model):
+    images = models.ImageField(upload_to='images/gallery')
+
+    class Meta:
+        verbose_name = "Gallery"
+        verbose_name_plural = "Gallery"
+
+
+class Event(models.Model):
+    event_name = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name = "Event"
+        verbose_name_plural = "Events"
+
+
+class EventImages(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    images = models.ImageField(upload_to='images/event')
+
+    class Meta:
+        verbose_name = "Event Image"
+        verbose_name_plural = "Event Images"
+
+
+class ImportantFunctionary(models.Model):
+    designation = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    # telephone = models.Charfield
+    # phone = models.CharField
+
+    class Meta:
+        verbose_name = "Important Functionary"
+        verbose_name_plural = "Important Functionaries"
+
+
+class Principal(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/principal')
+    messege = models.TextField()
+
+
+# class Infrastructure(models.Model):
+#     image = models.ImageField(upload_to='images/infrastructure')
+#     caption = models.CharField(max_length=250)
+
+
