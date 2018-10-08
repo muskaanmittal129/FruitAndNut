@@ -89,3 +89,11 @@ class Faculty(models.Model):
     # interaction_prof_institution = models.TextField(null=True)
 
 
+class Testimonial(models.Model):
+    name = models.CharField(max_length=250, blank= False)
+    designation = models.CharField(max_length=250,blank=False)
+    profile_pic =models.ImageField(upload_to='images/alumni/',unique=True)
+    testimonial_message = models.TextField(blank=False)
+
+
+

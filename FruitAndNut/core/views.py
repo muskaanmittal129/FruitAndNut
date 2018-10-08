@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial
 
 
 class Home(generic.DetailView):
@@ -51,3 +51,22 @@ class LabView(generic.ListView):
 
     def get(self, *args, **kwargs):
         return render(self.request,self.template_name)
+
+class GalleryView(generic.ListView):
+    template_name = 'core/gallery.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request,self.template_name)
+
+
+class AlumniView(generic.ListView):
+    template_name = 'core/testimonial.html'
+    context = {}
+
+    def get_testimonial(self):
+        testimonial_info = Testimonial.objects.all()
+        self.context['testimonial_info'] = testimonial_info
+
+    def get(self, request, *args, **kwargs):
+        self.get_testimonial()
+        return render(self.request,self.template_name,self.context)
