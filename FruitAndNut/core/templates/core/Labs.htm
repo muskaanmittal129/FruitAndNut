@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+{% load static %}
+    {% block header %}
+        {% include 'core/header.html' %}
+    {% endblock header %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/lab_style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/reach_us.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/footer.css' %}">
+        <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">-->
+    {% endblock stylesheets %}
+    {% block content %}
+        {% include 'core/navbar.html' %}
+
+     <div class="container z-depth-1 mt-5 light-grey-bg">
+      <!--lab-section-->
+      <div class="row grey text-center">
+        <div class="col-12 pd-1">
+          <h3 style="font-weight:lighter">
+            MCA - Labs
+          </h3>
+        </div>
+      </div>
+        <div class="row pd-1">
+
+        <div class="col-lg-10 col-sm-12 mx-auto  text-center pd-1 LabText"><i class="fas fa-quote-left"></i>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor aliqua.
+             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+             aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. . .<i class="fas fa-quote-right"></i>
+          </div>
+          <div class="col-lg-4 col-sm-12 mx-auto mt-1">
+            <img src="{% static 'core/images/slide1.jpg' %}" class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-lg-4 col-sm-12 mx-auto mt-1">
+            <img src="{% static 'core/images/slide1.jpg' %}"  class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-lg-4 col-sm-12 mx-auto mt-1 ">
+            <img src="{% static 'core/images/slide1.jpg' %}" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+     </div>
+    <!--script-->
+    <script>
+
+    </script>
+{% include 'core/reach_us.html' %}
+        {% include 'core/footer.html' %}
+{% endblock content %}
+

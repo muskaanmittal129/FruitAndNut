@@ -44,3 +44,10 @@ class FacultyView(generic.ListView):
         self.get_faculty()
         return render(self.request,self.template_name,self.context)
 
+
+
+class LabView(generic.ListView):
+    template_name = 'core/Labs.htm'
+
+    def get(self, *args, **kwargs):
+        return render(self.request,self.template_name)
