@@ -69,6 +69,7 @@ class Faculty(models.Model):
     qualification_ug = models.CharField(max_length=250, blank=True )
     qualification_pg = models.CharField(max_length=250, blank= True)
     qualification_phd = models.CharField(max_length=250, blank= True)
+    faculty_pdf = models.FileField(upload_to='files/faculty_pdf/', unique= True)
     # experience_teaching = models.IntegerField(default=0)
     # experience_industry = models.IntegerField(default=0)
     # experience_research = models.IntegerField(default=0)
@@ -86,4 +87,5 @@ class Faculty(models.Model):
     # awards = models.TextField(null=True)
     # grants_fetched = models.TextField(null=True)
     # interaction_prof_institution = models.TextField(null=True)
+
 
