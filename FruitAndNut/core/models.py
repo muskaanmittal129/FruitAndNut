@@ -5,11 +5,11 @@ import datetime as dt
 
 
 class RecentEvent(models.Model):
-    description = models.TextField(blank=False)
-    date_of_event = models.DateField(default=dt.date.today)
-    recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/', unique=True)
+    event_description = models.TextField(blank=False)
+    event_date = models.DateField(default=dt.date.today)
+    event_pic = models.ImageField(upload_to='images/recent_event_slider/', unique=True)
     active = models.BooleanField(default=True)
-    caption = models.CharField(max_length=200, blank=True)
+    # caption = models.CharField(max_length=200, blank=True)
 
     class Meta:
         verbose_name = "Recent Event"
@@ -88,5 +88,31 @@ class Faculty(models.Model):
     # awards = models.TextField(null=True)
     # grants_fetched = models.TextField(null=True)
     # interaction_prof_institution = models.TextField(null=True)
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=250, blank= False)
+    designation = models.CharField(max_length=250,blank=False)
+    profile_pic =models.ImageField(upload_to='images/alumni/',unique=True)
+    testimonial_message = models.TextField(blank=False)
+
+
+class LabSection(models.Model):
+    lab_name = models.CharField(max_length=250,blank=False)
+    image1 = models.ImageField(upload_to='images/labs/',unique=True)
+    image2 = models.ImageField(upload_to='images/labs/',unique=True)
+    image3 = models.ImageField(upload_to='images/labs/',unique=True)
+    lab_description = models.TextField(blank=False)
+
+
+# class RecentEvent(models.Model):
+#     event_pic = models.ImageField(upload_to='images/Events/',unique=True)
+#     active = models.BooleanField(default=True)
+#     event_description = models.TextField(blank=True)
+#     event_date = models.DateTimeField()
+
+
+
+
 
 
