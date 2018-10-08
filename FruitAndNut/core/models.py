@@ -96,4 +96,15 @@ class Testimonial(models.Model):
     testimonial_message = models.TextField(blank=False)
 
 
+class LabSection(models.Model):
+    lab_name = models.CharField(max_length=250,blank=False)
+    image1 = models.ImageField(upload_to='images/labs/',unique=True)
+    image2 = models.ImageField(upload_to='images/labs/',unique=True)
+    image3 = models.ImageField(upload_to='images/labs/',unique=True)
+    lab_description = models.TextField(blank=False)
+
+
+
+
+
 
