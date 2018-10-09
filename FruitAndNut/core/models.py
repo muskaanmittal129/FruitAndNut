@@ -92,7 +92,7 @@ class Faculty(models.Model):
 
 
 class OrganizationChart(models.Model):
-    organization_chart = models.ImageField(upload_to='images/organization_chart')
+    image = models.ImageField(upload_to='images/organization_chart')
 
     class Meta:
         verbose_name = "Organization Chart"

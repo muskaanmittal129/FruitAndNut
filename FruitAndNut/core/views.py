@@ -102,3 +102,19 @@ class ImportantFunctionaryView(generic.ListView):
     def get(self, request, *args, **kwargs):
         self.get_imp_functionary()
         return render(self.request,self.template_name,self.context)
+
+
+class OrganizationChartView(generic.ListView):
+    template_name = 'core/about/organization_chart.html'
+    context = {}
+
+    def get_organization_chart(self):
+        try:
+            organization_chart = OrganizationChart.objects.all()[0]
+        except:
+            organization_chart = None
+        self.context[' organization_chart'] =  organization_chart
+
+    def get(self, request, *args, **kwargs):
+        self.get_organization_chart()
+        return render(self.request,self.template_name,self.context)
