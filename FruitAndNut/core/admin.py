@@ -37,8 +37,8 @@ class LandingAdmin(admin.ModelAdmin):
 
 
 class RecentEventAdmin(admin.ModelAdmin):
-    search_fields = [ 'event_date', 'active']
-    list_display = ('event_date', 'active')
+    # search_fields = [ 'event_date', 'active']
+    # list_display = ('event_date', 'active')
 
     class Meta:
         model = RecentEvent

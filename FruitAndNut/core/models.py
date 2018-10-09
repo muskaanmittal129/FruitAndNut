@@ -128,9 +128,10 @@ class ImportantFunctionary(models.Model):
     designation = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     telephone_regex = RegexValidator(regex=r'^d{4}([-]*)\d{7}$', message="Format:XXXX-XXXXXXX")
-    telephone = models.CharField(validators=[telephone_regex], max_length=12, blank=True)
+    telephone = models.CharField(validators=[telephone_regex], max_length=12, blank=True, null=True)
     phone_regex = RegexValidator(regex=r'^\d{10}$', message="Phone number without zero and having 10 numbers")
-    phone_number = models.CharField(validators=[phone_regex], max_length=10, blank=True)
+    phone_number = models.CharField(validators=[phone_regex], max_length=10)
+    priority = models.PositiveIntegerField()
 
     class Meta:
         verbose_name = "Important Functionary"
@@ -146,5 +147,20 @@ class Principal(models.Model):
 # class Infrastructure(models.Model):
 #     image = models.ImageField(upload_to='images/infrastructure')
 #     caption = models.CharField(max_length=250)
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=250, blank= False)
+    designation = models.CharField(max_length=250,blank=False)
+    profile_pic =models.ImageField(upload_to='images/alumni/',unique=True)
+    testimonial_message = models.TextField(blank=False)
+
+
+class LabSection(models.Model):
+    lab_name = models.CharField(max_length=250,blank=False)
+    image1 = models.ImageField(upload_to='images/labs/',unique=True)
+    image2 = models.ImageField(upload_to='images/labs/',unique=True)
+    image3 = models.ImageField(upload_to='images/labs/',unique=True)
+    lab_description = models.TextField(blank=False)
+
 
 

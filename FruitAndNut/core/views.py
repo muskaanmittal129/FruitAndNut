@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
-    LabSection
+    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart
 
 
 class Home(generic.DetailView):
@@ -90,3 +90,15 @@ class AlumniView(generic.ListView):
 #     def get(self, request, *args, **kwargs):
 #         self.get_event()
 #         return render(self.request,self.template_name,self.context)
+
+class ImportantFunctionaryView(generic.ListView):
+    template_name = 'core/about/important_functionary.html'
+    context = {}
+
+    def get_imp_functionary(self):
+        imp_functionary = ImportantFunctionary.objects.order_by('priority')
+        self.context['imp_functionaries'] = imp_functionary
+
+    def get(self, request, *args, **kwargs):
+        self.get_imp_functionary()
+        return render(self.request,self.template_name,self.context)
