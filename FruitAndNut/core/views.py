@@ -134,3 +134,12 @@ class PrincipalView(generic.ListView):
     def get(self, request, *args, **kwargs):
         self.get_principal()
         return render(self.request, self.template_name, self.context)
+
+
+class VisionMissionView(generic.ListView):
+    template_name = 'core/about/vision_and_mission.html'
+    context = {}
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
