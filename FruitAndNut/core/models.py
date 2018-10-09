@@ -1,15 +1,16 @@
 from django.db import models
 import datetime as dt
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
 
 class RecentEvent(models.Model):
-    event_description = models.TextField(blank=False)
-    event_date = models.DateField(default=dt.date.today)
-    event_pic = models.ImageField(upload_to='images/recent_event_slider/', unique=True)
+    description = models.TextField(blank=False)
+    date_of_event = models.DateField(default=dt.date.today)
+    recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/', unique=True)
     active = models.BooleanField(default=True)
-    # caption = models.CharField(max_length=200, blank=True)
+    caption = models.CharField(max_length=200, blank=True)
 
     class Meta:
         verbose_name = "Recent Event"
@@ -90,29 +91,60 @@ class Faculty(models.Model):
     # interaction_prof_institution = models.TextField(null=True)
 
 
-class Testimonial(models.Model):
-    name = models.CharField(max_length=250, blank= False)
-    designation = models.CharField(max_length=250,blank=False)
-    profile_pic =models.ImageField(upload_to='images/alumni/',unique=True)
-    testimonial_message = models.TextField(blank=False)
+class OrganizationChart(models.Model):
+    organization_chart = models.ImageField(upload_to='images/organization_chart')
+
+    class Meta:
+        verbose_name = "Organization Chart"
+        verbose_name_plural = "Organization Chart"
 
 
-class LabSection(models.Model):
-    lab_name = models.CharField(max_length=250,blank=False)
-    image1 = models.ImageField(upload_to='images/labs/',unique=True)
-    image2 = models.ImageField(upload_to='images/labs/',unique=True)
-    image3 = models.ImageField(upload_to='images/labs/',unique=True)
-    lab_description = models.TextField(blank=False)
+class Gallery(models.Model):
+    images = models.ImageField(upload_to='images/gallery')
+
+    class Meta:
+        verbose_name = "Gallery"
+        verbose_name_plural = "Gallery"
 
 
-# class RecentEvent(models.Model):
-#     event_pic = models.ImageField(upload_to='images/Events/',unique=True)
-#     active = models.BooleanField(default=True)
-#     event_description = models.TextField(blank=True)
-#     event_date = models.DateTimeField()
+class Event(models.Model):
+    event_name = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name = "Event"
+        verbose_name_plural = "Events"
 
 
+class EventImages(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    images = models.ImageField(upload_to='images/event')
+
+    class Meta:
+        verbose_name = "Event Image"
+        verbose_name_plural = "Event Images"
 
 
+class ImportantFunctionary(models.Model):
+    designation = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    telephone_regex = RegexValidator(regex=r'^d{4}([-]*)\d{7}$', message="Format:XXXX-XXXXXXX")
+    telephone = models.CharField(validators=[telephone_regex], max_length=12, blank=True)
+    phone_regex = RegexValidator(regex=r'^\d{10}$', message="Phone number without zero and having 10 numbers")
+    phone_number = models.CharField(validators=[phone_regex], max_length=10, blank=True)
+
+    class Meta:
+        verbose_name = "Important Functionary"
+        verbose_name_plural = "Important Functionaries"
+
+
+class Principal(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/principal')
+    messege = models.TextField()
+
+
+# class Infrastructure(models.Model):
+#     image = models.ImageField(upload_to='images/infrastructure')
+#     caption = models.CharField(max_length=250)
 
 
