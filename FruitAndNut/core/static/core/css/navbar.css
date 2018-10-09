@@ -45,6 +45,7 @@ body{
   width: 100%;
   background:linear-gradient(to top ,#03a9f4, #00bcd4) #00bcd4;
   padding: 8px 40px 0px 50px;
+  z-index: 10;
 }
 
 .navbar .navbar-brand{
@@ -79,6 +80,7 @@ body{
 
 .navbar .dropdown-menu .dropdown-item{
   color: #fff;
+  z-index: 100;
 }
 
 .navbar .dropdown-menu .submenu{
