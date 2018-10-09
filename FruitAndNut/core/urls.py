@@ -11,5 +11,6 @@ urlpatterns = [
     path('gallery/',views.GalleryView.as_view(),name='gallery'),
     path('important_functionary/',views.ImportantFunctionaryView.as_view(),name='imp_functionary'),
     path('organization_chart/',views.OrganizationChartView.as_view(),name='organization_chart'),
+    path('principal/',views.PrincipalView.as_view(),name='principal'),
     path('alumni/',views.AlumniView.as_view(),name='alumni'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

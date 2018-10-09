@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
-    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart
+    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal
 
 
 class Home(generic.DetailView):
@@ -47,7 +47,7 @@ class FacultyView(generic.ListView):
 
 
 class LabView(generic.ListView):
-    template_name = 'core/Labs.htm'
+    template_name = 'core/about/Labs.htm'
     context ={}
 
     def get_lab(self):
@@ -60,7 +60,7 @@ class LabView(generic.ListView):
 
 
 class GalleryView(generic.ListView):
-    template_name = 'core/gallery.html'
+    template_name = 'core/about/gallery.html'
 
     def get(self, request, *args, **kwargs):
         return render(self.request,self.template_name)
@@ -118,3 +118,19 @@ class OrganizationChartView(generic.ListView):
     def get(self, request, *args, **kwargs):
         self.get_organization_chart()
         return render(self.request,self.template_name,self.context)
+
+
+class PrincipalView(generic.ListView):
+    template_name = 'core/about/principal.html'
+    context = {}
+
+    def get_principal(self):
+        try:
+            principal = Principal.objects.all()[0]
+        except:
+            principal = None
+        self.context['principal'] = principal
+
+    def get(self, request, *args, **kwargs):
+        self.get_principal()
+        return render(self.request, self.template_name, self.context)
