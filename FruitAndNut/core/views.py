@@ -34,7 +34,7 @@ class Home(generic.DetailView):
 
 
 class FacultyView(generic.ListView):
-    template_name = 'core/faculty.htm'
+    template_name = 'core/about/faculty.htm'
     context ={}
 
     def get_faculty(self):
