@@ -90,6 +90,11 @@ class Faculty(models.Model):
     # grants_fetched = models.TextField(null=True)
     # interaction_prof_institution = models.TextField(null=True)
 
+    class Meta:
+        verbose_name = "Faculty"
+        verbose_name_plural = "Faculties"
+
+
 
 class OrganizationChart(models.Model):
     image = models.ImageField(upload_to='images/organization_chart')

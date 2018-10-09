@@ -40,12 +40,12 @@
                     <th scope="col-4">CONTACT NO.</th>
                   </tr>
                 </thead>
-                < tbody>
+                <tbody>
                   {% for imp_functionary in imp_functionaries %}
 
                   <tr>
-                    <td>imp_functionary.designation</td>
-                    <td>imp_functionary.name</td>
+                    <td>{{imp_functionary.designation}}</td>
+                    <td>{{imp_functionary.name}}</td>
                     <td>
                         {%if imp_functionary.telephone %}
                             {{ imp_functionary.telephone }}

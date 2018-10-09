@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty, Testimonial,LabSection
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, Principal, OrganizationChart, Gallery, Event, ImportantFunctionary
+
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -19,9 +20,9 @@ class FooterContactAdmin(admin.ModelAdmin):
 
 
 class FooterLinkAdmin(admin.ModelAdmin):
-    search_fields = ['priority', 'link_name', 'link']
-    list_display = ('priority','link_name', 'link')
-    list_display_links = None
+    search_fields = ['link_name', 'link', 'priority']
+    list_display = ('link_name', 'link', 'priority')
+    list_display_links = ('link_name', 'link')
     list_editable = ('priority',)
     ordering = ('priority',)
     class Meta:
@@ -67,6 +68,24 @@ class LabSectionAdmin(admin.ModelAdmin):
     class Meta:
         model = LabSection
 
+class LAdmin(admin.ModelAdmin):
+    search_fields = ['lab_name']
+    list_display = ('lab_name',)
+
+    class Meta:
+        model = LabSection
+
+
+class ImpFunctionaryAdmin(admin.ModelAdmin):
+    search_fields = ['designation', 'name', 'priority']
+    list_display = ('designation', 'name', 'priority')
+    list_display_links = ('name', 'designation')
+    list_editable = ('priority',)
+    ordering = ('priority',)
+
+    class Meta:
+        model = ImportantFunctionary
+
 
 
 admin.site.register(RecentEvent, RecentEventAdmin)
@@ -78,6 +97,10 @@ admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Testimonial, TestimonialAdmin)
 admin.site.register(LabSection, LabSectionAdmin)
 
+admin.site.register(Principal)
+admin.site.register(Gallery)
+admin.site.register(OrganizationChart)
+admin.site.register(ImportantFunctionary, ImpFunctionaryAdmin)
 
 # admin.site.register()
 
