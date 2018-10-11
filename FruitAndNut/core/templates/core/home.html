@@ -4,18 +4,12 @@
         {% include 'core/header.html' %}
     {% endblock header %}
     {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/landing_page.css' %}">
+    {{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/recent_events.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/notifications.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/reach_us.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/footer.css' %}">
     {% endblock stylesheets %}
     {% block content %}
-        {% include 'core/navbar.html' %}
         {% include 'core/landing_page.html' %}
         {% include 'core/recent_events.html' %}
         {% include 'core/notifications.html' %}
-        {% include 'core/reach_us.html' %}
-        {% include 'core/footer.html' %}
     {% endblock content %}

@@ -1,8 +1,5 @@
 {% extends 'core/base.html' %}
 {% load static %}
-    {% block header %}
-        {% include 'core/header.html' %}
-    {% endblock header %}
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/lab_style.css' %}">
@@ -17,8 +14,6 @@
 
     {% endblock stylesheets %}
     {% block content %}
-        {% include 'core/navbar.html' %}
-
      <div class="container z-depth-1 mt-5 light-grey-bg">
       <!--lab-section-->
       <div class="row grey text-center">
@@ -49,7 +44,5 @@
     <script>
 
     </script>
-{% include 'core/reach_us.html' %}
-        {% include 'core/footer.html' %}
 {% endblock content %}
 

@@ -1,22 +1,14 @@
 {% extends 'core/base.html' %}
 {% load static %}
-    {% block header %}
-        {% include 'core/header.html' %}
-    {% endblock header %}
     {% block stylesheets %}
-         <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
+        {{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/faculty_style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'core/css/reach_us.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/footer.css' %}">
     {% endblock stylesheets %}
     {% block content %}
-        {% include 'core/navbar.html' %}
 
 
 <div class="container z-depth-1 mt-5 SmallScreenResponsive">
        <!-- Large modal -->
-
-
       <!--Faculty-section-->
       <div class="row ">
           <div class="col-lg-3 grey hideOnSmall text-center"><div class="sticky-top McaFculty">MCA Faculty</div></div>
@@ -337,10 +329,7 @@
                         <!--</div>-->
 
                     </div>
-
           </div>
       </div>
  </div>
- {% include 'core/reach_us.html' %}
-{% include 'core/footer.html' %}
  {% endblock content %}

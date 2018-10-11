@@ -4,19 +4,36 @@ from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks,
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal
 
 
+def get_footer_about():
+    context = {}
+    context["footer_about"] = FooterAbout.objects.all().first()
+    return context
+
+
+def get_footer_contact():
+    context = {}
+    contact_list = [contact.text_data for contact in FooterContact.objects.all()]
+    context["footer_contact"] = contact_list
+    return context
+
+
+def get_footer_related_links():
+    context = {}
+    context["footer_related_links"] = FooterRelatedLinks.objects.order_by('priority')
+    return context
+
+
+def get_footer():
+    context={}
+    context.update(get_footer_about())
+    context.update(get_footer_related_links())
+    context.update(get_footer_contact())
+    return context
+
 class Home(generic.DetailView):
     template_name = 'core/home.html'
     context = {}
-
-    def get_footer_about(self):
-        self.context["footer_about"] = FooterAbout.objects.all().first()
-
-    def get_footer_contact(self):
-        contact_list = [contact.text_data for contact in FooterContact.objects.all()]
-        self.context["footer_contact"] = contact_list
-
-    def get_footer_related_links(self):
-        self.context["footer_related_links"] = FooterRelatedLinks.objects.order_by('priority')
+    context.update(get_footer())
 
     def get_recent_event(self):
         self.context["event_info"] = RecentEvent.objects.filter(active=True)
@@ -36,6 +53,7 @@ class Home(generic.DetailView):
 class FacultyView(generic.ListView):
     template_name = 'core/about/faculty.htm'
     context ={}
+    context.update(get_footer())
 
     def get_faculty(self):
         faculty_info = Faculty.objects.all()
@@ -49,6 +67,7 @@ class FacultyView(generic.ListView):
 class LabView(generic.ListView):
     template_name = 'core/about/Labs.htm'
     context ={}
+    context.update(get_footer())
 
     def get_lab(self):
         lab_info = LabSection.objects.all()
@@ -61,6 +80,8 @@ class LabView(generic.ListView):
 
 class GalleryView(generic.ListView):
     template_name = 'core/about/gallery.html'
+    context = {}
+    context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         return render(self.request,self.template_name)
@@ -69,6 +90,7 @@ class GalleryView(generic.ListView):
 class AlumniView(generic.ListView):
     template_name = 'core/testimonial.html'
     context = {}
+    context.update(get_footer())
 
     def get_testimonial(self):
         testimonial_info = Testimonial.objects.all()
@@ -94,6 +116,7 @@ class AlumniView(generic.ListView):
 class ImportantFunctionaryView(generic.ListView):
     template_name = 'core/about/important_functionary.html'
     context = {}
+    context.update(get_footer())
 
     def get_imp_functionary(self):
         imp_functionary = ImportantFunctionary.objects.order_by('priority')
@@ -107,6 +130,7 @@ class ImportantFunctionaryView(generic.ListView):
 class OrganizationChartView(generic.ListView):
     template_name = 'core/about/organization_chart.html'
     context = {}
+    context.update(get_footer())
 
     def get_organization_chart(self):
         try:
@@ -122,7 +146,8 @@ class OrganizationChartView(generic.ListView):
 
 class PrincipalView(generic.ListView):
     template_name = 'core/about/principal.html'
-    context = {}
+    context={}
+    context.update(get_footer())
 
     def get_principal(self):
         try:
@@ -139,7 +164,7 @@ class PrincipalView(generic.ListView):
 class VisionMissionView(generic.ListView):
     template_name = 'core/about/vision_and_mission.html'
     context = {}
+    context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
-

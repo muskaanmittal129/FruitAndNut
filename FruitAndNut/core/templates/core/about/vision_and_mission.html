@@ -1,8 +1,5 @@
 {% extends 'core/base.html' %}
 {% load static %}
-    {% block header %}
-        {% include 'core/header.html' %}
-    {% endblock header %}
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/vision_and_mission.css' %}">
@@ -18,7 +15,6 @@
         crossorigin="anonymous">
     {% endblock stylesheets %}
     {% block content %}
-        {% include 'core/navbar.html' %}
 
      <div class="container z-depth-1 mt-5 light-grey-bg">
       <!--lab-section-->
@@ -52,8 +48,7 @@
      </div>
 
 
- {% include 'core/reach_us.html' %}
-        {% include 'core/footer.html' %}
+
     {% endblock content %}
 
 

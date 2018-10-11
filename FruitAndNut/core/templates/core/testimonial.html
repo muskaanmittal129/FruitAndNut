@@ -1,13 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
-    {% block header %}
-        {% include 'core/header.html' %}
-    {% endblock header %}
     {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/navbar.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/testimonial.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/reach_us.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/footer.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="icon" href="./img/Akgec_Logo.png" sizes="16x16" type="image/png">
     <!--bootstrapcdn-->
@@ -18,10 +12,6 @@
         crossorigin="anonymous">
     {% endblock stylesheets %}
     {% block content %}
-        {% include 'core/navbar.html' %}
-
-
-
     <div class="container z-depth-1 mt-5">
 
         <div class="row">
@@ -85,6 +75,4 @@
             }
         }
     </script>
- {% include 'core/reach_us.html' %}
-        {% include 'core/footer.html' %}
     {% endblock content %}
