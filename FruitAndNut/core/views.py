@@ -165,3 +165,48 @@ class VisionMissionView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
+
+class FacultyIncentiveView(generic.ListView):
+    template_name = 'core/about/faculty_incentives.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class InfrastructureView(generic.ListView):
+    template_name = 'core/about/infrastructure.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class TimeTableView(generic.ListView):
+    template_name = 'core/academic/time_table.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class AcademicCalenderView(generic.ListView):
+    template_name = 'core/academic/calender.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class SyllabusView(generic.ListView):
+    template_name = 'core/academic/syllabus.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)

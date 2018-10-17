@@ -38,7 +38,7 @@
         <div class="dropdown-menu" aria-labelledby="about">
           <a class="dropdown-item" href="{% url 'vision_and_mission' %}">Vision and Mission</a>
           <a class="dropdown-item" href="{% url 'principal' %}">Principal</a>
-          <a class="dropdown-item" href="#">Infrastructure</a>
+          <a class="dropdown-item" href="{% url 'infrastructure' %}">Infrastructure</a>
           <a class="dropdown-item" href="{% url 'faculty' %}">Faculty</a>
           <a class="dropdown-item" href="{% url 'lab' %}">Labs</a>
           <a class="dropdown-item" href="{% url 'gallery' %}">Gallery</a>
@@ -52,12 +52,12 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="academics">
           <a class="dropdown-item" href="#">Affilation to AKTU</a>
-          <a class="dropdown-item" href="#">Academic Awards</a>
+          <a class="dropdown-item" href="">Academic Awards</a>
           <a class="dropdown-item submenu" href="#">>College awards</a>
           <a class="dropdown-item submenu" href="#">>University awards</a>
-          <a class="dropdown-item" href="#">Time Table</a>
-          <a class="dropdown-item" href="#">Academic Calaender</a>
-          <a class="dropdown-item" href="#">Syllabus</a>
+          <a class="dropdown-item" href="{% url 'time_table' %}">Time Table</a>
+          <a class="dropdown-item" href="{% url 'calender' %}">Academic Calaender</a>
+          <a class="dropdown-item" href="{% url 'syllabus' %}">Syllabus</a>
           <a class="dropdown-item" href="#">Old Question Paper/Solution</a>
           <a class="dropdown-item submenu" href="#">>Internal Exams</a>
           <a class="dropdown-item submenu" href="#">>sUniversity Exams</a>

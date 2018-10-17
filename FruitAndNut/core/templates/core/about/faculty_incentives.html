@@ -1,5 +1,12 @@
-
-     <div class="container z-depth-1 mt-5 light-grey-bg">
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+{% load static %}
+    {% block stylesheets %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/faculty_incentives.css' %}">
+    {% endblock stylesheets %}
+    {% block content %}
+         <div class="container z-depth-1 mt-5 light-grey-bg">
       <!--lab-section-->
       <div class="row grey text-center">
         <div class="col-12 pd-1">
@@ -26,3 +33,21 @@
 
         </div>
      </div>
+
+    {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
