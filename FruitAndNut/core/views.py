@@ -134,7 +134,7 @@ class OrganizationChartView(generic.ListView):
             organization_chart = OrganizationChart.objects.all()[0]
         except:
             organization_chart = None
-        self.context[' organization_chart'] =  organization_chart
+        self.context['organization_chart'] =  organization_chart
 
     def get(self, request, *args, **kwargs):
         self.get_organization_chart()

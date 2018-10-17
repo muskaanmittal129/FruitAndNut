@@ -11,5 +11,4 @@ urlpatterns = [
     path('',include('core.urls.admission')),
     path('',include('core.urls.placement')),
     path('',include('core.urls.alumni')),
-
 ]
