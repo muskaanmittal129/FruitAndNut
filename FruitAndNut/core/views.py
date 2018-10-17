@@ -42,9 +42,6 @@ class Home(generic.DetailView):
         self.context["landing_portion"] = LandingPortion.objects.filter(active=True)
 
     def get(self, *args, **kwargs):
-        self.get_footer_about()
-        self.get_footer_contact()
-        self.get_footer_related_links()
         self.get_recent_event()
         self.get_landing_porting()
         return render(self.request, self.template_name, self.context)
