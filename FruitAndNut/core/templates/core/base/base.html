@@ -2,7 +2,7 @@
 <html>
 <head>
     {% block header %}
-        {% include 'core/header.html' %}
+        {% include 'core/base/header.html' %}
     {% endblock header %}
 
 {% block stylesheets %}
@@ -25,15 +25,18 @@
     <div class="content">
       <div class="fluid-container">
           {% block navbar %}
-          {% include 'core/navbar.html' %}
+          {% include 'core/base/navbar.html' %}
           {% endblock %}
+
           {% block content %}
           {% endblock content %}
+
           {% block reach_us %}
-          {% include 'core/reach_us.html' %}
+          {% include 'core/base/reach_us.html' %}
           {% endblock reach_us %}
+
           {% block footer %}
-           {% include 'core/footer.html' %}
+           {% include 'core/base/footer.html' %}
           {% endblock footer %}
       </div>
     </div>

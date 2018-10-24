@@ -31,7 +31,7 @@ def get_footer():
     return context
 
 class Home(generic.DetailView):
-    template_name = 'core/home.html'
+    template_name = 'core/home/home.html'
     context = {}
     context.update(get_footer())
 
@@ -85,7 +85,7 @@ class GalleryView(generic.ListView):
 
 
 class AlumniView(generic.ListView):
-    template_name = 'core/testimonial.html'
+    template_name = 'core/alumni/testimonial.html'
     context = {}
     context.update(get_footer())
 
@@ -210,3 +210,37 @@ class SyllabusView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
+
+class CenterOfExcView(generic.ListView):
+    template_name = 'core/r_and_d/center_of_exc.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+class ConferencesView(generic.ListView):
+    template_name = 'core/r_and_d/conferences.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+class InternationalJournalView(generic.ListView):
+    template_name = 'core/r_and_d/international_journal.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+class ResearchAndIndustrialView(generic.ListView):
+    template_name = 'core/r_and_d/research_and_industrial.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+

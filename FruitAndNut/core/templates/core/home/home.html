@@ -1,15 +1,12 @@
-{% extends 'core/base.html' %}
+{% extends 'core/base/base.html' %}
 {% load static %}
-    {% block header %}
-        {% include 'core/header.html' %}
-    {% endblock header %}
     {% block stylesheets %}
     {{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/recent_events.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/notifications.css' %}">
     {% endblock stylesheets %}
     {% block content %}
-        {% include 'core/landing_page.html' %}
-        {% include 'core/recent_events.html' %}
-        {% include 'core/notifications.html' %}
+        {% include 'core/home/landing_page.html' %}
+        {% include 'core/home/recent_events.html' %}
+        {% include 'core/home/notifications.html' %}
     {% endblock content %}
