@@ -244,3 +244,30 @@ class ResearchAndIndustrialView(generic.ListView):
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
 
+
+class PlacementRecordView(generic.ListView):
+    template_name = 'core/placement/placement_record.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class RecruitorView(generic.ListView):
+    template_name = 'core/placement/recruitors.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class TNPCellView(generic.ListView):
+    template_name = 'core/placement/tnp_cell.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
