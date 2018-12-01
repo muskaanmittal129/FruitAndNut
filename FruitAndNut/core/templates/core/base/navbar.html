@@ -51,7 +51,7 @@
           Academics
         </a>
         <div class="dropdown-menu" aria-labelledby="academics">
-          <a class="dropdown-item" href="#">Affilation to AKTU</a>
+          <a class="dropdown-item" href="https://aktu.ac.in/">Affilation to AKTU</a>
           <a class="dropdown-item" href="">Academic Awards</a>
           <a class="dropdown-item submenu" href="#">>College awards</a>
           <a class="dropdown-item submenu" href="#">>University awards</a>
@@ -79,11 +79,11 @@
               Life@
             </a>
             <div class="dropdown-menu" aria-labelledby="LiFE@">
-              <a class="dropdown-item" href="#">Societies</a>
-              <a class="dropdown-item" href="#">Events</a>
-              <a class="dropdown-item" href="#">Social Responsibities</a>
-              <a class="dropdown-item" href="#">Hostels</a>
-              <a class="dropdown-item" href="#">Mediclaim</a>
+              <a class="dropdown-item" href="{% url 'society' %}">Societies</a>
+              <a class="dropdown-item" href="{% url 'event' %}">Events</a>
+              <a class="dropdown-item" href="{% url 'social_responsibility' %}">Social Responsibities</a>
+              <a class="dropdown-item" href="{% url 'hostel' %}">Hostels</a>
+              <a class="dropdown-item" href="{% url 'mediclaim' %}">Mediclaim</a>
             </div>
           </li>
       <li class="nav-item dropdown">

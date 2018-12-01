@@ -271,3 +271,48 @@ class TNPCellView(generic.ListView):
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
 
+
+class EventView(generic.ListView):
+    template_name = 'core/life_akgec/event.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class HostelView(generic.ListView):
+    template_name = 'core/life_akgec/hostel.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class MediclaimView(generic.ListView):
+    template_name = 'core/life_akgec/mediclaim.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class SocialResponsibilityView(generic.ListView):
+    template_name = 'core/life_akgec/social_responsibility.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class SocietyView(generic.ListView):
+    template_name = 'core/life_akgec/society.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
