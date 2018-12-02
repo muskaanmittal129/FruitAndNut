@@ -25,96 +25,86 @@
     </span>
   </button>
   <div class="collapse navbar-collapse" id="navbarContent">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Home
-          <span class="sr-only">(current)</span>
-        </a>
+    <ul class="main-navigation nav-menu">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="#">About</a>
+        <ul class="nav-menu">
+            <li><a href="{% url 'vision_and_mission' %}">Vision and Mission</a></li>
+            <li><a  href="{% url 'principal' %}">Principal</a></li>
+            <li><a  href="{% url 'infrastructure' %}">Infrastructure</a></li>
+            <li><a  href="{% url 'faculty' %}">Faculty</a></li>
+            <li><a  href="{% url 'lab' %}">Labs</a></li>
+            <li><a  href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a  href="{% url 'organization_chart' %}">Organisation Chart</a></li>
+            <li><a  href="{% url 'imp_functionary' %}">Important Functionaries</a></li>
+        </ul>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="about" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          About
-        </a>
-        <div class="dropdown-menu" aria-labelledby="about">
-          <a class="dropdown-item" href="{% url 'vision_and_mission' %}">Vision and Mission</a>
-          <a class="dropdown-item" href="{% url 'principal' %}">Principal</a>
-          <a class="dropdown-item" href="{% url 'infrastructure' %}">Infrastructure</a>
-          <a class="dropdown-item" href="{% url 'faculty' %}">Faculty</a>
-          <a class="dropdown-item" href="{% url 'lab' %}">Labs</a>
-          <a class="dropdown-item" href="{% url 'gallery' %}">Gallery</a>
-          <a class="dropdown-item" href="{% url 'organization_chart' %}">Organisation Chart</a>
-          <a class="dropdown-item" href="{% url 'imp_functionary' %}">Important Functionaries</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="academics" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Academics
-        </a>
-        <div class="dropdown-menu" aria-labelledby="academics">
-          <a class="dropdown-item" href="https://aktu.ac.in/">Affilation to AKTU</a>
-          <a class="dropdown-item" href="">Academic Awards</a>
-          <a class="dropdown-item submenu" href="#">>College awards</a>
-          <a class="dropdown-item submenu" href="#">>University awards</a>
-          <a class="dropdown-item" href="{% url 'time_table' %}">Time Table</a>
-          <a class="dropdown-item" href="{% url 'calender' %}">Academic Calaender</a>
-          <a class="dropdown-item" href="{% url 'syllabus' %}">Syllabus</a>
-          <a class="dropdown-item" href="#">Old Question Paper/Solution</a>
-          <a class="dropdown-item submenu" href="#">>Internal Exams</a>
-          <a class="dropdown-item submenu" href="#">>sUniversity Exams</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="R&D" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            R&D
-          </a>
-          <div class="dropdown-menu" aria-labelledby="R&D">
-            <a class="dropdown-item" href="{% url 'center_of_exc' %}">Centers Of Excellence</a>
-            <a class="dropdown-item" href="{% url 'research_and_industrial' %}">Research and Industrial Consaltancy Centre</a>
-            <a class="dropdown-item" href="{% url 'international_journal' %}">International Journal</a>
-            <a class="dropdown-item" href="{% url 'conferences' %}">Conferences</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="Life@" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Life@
-            </a>
-            <div class="dropdown-menu" aria-labelledby="LiFE@">
-              <a class="dropdown-item" href="{% url 'society' %}">Societies</a>
-              <a class="dropdown-item" href="{% url 'event' %}">Events</a>
-              <a class="dropdown-item" href="{% url 'social_responsibility' %}">Social Responsibities</a>
-              <a class="dropdown-item" href="{% url 'hostel' %}">Hostels</a>
-              <a class="dropdown-item" href="{% url 'mediclaim' %}">Mediclaim</a>
-            </div>
+      <li><a href="#">Academics</a>
+        <ul class="nav-menu">
+          <li><a href="https://aktu.ac.in/">Affilation to AKTU</a></li>
+          <li>
+            <a href="">Academic Awards &#x25B8</a>
+            <ul class="nav-menu">
+              <li>
+                <a href="#">College Awards &#x25B8</a>
+                <ul class="nav-menu">
+                  <li><a href="#">STs and PUTs</a></li>
+                  <li><a href="#">Attandence</a></li>
+                </ul>
+              </li>
+              <li><a href="#">University Awards</a></li>
+            </ul>
           </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="admission" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Admission
-        </a>
-        <div class="dropdown-menu" aria-labelledby="addmission">
-          <a class="dropdown-item" href="#">Admission Process</a>
-          <a class="dropdown-item" href="#">Fee Structure</a>
-          <a class="dropdown-item" href="#">Refund Norms</a>
-          <a class="dropdown-item" href="#">Information Booklet</a>
-        </div>
+          <li><a href="{% url 'time_table' %}">Time Table</a></li>
+          <li><a href="{% url 'calender' %}">Academic Calaender</a></li>
+          <li><a href="{% url 'syllabus' %}">Syllabus</a></li>
+          <li>
+              <a href="#">Old Question Papers &#x25B8</a>
+              <ul class="nav-menu">
+                <li><a href="#">ST</a></li>
+                <li><a href="#">PUT</a></li>
+                <li><a href="#">UT</a></li>
+              </ul>
+            </li>
+        </ul>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="placement" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Placement
-        </a>
-        <div class="dropdown-menu" aria-labelledby="placement">
-          <a class="dropdown-item" href="{% url 'tnp_cell' %}">T&P Cell</a>
-          <a class="dropdown-item" href="{% url 'recruitors' %}">Recruitors</a>
-          <a class="dropdown-item" href="{% url 'placement_record' %}">Placement Records</a>
-        </div>
+      <li><a href="#">R&D</a>
+        <ul class="nav-menu">
+            <li><a  href="{% url 'center_of_exc' %}">Centers Of Excellence</a></li>
+            <li><a  href="{% url 'research_and_industrial' %}">Research and Industrial Consaltancy Centre</a></li>
+            <li><a  href="{% url 'international_journal' %}">International Journal</a></li>
+            <li><a  href="{% url 'conferences' %}">Conferences</a></li>
+        </ul>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="alumni" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Alumni
-        </a>
-        <div class="dropdown-menu" aria-labelledby="Alumni">
-          <a class="dropdown-item" href="{% url 'alumni' %}">Testimonial</a>
-          <a class="dropdown-item" href="#">Images</a>
-        </div>
+      <li><a href="#">Life @AKGEC-MCA</a>
+        <ul class="nav-menu">
+            <li><a  href="{% url 'society' %}">Societies</a></li>
+            <li><a  href="{% url 'event' %}">Events</a></li>
+            <li><a  href="{% url 'social_responsibility' %}">Social Responsibities</a></li>
+            <li><a  href="{% url 'hostel' %}">Hostels</a></li>
+            <li><a  href="{% url 'mediclaim' %}">Mediclaim</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Admission</a>
+        <ul class="nav-menu">
+            <li><a  href="#">Admission Process</a></li>
+            <li><a  href="#">Fee Structure</a></li>
+            <li><a  href="#">Refund Norms</a></li>
+            <li><a  href="#">Information Booklet</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Placement</a>
+        <ul class="nav-menu">
+            <li><a  href="{% url 'tnp_cell' %}">T&P Cell</a></li>
+            <li><a  href="{% url 'recruitors' %}">Recruitors</a></li>
+            <li><a  href="{% url 'placement_record' %}">Placement Records</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Alumni</a>
+        <ul class="nav-menu">
+            <li><a  href="{% url 'alumni' %}">Testimonial</a></li>
+            <li><a  href="#">Images</a></li>
+        </ul>
       </li>
     </ul>
   </div>
