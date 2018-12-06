@@ -8,7 +8,7 @@ from django.core.validators import RegexValidator
 class RecentEvent(models.Model):
     description = models.TextField(blank=False)
     date_of_event = models.DateField(default=dt.date.today)
-    recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/', unique=True)
+    recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/%Y-%m-%d--%H:%M:%S', unique=True)
     active = models.BooleanField(default=True)
     caption = models.CharField(max_length=200, blank=True)
 
@@ -54,7 +54,7 @@ class FooterContact(models.Model):
 
 
 class LandingPortion(models.Model):
-    slider = models.ImageField(upload_to='images/landing_slider/', unique=True)
+    slider = models.ImageField(upload_to='images/landing_slider/%Y-%m-%d--%H:%M:%S ', unique=True)
     active = models.BooleanField(default=True)
 
     class Meta:
@@ -65,13 +65,13 @@ class LandingPortion(models.Model):
 class Faculty(models.Model):
     name = models.CharField(max_length=250, blank=False)
     designation = models.CharField(max_length=250, blank=False)
-    profile_pic = models.ImageField(upload_to='images/faculty/', unique=True)
+    profile_pic = models.ImageField(upload_to='images/faculty/%Y-%m-%d--%H:%M:%S', unique=True)
     department = models.CharField(max_length=250, blank=True)
     # date_of_join = models.DateField(blank=False)
     qualification_ug = models.CharField(max_length=250, blank=True )
     qualification_pg = models.CharField(max_length=250, blank= True)
     qualification_phd = models.CharField(max_length=250, blank= True)
-    faculty_pdf = models.FileField(upload_to='files/faculty_pdf/', unique= True)
+    faculty_pdf = models.FileField(upload_to='files/faculty_pdf/%Y-%m-%d--%H:%M:%S', unique= True)
     # experience_teaching = models.IntegerField(default=0)
     # experience_industry = models.IntegerField(default=0)
     # experience_research = models.IntegerField(default=0)
@@ -95,9 +95,8 @@ class Faculty(models.Model):
         verbose_name_plural = "Faculties"
 
 
-
 class OrganizationChart(models.Model):
-    image = models.ImageField(upload_to='images/organization_chart')
+    image = models.ImageField(upload_to='images/organization_chart/%Y-%m-%d--%H:%M:%S')
 
     class Meta:
         verbose_name = "Organization Chart"
@@ -105,7 +104,7 @@ class OrganizationChart(models.Model):
 
 
 class Gallery(models.Model):
-    images = models.ImageField(upload_to='images/gallery')
+    images = models.ImageField(upload_to='images/gallery/%Y-%m-%d--%H:%M:%S')
 
     class Meta:
         verbose_name = "Gallery"
@@ -122,7 +121,7 @@ class Event(models.Model):
 
 class EventImages(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    images = models.ImageField(upload_to='images/event')
+    images = models.ImageField(upload_to='images/event/%Y-%m-%d--%H:%M:%S')
 
     class Meta:
         verbose_name = "Event Image"
@@ -145,27 +144,30 @@ class ImportantFunctionary(models.Model):
 
 class Principal(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images/principal')
+    image = models.ImageField(upload_to='images/principal/%Y-%m-%d--%H:%M:%S')
     messege = models.TextField()
 
 
 # class Infrastructure(models.Model):
-#     image = models.ImageField(upload_to='images/infrastructure')
+#     image = models.ImageField(upload_to='images/infrastructure%Y-%m-%d--%H:%M:%S')
 #     caption = models.CharField(max_length=250)
 
 class Testimonial(models.Model):
-    name = models.CharField(max_length=250, blank= False)
-    designation = models.CharField(max_length=250,blank=False)
-    profile_pic =models.ImageField(upload_to='images/alumni/',unique=True)
+    name = models.CharField(max_length=250, blank=False)
+    designation = models.CharField(max_length=250, blank=False)
+    profile_pic =models.ImageField(upload_to='images/alumni/%Y-%m-%d--%H:%M:%S', unique=True)
     testimonial_message = models.TextField(blank=False)
 
 
 class LabSection(models.Model):
     lab_name = models.CharField(max_length=250,blank=False)
-    image1 = models.ImageField(upload_to='images/labs/',unique=True)
-    image2 = models.ImageField(upload_to='images/labs/',unique=True)
-    image3 = models.ImageField(upload_to='images/labs/',unique=True)
+    image1 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
+    image2 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
+    image3 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
     lab_description = models.TextField(blank=False)
 
 
+class Notification(models.Model):
+    message = models.TextField()
+    active = models.BooleanField(default=False)
 
