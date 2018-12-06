@@ -30,6 +30,9 @@ def get_footer():
     context.update(get_footer_contact())
     return context
 
+# home page views
+
+
 class Home(generic.DetailView):
     template_name = 'core/home/home.html'
     context = {}
@@ -46,6 +49,8 @@ class Home(generic.DetailView):
         self.get_landing_porting()
         return render(self.request, self.template_name, self.context)
 
+
+# ----------------    start about page urls  ----------------------
 
 class FacultyView(generic.ListView):
     template_name = 'core/about/faculty.htm'
@@ -82,20 +87,6 @@ class GalleryView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request,self.template_name)
-
-
-class AlumniView(generic.ListView):
-    template_name = 'core/alumni/testimonial.html'
-    context = {}
-    context.update(get_footer())
-
-    def get_testimonial(self):
-        testimonial_info = Testimonial.objects.all()
-        self.context['testimonial_info'] = testimonial_info
-
-    def get(self, request, *args, **kwargs):
-        self.get_testimonial()
-        return render(self.request,self.template_name,self.context)
 
 
 # class RecentEventView(generic.ListView):
@@ -185,6 +176,10 @@ class InfrastructureView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
+# --------------------end of about page views -------------------------
+
+# ---------------------- academics views start ----------------------
+
 class TimeTableView(generic.ListView):
     template_name = 'core/academic/time_table.html'
     context = {}
@@ -211,6 +206,9 @@ class SyllabusView(generic.ListView):
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
 
+# ----------------------end of academic view --------------------
+
+# ---------------------start of end of r_and_d -----------------
 
 class CenterOfExcView(generic.ListView):
     template_name = 'core/r_and_d/center_of_exc.html'
@@ -245,6 +243,10 @@ class ResearchAndIndustrialView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
+# ---------------------- end of r_and_d ---------------------------
+
+# ---------------------- start of placement views ---------------------------
+
 class PlacementRecordView(generic.ListView):
     template_name = 'core/placement/placement_record.html'
     context = {}
@@ -270,6 +272,11 @@ class TNPCellView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
+
+# ---------------------- end of placement views ---------------------------
+
+# ---------------------- start of life akgec-mca views ---------------------------
 
 
 class EventView(generic.ListView):
@@ -315,4 +322,29 @@ class SocietyView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
+# ---------------------- end of life akgec-mca views ---------------------------
+
+# ---------------------- start of alumni views ---------------------------
+
+
+class AlumniView(generic.ListView):
+    template_name = 'core/alumni/testimonial.html'
+    context = {}
+    context.update(get_footer())
+
+    def get_testimonial(self):
+        testimonial_info = Testimonial.objects.all()
+        self.context['testimonial_info'] = testimonial_info
+
+    def get(self, request, *args, **kwargs):
+        self.get_testimonial()
+        return render(self.request,self.template_name,self.context)
+
+# ---------------------- end of alumni views ---------------------------
+
+
+# ---------------------- start of admission views ---------------------------
+# ---------------------- end of admission views ---------------------------
+
 
