@@ -353,3 +353,52 @@ class AlumniView(generic.ListView):
 # ---------------------- end of admission views ---------------------------
 
 
+# ---------------------- start of admission views ---------------------------
+
+
+class DownloadView(generic.ListView):
+    template_name = 'core/quick_link/download.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class AicteApprovalLetterView(generic.ListView):
+    template_name = 'core/quick_link/aicte_approval_letter.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class ListOfHolidayView(generic.ListView):
+    template_name = 'core/quick_link/list_of_holiday.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class NaacView(generic.ListView):
+    template_name = 'core/quick_link/naac.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class MandatoryDisclosureView(generic.ListView):
+    template_name = 'core/quick_link/mandatory_disclosure.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+# ---------------------- end of admission views ---------------------------
+

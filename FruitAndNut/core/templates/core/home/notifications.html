@@ -26,22 +26,22 @@
             <div class="divider"></div>
             <ul>
               <li>
-                <a href="#"><i class="fas fa-arrow-alt-circle-right align-middle "></i>Email</a>
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank"><i class="fas fa-arrow-alt-circle-right align-middle "></i>Email</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-arrow-alt-circle-right align-middle"></i>Downloads</a>
+                <a href="{% url 'download' %}"><i class="fas fa-arrow-alt-circle-right align-middle"></i>Downloads</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-arrow-alt-circle-right align-middle"></i>NAAC</a>
+                <a href="{% url 'naac' %}"><i class="fas fa-arrow-alt-circle-right align-middle"></i>NAAC</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-arrow-alt-circle-right align-middle"></i>AICTE Approval</a>
+                <a href="{% url 'aicte_approval_letter' %}"><i class="fas fa-arrow-alt-circle-right align-middle"></i>AICTE Approval</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-arrow-alt-circle-right align-middle"></i>Mandatory Disclosure</a>
+                <a href="{% url 'mandatory_disclosure' %}"><i class="fas fa-arrow-alt-circle-right align-middle"></i>Mandatory Disclosure</a>
              </li>
              <li>
-                <a href="#"><i class="fas fa-arrow-alt-circle-right align-middle"></i>List of Holidays</a>
+                <a href="{% url 'list_of_holiday' %}"><i class="fas fa-arrow-alt-circle-right align-middle"></i>List of Holidays</a>
             </li>
             </ul/>
           </div>

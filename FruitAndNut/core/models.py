@@ -171,3 +171,4 @@ class Notification(models.Model):
     message = models.TextField()
     active = models.BooleanField(default=False)
 
+
