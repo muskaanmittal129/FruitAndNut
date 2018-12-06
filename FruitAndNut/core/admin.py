@@ -88,8 +88,9 @@ class ImpFunctionaryAdmin(admin.ModelAdmin):
 
 
 class VisionMissionAdmin(admin.ModelAdmin):
-    search_fields = ['content']
-    list_display = ('content',)
+
+    def has_add_permission(self, request, obj=None):
+        return False
 
     class Meta:
         model = VisionAndMission
@@ -103,7 +104,7 @@ admin.site.register(LandingPortion, LandingAdmin)
 admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Testimonial, TestimonialAdmin)
 admin.site.register(LabSection, LabSectionAdmin)
-admin.site.register(VisionAndMission)
+admin.site.register(VisionAndMission, VisionMissionAdmin)
 admin.site.register(Principal)
 admin.site.register(Gallery)
 admin.site.register(OrganizationChart)
