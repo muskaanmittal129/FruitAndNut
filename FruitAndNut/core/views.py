@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
-    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal
+    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission
 
 
 def get_footer_about():
@@ -154,7 +154,12 @@ class VisionMissionView(generic.ListView):
     context = {}
     context.update(get_footer())
 
+    def get_content(self):
+        content = VisionAndMission.objects.all()
+        self.context['content'] = content
+
     def get(self, request, *args, **kwargs):
+        self.get_content()
         return render(self.request, self.template_name, self.context)
 
 

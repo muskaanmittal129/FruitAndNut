@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt
 from django.core.validators import RegexValidator
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -95,7 +96,6 @@ class Faculty(models.Model):
         verbose_name_plural = "Faculties"
 
 
-
 class OrganizationChart(models.Model):
     image = models.ImageField(upload_to='images/organization_chart')
 
@@ -146,7 +146,7 @@ class ImportantFunctionary(models.Model):
 class Principal(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/principal')
-    messege = models.TextField()
+    message = models.TextField()
 
 
 # class Infrastructure(models.Model):
@@ -166,6 +166,18 @@ class LabSection(models.Model):
     image2 = models.ImageField(upload_to='images/labs/',unique=True)
     image3 = models.ImageField(upload_to='images/labs/',unique=True)
     lab_description = models.TextField(blank=False)
+
+
+class VisionAndMission(models.Model):
+    vision = RichTextUploadingField()
+    mission = RichTextUploadingField()
+    policy = RichTextUploadingField()
+
+    class Meta:
+        verbose_name = 'Vision And Mission'
+        verbose_name_plural = "Vision And Mission"
+
+
 
 
 

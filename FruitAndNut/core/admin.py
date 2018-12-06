@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, Principal, OrganizationChart, Gallery, Event, ImportantFunctionary
-
+from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
+    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -87,6 +87,13 @@ class ImpFunctionaryAdmin(admin.ModelAdmin):
         model = ImportantFunctionary
 
 
+class VisionMissionAdmin(admin.ModelAdmin):
+    search_fields = ['content']
+    list_display = ('content',)
+
+    class Meta:
+        model = VisionAndMission
+
 
 admin.site.register(RecentEvent, RecentEventAdmin)
 admin.site.register(FooterRelatedLinks, FooterLinkAdmin)
@@ -96,7 +103,7 @@ admin.site.register(LandingPortion, LandingAdmin)
 admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Testimonial, TestimonialAdmin)
 admin.site.register(LabSection, LabSectionAdmin)
-
+admin.site.register(VisionAndMission)
 admin.site.register(Principal)
 admin.site.register(Gallery)
 admin.site.register(OrganizationChart)
