@@ -181,6 +181,7 @@ class Notification(models.Model):
     message = models.TextField()
     active = models.BooleanField(default=False)
 
+
 class VisionAndMission(models.Model):
     vision = RichTextUploadingField()
     mission = RichTextUploadingField()
@@ -189,6 +190,27 @@ class VisionAndMission(models.Model):
     class Meta:
         verbose_name = 'Vision And Mission'
         verbose_name_plural = "Vision And Mission"
+
+
+# ------------------- R && D models -----------------
+
+class Conference(models.Model):
+    title = name = models.CharField(max_length=250, blank=False)
+    content = models.FileField(upload_to='files/conference_pdf/%Y-%m-%d--%H:%M:%S')
+
+    def __str__(self):
+        return self.title
+
+
+class CenterOfExcellence(models.Model):
+    logo = models.ImageField(upload_to='images/center_of_excellence/%Y-%m-%d--%H:%M:%S', )
+    title = name = models.CharField(max_length=250, blank=False)
+    content = models.TextField(blank=False)
+
+    def __str__(self):
+        return self.title
+
+
 
 
 

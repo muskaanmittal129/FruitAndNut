@@ -238,6 +238,7 @@ class CenterOfExcView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["center_of_exc"] = models.CenterOfExcellence.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -247,6 +248,7 @@ class ConferencesView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["conferences"] = models.Conference.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -407,12 +409,10 @@ class RefundNormsView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
-
 # ---------------------- end of admission views ---------------------------
 
 
 # ---------------------- start of Quick Links views ---------------------------
-
 
 class DownloadView(generic.ListView):
     template_name = 'core/quick_link/download.html'
