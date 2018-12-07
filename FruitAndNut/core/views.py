@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
     Infrastructure
@@ -45,9 +46,13 @@ class Home(generic.DetailView):
     def get_landing_porting(self):
         self.context["landing_portion"] = LandingPortion.objects.filter(active=True)
 
+    def get_notification(self):
+        self.context["notification"] = models.Notification.objects.all()
+
     def get(self, *args, **kwargs):
         self.get_recent_event()
         self.get_landing_porting()
+        self.get_notification()
         return render(self.request, self.template_name, self.context)
 
 
@@ -367,4 +372,53 @@ class AlumniView(generic.ListView):
 # ---------------------- start of admission views ---------------------------
 # ---------------------- end of admission views ---------------------------
 
+
+# ---------------------- start of admission views ---------------------------
+
+
+class DownloadView(generic.ListView):
+    template_name = 'core/quick_link/download.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class AicteApprovalLetterView(generic.ListView):
+    template_name = 'core/quick_link/aicte_approval_letter.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class ListOfHolidayView(generic.ListView):
+    template_name = 'core/quick_link/list_of_holiday.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class NaacView(generic.ListView):
+    template_name = 'core/quick_link/naac.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class MandatoryDisclosureView(generic.ListView):
+    template_name = 'core/quick_link/mandatory_disclosure.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+# ---------------------- end of admission views ---------------------------
 
