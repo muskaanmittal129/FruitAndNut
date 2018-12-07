@@ -2,11 +2,26 @@
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/calender.css' %}">
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px"></div>
+    <div class="container z-depth-1 mt-5 light-grey-bg">
+    
+        <div class="row grey text-center">
+            <div class="col-12 pd-1">
+                <h3 style="font-weight:lighter">
+                    CALENDER
+                </h3>
+            </div>
+        </div>
+        <div class="row pd-1">
+            <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
+                <img class="img-fluid" src="{% static 'core/images/calender.jpg' %}" alt="CALENDER" />
+            </div>
+        </div>
+    </div>
+
     {% endblock content %}
 
 
