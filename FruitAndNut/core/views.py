@@ -97,7 +97,7 @@ class GalleryView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         self.get_gallery()
-        return render(self.request,self.template_name)
+        return render(self.request,self.template_name, self.context)
 
 
 # class RecentEventView(generic.ListView):
