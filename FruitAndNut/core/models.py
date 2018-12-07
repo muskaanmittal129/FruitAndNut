@@ -317,7 +317,17 @@ class Mediclaim(models.Model):
     content = RichTextUploadingField()
 
 
-# ---------------------  end of life-akgec-mca Models --------------------
+# ---------------------  end of life-akgec-mca Models --------------------#
+
+# ----------------------academic section--------------------------------#
+
+
+class AcademicCalender(models.Model):
+    image = models.ImageField(upload_to='images/calender/%Y-%m-%d')
+
+    class Meta:
+        verbose_name = 'AcademicCalender'
+        verbose_name_plural = 'AcademicCalender'
 
 
 

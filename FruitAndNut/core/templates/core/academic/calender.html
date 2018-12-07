@@ -11,14 +11,16 @@
         <div class="row grey text-center">
             <div class="col-12 pd-1">
                 <h3 style="font-weight:lighter">
-                    CALENDER
+                    B.Tech Academic Calender Odd Semester 2018-19
                 </h3>
             </div>
         </div>
         <div class="row pd-1">
+            {% for image in calender_info %}
             <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
-                <img class="img-fluid" src="{% static 'core/images/calender.jpg' %}" alt="CALENDER" />
+                <img class="img-fluid" src="{{image.image.url}}" alt="CALENDER" />
             </div>
+            {% endfor %}
         </div>
     </div>
 

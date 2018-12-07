@@ -1,7 +1,7 @@
 from django.contrib import admin
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
-    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure
+    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure, AcademicCalender
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -130,6 +130,7 @@ admin.site.register(models.Hostel)
 admin.site.register(models.Mediclaim)
 admin.site.register(models.SocialResponsibility)
 admin.site.register(models.Society)
+admin.site.register(models.AcademicCalender)
 
 
 # admin.site.register()
