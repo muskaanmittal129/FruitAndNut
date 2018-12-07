@@ -1,0 +1,14 @@
+{% extends 'core/base/base.html' %}
+{% load staticfiles %}
+{% load static %}
+    {% block stylesheets %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/affiliation.css' %}">
+    {% endblock stylesheets %}
+    {% block content %}
+   <div class="container z-depth-1 mt-5 light-grey-bg">
+      <!--lab-section-->
+      <div class="row grey text-center">
+        content here
+     </div>
+    {% endblock content %}

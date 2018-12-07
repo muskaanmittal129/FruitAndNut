@@ -1,13 +1,41 @@
 {% extends 'core/base/base.html' %}
 {% load static %}
-    {% block stylesheets %}
-    {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/conferences.css' %}">
 
-    {% endblock stylesheets %}
-    {% block content %}
-     <div style="height:500px"></div>
-    {% endblock content %}
+{% endblock stylesheets %}
+{% block content %}
+<div class="container z-depth-1 mt-5 light-grey-bg">
+    <div class="row grey text-center">
+        <div class="col-12 pd-1">
+            <h3 style="font-weight:lighter">
+                Conferences
+            </h3>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" alt="Thumbnail">
+        <div class="card-body">
+            <a href="#" data-toggle="modal" data-target=".bd-modal-lg">Open Pdf</a>
+        </div>
+    </div>
 
+    <div class="modal fade bd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                ...
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
