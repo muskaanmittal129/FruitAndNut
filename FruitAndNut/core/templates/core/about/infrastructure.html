@@ -19,24 +19,26 @@
 
             <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
                 <div class="row">
+                    {% for infra in infra_info %}
                   <div class="col-lg-4 col-sm-12 mt-2">
-                    <img class="img-fluid" src="img/slide1.jpg" alt="Infrastructure">
+                    <img class="img-fluid" src="{{infra.image.url}}" alt="Infrastructure">
                     <header class="Aqua white-text text-center pd-1">
-                      MCA block
+                      {{infra.caption}}
                     </header>
                   </div>
-                  <div class="col-lg-4 col-sm-12 mt-2">
-                    <img class="img-fluid" src="img/slide1.jpg" alt="Infrastructure">
-                    <header class="Aqua white-text text-center pd-1">
-                      MCA block
-                    </header>
-                  </div>
-                  <div class="col-lg-4 col-sm-12 mt-2">
-                    <img class="img-fluid" src="img/slide1.jpg" alt="Infrastructure">
-                    <header class="Aqua white-text text-center pd-1">
-                      MCA block
-                    </header>
-                  </div>
+                    {% endfor %}
+                  <!--<div class="col-lg-4 col-sm-12 mt-2">-->
+                    <!--<img class="img-fluid" src="img/slide1.jpg" alt="Infrastructure">-->
+                    <!--<header class="Aqua white-text text-center pd-1">-->
+                      <!--MCA block-->
+                    <!--</header>-->
+                  <!--</div>-->
+                  <!--<div class="col-lg-4 col-sm-12 mt-2">-->
+                    <!--<img class="img-fluid" src="img/slide1.jpg" alt="Infrastructure">-->
+                    <!--<header class="Aqua white-text text-center pd-1">-->
+                      <!--MCA block-->
+                    <!--</header>-->
+                  <!--</div>-->
                 </div>
             </div>
 

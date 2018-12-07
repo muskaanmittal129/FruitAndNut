@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
-    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission
+    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -96,6 +96,15 @@ class VisionMissionAdmin(admin.ModelAdmin):
         model = VisionAndMission
 
 
+class PrincipalAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    class Meta:
+        model = Principal
+
+
 admin.site.register(RecentEvent, RecentEventAdmin)
 admin.site.register(FooterRelatedLinks, FooterLinkAdmin)
 admin.site.register(FooterContact, FooterContactAdmin)
@@ -105,9 +114,10 @@ admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Testimonial, TestimonialAdmin)
 admin.site.register(LabSection, LabSectionAdmin)
 admin.site.register(VisionAndMission, VisionMissionAdmin)
-admin.site.register(Principal)
+admin.site.register(Principal, PrincipalAdmin)
 admin.site.register(Gallery)
 admin.site.register(OrganizationChart)
+admin.site.register(Infrastructure)
 admin.site.register(ImportantFunctionary, ImpFunctionaryAdmin)
 
 # admin.site.register()

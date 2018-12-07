@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
-    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission
+    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
+    Infrastructure
 
 
 def get_footer_about():
@@ -85,7 +86,12 @@ class GalleryView(generic.ListView):
     context = {}
     context.update(get_footer())
 
+    def get_gallery(self):
+        gallery_info = Gallery.objects.all()
+        self.context['gallery_info'] = gallery_info
+
     def get(self, request, *args, **kwargs):
+        self.get_gallery()
         return render(self.request,self.template_name)
 
 
@@ -134,7 +140,7 @@ class OrganizationChartView(generic.ListView):
 
 class PrincipalView(generic.ListView):
     template_name = 'core/about/principal.html'
-    context={}
+    context = {}
     context.update(get_footer())
 
     def get_principal(self):
@@ -177,7 +183,12 @@ class InfrastructureView(generic.ListView):
     context = {}
     context.update(get_footer())
 
+    def get_infrastructure(self):
+        infra_info = Infrastructure.objects.all()
+        self.context['infra_info'] = infra_info
+
     def get(self, request, *args, **kwargs):
+        self.get_infrastructure()
         return render(self.request, self.template_name, self.context)
 
 
@@ -215,6 +226,7 @@ class SyllabusView(generic.ListView):
 
 # ---------------------start of end of r_and_d -----------------
 
+
 class CenterOfExcView(generic.ListView):
     template_name = 'core/r_and_d/center_of_exc.html'
     context = {}
@@ -222,6 +234,7 @@ class CenterOfExcView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
 
 class ConferencesView(generic.ListView):
     template_name = 'core/r_and_d/conferences.html'
@@ -231,6 +244,7 @@ class ConferencesView(generic.ListView):
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
 
+
 class InternationalJournalView(generic.ListView):
     template_name = 'core/r_and_d/international_journal.html'
     context = {}
@@ -238,6 +252,7 @@ class InternationalJournalView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
 
 class ResearchAndIndustrialView(generic.ListView):
     template_name = 'core/r_and_d/research_and_industrial.html'

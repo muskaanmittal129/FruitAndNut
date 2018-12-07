@@ -11,10 +11,13 @@
     <div class="row">
         <div class="col-lg-3 grey text-center">
             <div class="gallery">Gallery</div>
+            <!--{% for gallery in gallery_info %}-->
             <div class="img-slider">
-                <div class="img-preview">
-                    <img src="{% static 'core/images/event1.jpg' %}" onclick="openImg(this)">
-                </div>
+
+                <!--<div class="img-preview">-->
+                    <!--<img src="{{gallery.images.url}}" onclick="openImg(this)">-->
+                <!--</div>-->
+
                 <div class="img-preview">
                     <img src="{% static 'core/images/slide1.jpg' %}" onclick="openImg(this)">
                 </div>
@@ -28,6 +31,7 @@
                     <img src="{% static 'core/images/event1.jpg' %}" onclick="openImg(this)">
                 </div>
             </div>
+            <!--{% endfor %}-->
         </div>
         <div class="col-lg-9 hideOnSmall img-gallery">
             <div class="sticky-top img-view">

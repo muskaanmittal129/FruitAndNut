@@ -146,12 +146,21 @@ class ImportantFunctionary(models.Model):
 class Principal(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/principal')
-    message = models.TextField()
+    message = RichTextUploadingField()
+
+    class Meta:
+        verbose_name = 'Principal'
+        verbose_name_plural = 'Prinicipal'
 
 
-# class Infrastructure(models.Model):
-#     image = models.ImageField(upload_to='images/infrastructure')
-#     caption = models.CharField(max_length=250)
+class Infrastructure(models.Model):
+    image = models.ImageField(upload_to='images/infrastructure')
+    caption = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "Infrastructure"
+        verbose_name_plural = 'Infrastructure'
+
 
 class Testimonial(models.Model):
     name = models.CharField(max_length=250, blank= False)
@@ -176,6 +185,9 @@ class VisionAndMission(models.Model):
     class Meta:
         verbose_name = 'Vision And Mission'
         verbose_name_plural = "Vision And Mission"
+
+
+
 
 
 
