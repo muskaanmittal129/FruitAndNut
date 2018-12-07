@@ -6,7 +6,9 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px"></div>
+     {% for obj in society %}
+     <div style="height:500px">{{obj.content|safe|escape}}</div>
+    {% endfor %}
     {% endblock content %}
 
 

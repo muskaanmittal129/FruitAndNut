@@ -121,7 +121,15 @@ admin.site.register(OrganizationChart)
 admin.site.register(Infrastructure)
 admin.site.register(ImportantFunctionary, ImpFunctionaryAdmin)
 admin.site.register(models.Conference),
-admin.site.register(models.CenterOfExcellence)
+admin.site.register(models.CenterOfExcellence),
+admin.site.register(models.AicteApprovalLetter),
+admin.site.register(models.ListOfHoliday),
+admin.site.register(models.MandatoryDisclosure),
+admin.site.register(models.Events)
+admin.site.register(models.Hostel)
+admin.site.register(models.Mediclaim)
+admin.site.register(models.SocialResponsibility)
+admin.site.register(models.Society)
 
 
 # admin.site.register()

@@ -5,8 +5,11 @@
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
 
     {% endblock stylesheets %}
+
     {% block content %}
-     <div style="height:500px"></div>
+     {% for obj in medicliam %}
+     <div style="height:500px">{{obj.content|safe|escape}}</div>
+    {% endfor %}
     {% endblock content %}
 
 

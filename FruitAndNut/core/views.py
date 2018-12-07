@@ -258,6 +258,7 @@ class InternationalJournalView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["inter_journal"] = models.InternationalJournal.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -267,6 +268,7 @@ class ResearchAndIndustrialView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["ricc"] = models.ResearchAndIndustrial.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -312,6 +314,7 @@ class EventView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["events"] = models.Events.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -321,6 +324,7 @@ class HostelView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["hostel"] = models.Hostel.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -330,6 +334,7 @@ class MediclaimView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["medicliam"] = models.Mediclaim.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -339,6 +344,7 @@ class SocialResponsibilityView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["social_responsibility"] = models.SocialResponsibility.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -348,6 +354,7 @@ class SocietyView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["society"] = models.Society.objects.all()
         return render(self.request, self.template_name, self.context)
 
 # ---------------------- end of life akgec-mca views ---------------------------

@@ -9,7 +9,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class RecentEvent(models.Model):
     description = models.TextField(blank=False)
     date_of_event = models.DateField(default=dt.date.today)
-    recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/%Y-%m-%d--%H:%M:%S', unique=True)
+    recent_event_slider = models.ImageField(upload_to='images/recent_event_slider/%Y-%m-%d', unique=True)
     active = models.BooleanField(default=True)
     caption = models.CharField(max_length=200, blank=True)
 
@@ -54,7 +54,7 @@ class FooterContact(models.Model):
 
 
 class LandingPortion(models.Model):
-    slider = models.ImageField(upload_to='images/landing_slider/%Y-%m-%d--%H:%M:%S ', unique=True)
+    slider = models.ImageField(upload_to='images/landing_slider/%Y-%m-%d', unique=True)
     active = models.BooleanField(default=True)
 
     class Meta:
@@ -65,13 +65,13 @@ class LandingPortion(models.Model):
 class Faculty(models.Model):
     name = models.CharField(max_length=250, blank=False)
     designation = models.CharField(max_length=250, blank=False)
-    profile_pic = models.ImageField(upload_to='images/faculty/%Y-%m-%d--%H:%M:%S', unique=True)
+    profile_pic = models.ImageField(upload_to='images/faculty/%Y-%m-%d', unique=True)
     department = models.CharField(max_length=250, blank=True)
     # date_of_join = models.DateField(blank=False)
     qualification_ug = models.CharField(max_length=250, blank=True )
     qualification_pg = models.CharField(max_length=250, blank= True)
     qualification_phd = models.CharField(max_length=250, blank= True)
-    faculty_pdf = models.FileField(upload_to='files/faculty_pdf/%Y-%m-%d--%H:%M:%S', unique= True)
+    faculty_pdf = models.FileField(upload_to='files/faculty_pdf/%Y-%m-%d', unique= True)
     # experience_teaching = models.IntegerField(default=0)
     # experience_industry = models.IntegerField(default=0)
     # experience_research = models.IntegerField(default=0)
@@ -96,7 +96,7 @@ class Faculty(models.Model):
 
 
 class OrganizationChart(models.Model):
-    image = models.ImageField(upload_to='images/organization_chart/%Y-%m-%d--%H:%M:%S')
+    image = models.ImageField(upload_to='images/organization_chart/%Y-%m-%d')
 
     class Meta:
         verbose_name = "Organization Chart"
@@ -104,7 +104,7 @@ class OrganizationChart(models.Model):
 
 
 class Gallery(models.Model):
-    images = models.ImageField(upload_to='images/gallery/%Y-%m-%d--%H:%M:%S')
+    images = models.ImageField(upload_to='images/gallery/%Y-%m-%d')
 
     class Meta:
         verbose_name = "Gallery"
@@ -121,7 +121,7 @@ class Event(models.Model):
 
 class EventImages(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    images = models.ImageField(upload_to='images/event/%Y-%m-%d--%H:%M:%S')
+    images = models.ImageField(upload_to='images/event/%Y-%m-%d')
 
     class Meta:
         verbose_name = "Event Image"
@@ -167,7 +167,7 @@ class Infrastructure(models.Model):
 class Testimonial(models.Model):
     name = models.CharField(max_length=250, blank=False)
     designation = models.CharField(max_length=250, blank=False)
-    profile_pic =models.ImageField(upload_to='images/alumni/%Y-%m-%d--%H:%M:%S', unique=True)
+    profile_pic =models.ImageField(upload_to='images/alumni/%Y-%m-%d', unique=True)
     testimonial_message = models.TextField(blank=False)
 
     def __str__(self):
@@ -176,9 +176,9 @@ class Testimonial(models.Model):
 
 class LabSection(models.Model):
     lab_name = models.CharField(max_length=250,blank=False)
-    image1 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
-    image2 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
-    image3 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
+    image1 = models.ImageField(upload_to='images/labs/%Y-%m-%d', unique=True)
+    image2 = models.ImageField(upload_to='images/labs/%Y-%m-%d', unique=True)
+    image3 = models.ImageField(upload_to='images/labs/%Y-%m-%d', unique=True)
     lab_description = models.TextField(blank=False)
 
     def __str__(self):
@@ -212,26 +212,34 @@ class VisionAndMission(models.Model):
 
 class Conference(models.Model):
     title = models.CharField(max_length=250, blank=False)
-    cover_photo = models.ImageField(upload_to='images/conference/%Y-%m-%d--%H:%M:%S')
-    content = models.FileField(upload_to='files/conference/%Y-%m-%d--%H:%M:%S')
+    cover_photo = models.ImageField(upload_to='images/conference/%Y-%m-%d')
+    content = models.FileField(upload_to='files/conference/%Y-%m-%d')
 
     def __str__(self):
         return self.title
 
 
 class CenterOfExcellence(models.Model):
-    logo = models.ImageField(upload_to='images/center_of_excellence/%Y-%m-%d--%H:%M:%S')
+    logo = models.ImageField(upload_to='images/center_of_excellence/%Y-%m-%d')
     title = models.CharField(max_length=250, blank=False)
     content = models.TextField(blank=False)
 
     def __str__(self):
         return self.title
 
+
+class ResearchAndIndustrial(models.Model):
+    content = RichTextUploadingField()
+
+
+class InternationalJournal(models.Model):
+    content = RichTextUploadingField()
+
 # ---------------------- Quick link ----------------------------------
 
 
 class ListOfHoliday(models.Model):
-    content = models.FileField(upload_to='files/list_of_holidays/%Y-%m-%d--%H:%M:%S')
+    content = models.FileField(upload_to='files/list_of_holidays/%Y-%m-%d')
 
     def __str__(self):
         return "List-Of-Holidays"
@@ -239,7 +247,7 @@ class ListOfHoliday(models.Model):
 
 class Naac(models.Model):
     title = models.CharField(max_length=250, blank=False)
-    content = models.FileField(upload_to='files/naac/%Y-%m-%d--%H:%M:%S')
+    content = models.FileField(upload_to='files/naac/%Y-%m-%d')
 
     def __str__(self):
         return self.title
@@ -247,7 +255,7 @@ class Naac(models.Model):
 
 class AicteApprovalLetter(models.Model):
     title = models.CharField(max_length=250, blank=False)
-    content = models.FileField(upload_to='files/aicte_approval_letter/%Y-%m-%d--%H:%M:%S')
+    content = models.FileField(upload_to='files/aicte_approval_letter/%Y-%m-%d')
 
     def __str__(self):
         return self.title
@@ -255,7 +263,7 @@ class AicteApprovalLetter(models.Model):
 
 class MandatoryDisclosure(models.Model):
     title = models.CharField(max_length=250, blank=False)
-    content = models.FileField(upload_to='files/mandatory_disclosure/%Y-%m-%d--%H:%M:%S')
+    content = models.FileField(upload_to='files/mandatory_disclosure/%Y-%m-%d')
 
     def __str__(self):
         return self.title
@@ -268,7 +276,48 @@ class Download(models.Model):
 
 # ---------------------  start of Admission Models --------------------
 
+
+class FeeStructure(models.Model):
+    content = RichTextUploadingField()
+
+
+class AdmissionProcess(models.Model):
+    content = RichTextUploadingField()
+
+
+class InfoBooklet(models.Model):
+    content = RichTextUploadingField()
+
+
+class RefundNorm(models.Model):
+    content = RichTextUploadingField()
+
 # ---------------------  end of Admission Models --------------------
+
+# ---------------------  end of Life-akgec-mca Models --------------------
+
+
+class Events(models.Model):
+    content = RichTextUploadingField()
+
+
+class Hostel(models.Model):
+    content = RichTextUploadingField()
+
+
+class SocialResponsibility(models.Model):
+    content = RichTextUploadingField()
+
+
+class Society(models.Model):
+    content = RichTextUploadingField()
+
+
+class Mediclaim(models.Model):
+    content = RichTextUploadingField()
+
+
+# ---------------------  end of life-akgec-mca Models --------------------
 
 
 
