@@ -212,7 +212,8 @@ class VisionAndMission(models.Model):
 
 class Conference(models.Model):
     title = models.CharField(max_length=250, blank=False)
-    content = models.FileField(upload_to='files/conference_pdf/%Y-%m-%d--%H:%M:%S')
+    cover_photo = models.ImageField(upload_to='images/conference/%Y-%m-%d--%H:%M:%S')
+    content = models.FileField(upload_to='files/conference/%Y-%m-%d--%H:%M:%S')
 
     def __str__(self):
         return self.title

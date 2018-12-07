@@ -14,10 +14,11 @@
             </h3>
         </div>
     </div>
+    {% for conference in conferences %}
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" alt="Thumbnail">
+        <img class="card-img-top" src="{{ conference.cover_photo.url }}" alt="Thumbnail">
         <div class="card-body">
-            <a href="#" data-toggle="modal" data-target=".bd-modal-lg">Open Pdf</a>
+            <a href="#" data-toggle="modal" data-target=".bd-modal-lg">{{conference.title}}</a>
         </div>
     </div>
 
@@ -32,10 +33,12 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                ...
+                <div class="modal-body">
+                    <embed src ="{{ conference.content.url }}" width="100%" height="100%">
+                </div>
             </div>
         </div>
     </div>
-
+    {% endfor %}
 </div>
 {% endblock content %}
