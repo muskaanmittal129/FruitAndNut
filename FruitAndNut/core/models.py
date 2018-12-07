@@ -330,6 +330,13 @@ class AcademicCalender(models.Model):
         verbose_name_plural = 'AcademicCalender'
 
 
+class TimeTable(models.Model):
+    year = models.IntegerField()
+    section = models.IntegerField()
+    image = models.ImageField(upload_to='images/timetable/%Y-%m-%d')
+
+
+
 
 
 

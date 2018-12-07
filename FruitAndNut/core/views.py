@@ -3,7 +3,7 @@ from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
-    Infrastructure, AcademicCalender
+    Infrastructure, AcademicCalender, TimeTable
 
 
 def get_footer_about():
@@ -206,7 +206,12 @@ class TimeTableView(generic.ListView):
     context = {}
     context.update(get_footer())
 
+    def get_timetable(self):
+        timetable = TimeTable.objects.all()
+        self.context['timetable'] = timetable
+
     def get(self, request, *args, **kwargs):
+        self.get_timetable()
         return render(self.request, self.template_name, self.context)
 
 

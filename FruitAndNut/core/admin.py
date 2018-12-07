@@ -1,7 +1,8 @@
 from django.contrib import admin
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
-    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure, AcademicCalender
+    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure, \
+    AcademicCalender
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -106,6 +107,15 @@ class PrincipalAdmin(admin.ModelAdmin):
         model = Principal
 
 
+class AcademicCalenderAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    class Meta:
+        model = AcademicCalender
+
+
 admin.site.register(RecentEvent, RecentEventAdmin)
 admin.site.register(FooterRelatedLinks, FooterLinkAdmin)
 admin.site.register(FooterContact, FooterContactAdmin)
@@ -130,7 +140,8 @@ admin.site.register(models.Hostel)
 admin.site.register(models.Mediclaim)
 admin.site.register(models.SocialResponsibility)
 admin.site.register(models.Society)
-admin.site.register(models.AcademicCalender)
+admin.site.register(models.AcademicCalender, AcademicCalenderAdmin)
+admin.site.register(models.TimeTable)
 
 
 # admin.site.register()
