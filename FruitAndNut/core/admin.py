@@ -1,4 +1,5 @@
 from django.contrib import admin
+from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
     Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure
 
@@ -119,6 +120,9 @@ admin.site.register(Gallery)
 admin.site.register(OrganizationChart)
 admin.site.register(Infrastructure)
 admin.site.register(ImportantFunctionary, ImpFunctionaryAdmin)
+admin.site.register(models.Conference),
+admin.site.register(models.CenterOfExcellence)
+
 
 # admin.site.register()
 

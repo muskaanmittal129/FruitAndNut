@@ -27,7 +27,6 @@ class FooterRelatedLinks(models.Model):
         verbose_name = "Footer Related Link"
         verbose_name_plural = "Footer Related Links"
 
-
     def __str__(self):
         return self.link_name
 
@@ -152,6 +151,9 @@ class Principal(models.Model):
         verbose_name = 'Principal'
         verbose_name_plural = 'Prinicipal'
 
+    def __str__(self):
+        return self.name
+
 
 class Infrastructure(models.Model):
     image = models.ImageField(upload_to='images/infrastructure')
@@ -168,6 +170,9 @@ class Testimonial(models.Model):
     profile_pic =models.ImageField(upload_to='images/alumni/%Y-%m-%d--%H:%M:%S', unique=True)
     testimonial_message = models.TextField(blank=False)
 
+    def __str__(self):
+        return self.name
+
 
 class LabSection(models.Model):
     lab_name = models.CharField(max_length=250,blank=False)
@@ -176,10 +181,18 @@ class LabSection(models.Model):
     image3 = models.ImageField(upload_to='images/labs/%Y-%m-%d--%H:%M:%S', unique=True)
     lab_description = models.TextField(blank=False)
 
+    def __str__(self):
+        return self.lab_name
+
 
 class Notification(models.Model):
     message = models.TextField()
     active = models.BooleanField(default=False)
+
+    def __str__(self):
+        if len(self.message) > 20:
+            return self.message[0:20]
+        return self.message
 
 
 class VisionAndMission(models.Model):
@@ -191,11 +204,14 @@ class VisionAndMission(models.Model):
         verbose_name = 'Vision And Mission'
         verbose_name_plural = "Vision And Mission"
 
+    def __str__(self):
+        return "Vission And Mission"
+
 
 # ------------------- R && D models -----------------
 
 class Conference(models.Model):
-    title = name = models.CharField(max_length=250, blank=False)
+    title = models.CharField(max_length=250, blank=False)
     content = models.FileField(upload_to='files/conference_pdf/%Y-%m-%d--%H:%M:%S')
 
     def __str__(self):
@@ -203,8 +219,8 @@ class Conference(models.Model):
 
 
 class CenterOfExcellence(models.Model):
-    logo = models.ImageField(upload_to='images/center_of_excellence/%Y-%m-%d--%H:%M:%S', )
-    title = name = models.CharField(max_length=250, blank=False)
+    logo = models.ImageField(upload_to='images/center_of_excellence/%Y-%m-%d--%H:%M:%S')
+    title = models.CharField(max_length=250, blank=False)
     content = models.TextField(blank=False)
 
     def __str__(self):
