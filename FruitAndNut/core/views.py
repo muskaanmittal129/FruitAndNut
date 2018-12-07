@@ -438,6 +438,7 @@ class ListOfHolidayView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["list_of_holidays"] = models.ListOfHoliday.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -447,6 +448,7 @@ class NaacView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["naac"] = models.Naac.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -456,6 +458,7 @@ class MandatoryDisclosureView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["mandatory_disclosure"] = models.MandatoryDisclosure.objects.all()
         return render(self.request, self.template_name, self.context)
 
 # ---------------------- end of quick links views ---------------------------

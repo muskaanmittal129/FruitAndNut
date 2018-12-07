@@ -227,8 +227,48 @@ class CenterOfExcellence(models.Model):
     def __str__(self):
         return self.title
 
+# ---------------------- Quick link ----------------------------------
 
 
+class ListOfHoliday(models.Model):
+    content = models.FileField(upload_to='files/list_of_holidays/%Y-%m-%d--%H:%M:%S')
+
+    def __str__(self):
+        return "List-Of-Holidays"
+
+
+class Naac(models.Model):
+    title = models.CharField(max_length=250, blank=False)
+    content = models.FileField(upload_to='files/naac/%Y-%m-%d--%H:%M:%S')
+
+    def __str__(self):
+        return self.title
+
+
+class AicteApprovalLetter(models.Model):
+    title = models.CharField(max_length=250, blank=False)
+    content = models.FileField(upload_to='files/aicte_approval_letter/%Y-%m-%d--%H:%M:%S')
+
+    def __str__(self):
+        return self.title
+
+
+class MandatoryDisclosure(models.Model):
+    title = models.CharField(max_length=250, blank=False)
+    content = models.FileField(upload_to='files/mandatory_disclosure/%Y-%m-%d--%H:%M:%S')
+
+    def __str__(self):
+        return self.title
+
+
+class Download(models.Model):
+    pass
+
+# ---------------------  end of Quick Link models ---------------------
+
+# ---------------------  start of Admission Models --------------------
+
+# ---------------------  end of Admission Models --------------------
 
 
 
