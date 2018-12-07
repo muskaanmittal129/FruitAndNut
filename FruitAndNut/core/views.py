@@ -350,10 +350,48 @@ class AlumniView(generic.ListView):
 
 
 # ---------------------- start of admission views ---------------------------
+
+class AdmissionProcessView(generic.ListView):
+    template_name = 'core/admission/admission_process.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class FeeStructureView(generic.ListView):
+    template_name = 'core/admission/fee_structure.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class InfoBookletView(generic.ListView):
+    template_name = 'core/admission/info_booklet.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+class RefundNormsView(generic.ListView):
+    template_name = 'core/admission/refund_norms.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, self.context)
+
+
+
 # ---------------------- end of admission views ---------------------------
 
 
-# ---------------------- start of admission views ---------------------------
+# ---------------------- start of Quick Links views ---------------------------
 
 
 class DownloadView(generic.ListView):
@@ -400,5 +438,5 @@ class MandatoryDisclosureView(generic.ListView):
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
 
-# ---------------------- end of admission views ---------------------------
+# ---------------------- end of quick links views ---------------------------
 
