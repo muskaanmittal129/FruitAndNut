@@ -3,7 +3,7 @@ from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
-    Infrastructure, AcademicCalendar, TimeTable, Affiliation
+    Infrastructure, AcademicCalendar, TimeTable, Affiliation, Awards, UniversityAwards
 
 
 def get_footer_about():
@@ -253,28 +253,33 @@ class SyllabusView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
-# class AwardsView(generic.ListView):
-#     template_name = 'core/academic/awards_list.html'
-#     context = {}
-#     context.update(get_footer())
-#
-#     def get(self, request, *args, **kwargs):
-#         self.context['award_list'] = models.Awards.objects.all()
-#         return render(self.request, self.template_name, self.context)
-#
-#
-# class UniversityAwardsView(generic.ListView):
-#     template_name = 'core/academic/university_awards.html'
-#     context ={}
-#     context.update(get_footer())
-#
-#     def get_univ_awards(self):
-#         univ_awards_info = UniversityAwards.objects.all()
-#         self.context['univ_awards_info'] = univ_awards_info
-#
-#     def get(self, request, *args, **kwargs):
-#         self.get_univ_awards()
-#         return render(self.request, self.template_name, self.context)
+class AwardsView(generic.ListView):
+    template_name = 'core/academic/awards_list.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        self.context['award_list'] = models.Awards.objects.all()
+        return render(self.request, self.template_name, self.context)
+
+
+class UniversityAwardsView(generic.ListView):
+    template_name = 'core/academic/university_awards.html'
+    context ={}
+    context.update(get_footer())
+
+    # def get_univ_awards(self):
+    #     univ_awards_info = UniversityAwards.objects.all()
+    #     self.context['univ_awards_info'] = univ_awards_info
+
+    def get(self, request, *args, **kwargs):
+        session = kwargs['session']
+        print(session)
+        univ_awards_info = models.UniversityAwards.objects.filter(uni_session = session)
+        self.context['univ_awards_info'] = univ_awards_info
+        print(univ_awards_info)
+        # self.get_univ_awards()
+        return render(self.request, self.template_name, self.context)
 
 
 # ----------------------end of academic view --------------------
