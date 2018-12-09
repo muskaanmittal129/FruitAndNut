@@ -2,7 +2,7 @@ from django.contrib import admin
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
     Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure, \
-    AcademicCalender
+    AcademicCalendar, Affiliation
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -107,13 +107,13 @@ class PrincipalAdmin(admin.ModelAdmin):
         model = Principal
 
 
-class AcademicCalenderAdmin(admin.ModelAdmin):
+class AcademicCalendarAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request, obj=None):
         return False
 
     class Meta:
-        model = AcademicCalender
+        model = AcademicCalendar
 
 
 admin.site.register(RecentEvent, RecentEventAdmin)
@@ -140,9 +140,10 @@ admin.site.register(models.Hostel)
 admin.site.register(models.Mediclaim)
 admin.site.register(models.SocialResponsibility)
 admin.site.register(models.Society)
-admin.site.register(models.AcademicCalender, AcademicCalenderAdmin)
+admin.site.register(models.AcademicCalendar, AcademicCalendarAdmin)
 admin.site.register(models.TimeTable)
-
+admin.site.register(models.Affiliation)
+# admin.site.register(models.UniversityAwards)
 
 # admin.site.register()
 

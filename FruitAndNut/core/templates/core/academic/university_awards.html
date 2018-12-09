@@ -7,6 +7,23 @@
     {% endblock stylesheets %}
     {% block content %}
    <div class="container z-depth-1 mt-5 light-grey-bg">
-      content here
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>University Position</th>
+              <th>Branch</th>
+              <th>Percentage Marks</th>
+              <th>Medal</th>
+          </tr>
+          {% for student in univ_awards_info %}
+          <tr>
+              <td>{{student.name}}</td>
+              <td>{{student.univ_position}}</td>
+              <td>{{student.branch}}</td>
+              <td>{{student.percentage_marks}}</td>
+              <td>{{student.medal}}</td>
+          </tr>
+          {% endfor %}
+      </table>
      </div>
     {% endblock content %}
