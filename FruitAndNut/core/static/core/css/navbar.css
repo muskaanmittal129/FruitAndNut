@@ -3,7 +3,7 @@ gitbody{
   padding: 0px;
   overflow-x: hidden;
 }
-.pd-1{padding: 10px;} .light-grey-bg{background-color: #eceff1;}
+.pd-1{padding: 10px;} .light-grey-bg{background-color: #eceff1;} .mr-4{margin-right: 40px;}
 .grey{background-color: #424242;color: #fff;}
 .white-text{color: #fff;} .white-bg{background-color: #fff; color: #212121}
 .op-bg{background: rgba(33,33,33,.7); border: 1px solid #ffc107}
@@ -31,7 +31,6 @@ gitbody{
 } */
 
 .top-nav{
-  height: 80px;
   background-color: #ebedee;
 }
 
@@ -39,12 +38,16 @@ gitbody{
   width: 50px;
   margin: 15px 0 0 50px;
 }
-
+.Akgec-mca
+{
+  font-size: 2rem;
+}
 .navbar
 {
   background:linear-gradient(to top ,#03a9f4, #00bcd4) #00bcd4;
   padding: 0px 40px 0px 50px !important;
   z-index: 10;
+  box-shadow: 0px 2px 10px 0px #757575;
 }
 
 .navbar .navbar-brand{
@@ -57,7 +60,7 @@ gitbody{
 }
 
 .main-navigation{
-  margin: 0px !important; 
+  margin: 0px !important;
 }
 
 .nav-menu {
@@ -81,7 +84,7 @@ ul li a {
   padding: 10px;
 }
 
-ul li a:hover { 
+ul li a:hover {
   background: #2c3e50;
   text-decoration: none;
   color: #fff;
@@ -112,12 +115,20 @@ ul:after {
 }
 
 ul:after { clear: both; }
-  
+
 @media (max-width:480px)
 {
   .container
   {
     width: 100vw !important;
+  }
+  .Akgec-mca
+  {
+    font-size: 1rem;
+  }
+  .position-absolute
+  {
+    position: relative !important;
   }
 }
 

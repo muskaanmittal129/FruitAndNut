@@ -6,12 +6,12 @@
     {% endblock stylesheets %}
     {% block content %}
 
-     <div class="container z-depth-1 mt-5 light-grey-bg">
+     <div class="container z-depth-1 mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
       <!--lab-section-->
       <div class="row grey text-center">
         <div class="col-12 pd-1">
           <h3 style="font-weight:lighter">
-            PRINCIPAL
+            - PRINCIPAL -
           </h3>
         </div>
       </div>
@@ -21,19 +21,9 @@
               <h3> {{principal.name}}</h3><br>
               <img  class="Element Border50 z-depth-1" src="{{principal.image.url}}" alt="Principal">
 
-              <p><i class="fas fa-quote-left"></i> {{principal.message|safe}}</i></p>
+              <p style="font-size:1.2rem"><i class="fas fa-quote-left"></i> {{principal.message|safe}}</i></p>
             </div>
 
         </div>
      </div>
     {% endblock content %}
-
-
-
-
-
-
-
-
-
-
