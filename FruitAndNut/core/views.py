@@ -3,7 +3,7 @@ from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
-    Infrastructure, AcademicCalender, TimeTable
+    Infrastructure, AcademicCalendar, TimeTable, Affiliation
 
 
 def get_footer_about():
@@ -201,6 +201,21 @@ class InfrastructureView(generic.ListView):
 
 # ---------------------- academics views start ----------------------
 
+
+class AffiliationView(generic.ListView):
+    template_name = 'core/academic/affiliation.html'
+    context = {}
+    context.update(get_footer())
+
+    def get_affiliation(self):
+        affiliation = Affiliation.objects.all()
+        self.context['affiliation'] = affiliation
+
+    def get(self, request, *args, **kwargs):
+        self.get_affiliation()
+        return render(self.request, self.template_name, self.context)
+
+
 class TimeTableView(generic.ListView):
     template_name = 'core/academic/time_table.html'
     context = {}
@@ -215,13 +230,13 @@ class TimeTableView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
-class AcademicCalenderView(generic.ListView):
+class AcademicCalendarView(generic.ListView):
     template_name = 'core/academic/calender.html'
     context = {}
     context.update(get_footer())
 
     def get_calender(self):
-        calender_info = AcademicCalender.objects.all()
+        calender_info = AcademicCalendar.objects.all()
         self.context['calender_info'] = calender_info
 
     def get(self, request, *args, **kwargs):
@@ -236,6 +251,31 @@ class SyllabusView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
+
+
+# class AwardsView(generic.ListView):
+#     template_name = 'core/academic/awards_list.html'
+#     context = {}
+#     context.update(get_footer())
+#
+#     def get(self, request, *args, **kwargs):
+#         self.context['award_list'] = models.Awards.objects.all()
+#         return render(self.request, self.template_name, self.context)
+#
+#
+# class UniversityAwardsView(generic.ListView):
+#     template_name = 'core/academic/university_awards.html'
+#     context ={}
+#     context.update(get_footer())
+#
+#     def get_univ_awards(self):
+#         univ_awards_info = UniversityAwards.objects.all()
+#         self.context['univ_awards_info'] = univ_awards_info
+#
+#     def get(self, request, *args, **kwargs):
+#         self.get_univ_awards()
+#         return render(self.request, self.template_name, self.context)
+
 
 # ----------------------end of academic view --------------------
 

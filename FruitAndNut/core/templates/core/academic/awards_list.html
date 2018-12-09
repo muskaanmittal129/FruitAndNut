@@ -3,16 +3,12 @@
 {% load static %}
     {% block stylesheets %}
         {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/affiliation.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/university.css' %}">
     {% endblock stylesheets %}
     {% block content %}
    <div class="container z-depth-1 mt-5 light-grey-bg">
-      <!--lab-section-->
-      <div class="row grey text-center">
-
-     </div>
-       {% for file in affiliation %}
-          <img src ="{{file.affiliation_image.url}}"/>
+      {% for award in awards_list %}
+       {{award.university_awards_session}}
        {% endfor %}
-   </div>
+     </div>
     {% endblock content %}

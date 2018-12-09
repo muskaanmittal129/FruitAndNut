@@ -321,19 +321,51 @@ class Mediclaim(models.Model):
 
 # ----------------------academic section--------------------------------#
 
-
-class AcademicCalender(models.Model):
-    image = models.ImageField(upload_to='images/calender/%Y-%m-%d')
+class Affiliation(models.Model):
+    affiliation_image= models.ImageField(upload_to='images/affiliation')
 
     class Meta:
-        verbose_name = 'AcademicCalender'
-        verbose_name_plural = 'AcademicCalender'
+        verbose_name = 'Affiliation'
+        verbose_name_plural = 'Affiliation'
+
+
+class AcademicCalendar(models.Model):
+    image = models.ImageField(upload_to='images/calendar/%Y-%m-%d')
+
+    class Meta:
+        verbose_name = 'AcademicCalendar'
+        verbose_name_plural = 'AcademicCalendar'
 
 
 class TimeTable(models.Model):
     year = models.IntegerField()
     section = models.IntegerField()
     image = models.ImageField(upload_to='images/timetable/%Y-%m-%d')
+
+
+# class Awards(models.Model):
+#     university_awards_session = models.CharField(max_length=255)
+#
+#     class Meta:
+#         verbose_name = 'Academic Award'
+#         verbose_name_plural = 'Academic Awards'
+#
+#
+# class UniversityAwards(models.Model):
+#     session = models.ForeignKey(Awards, on_delete= models.CASCADE)
+#     name = models.CharField(max_length=255)
+#     univ_position =models.IntegerField()
+#     branch = models.CharField(max_length=255)
+#     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
+#     medal = models.CharField(max_length=255)
+
+
+
+
+
+
+
+
 
 
 
