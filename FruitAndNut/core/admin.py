@@ -145,6 +145,7 @@ admin.site.register(models.TimeTable)
 admin.site.register(models.Affiliation)
 admin.site.register(models.Awards)
 admin.site.register(models.UniversityAwards)
+admin.site.register(models.CollegeAwards)
 
 
 

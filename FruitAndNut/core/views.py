@@ -253,13 +253,22 @@ class SyllabusView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
-class AwardsView(generic.ListView):
+class AwardsListView(generic.ListView):
     template_name = 'core/academic/awards_list.html'
     context = {}
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-        self.context['award_list'] = models.Awards.objects.all()
+        self.context['uni_award_list'] = models.Awards.objects.all()
+        return render(self.request, self.template_name, self.context)
+
+class CollegeAwardsListView(generic.ListView):
+    template_name = 'core/academic/college_awards_list.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        self.context['colg_award_list'] = models.Awards.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -268,17 +277,25 @@ class UniversityAwardsView(generic.ListView):
     context ={}
     context.update(get_footer())
 
-    # def get_univ_awards(self):
-    #     univ_awards_info = UniversityAwards.objects.all()
-    #     self.context['univ_awards_info'] = univ_awards_info
+    def get(self, request, *args, **kwargs):
+        session = kwargs['session']
+        print(session)
+        univ_awards_info = models.UniversityAwards.objects.filter(uni_session__uni_session = session)
+        self.context['univ_awards_info'] = univ_awards_info
+        print(univ_awards_info)
+        return render(self.request, self.template_name, self.context)
+
+
+class CollegeAwardView(generic.ListView):
+    template_name = 'core/academic/college_awards.html'
+    context ={}
+    context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
         print(session)
-        univ_awards_info = models.UniversityAwards.objects.filter(uni_session = session)
-        self.context['univ_awards_info'] = univ_awards_info
-        print(univ_awards_info)
-        # self.get_univ_awards()
+        colg_awards_info = models.CollegeAwards.objects.filter(colg_session__uni_session = session)
+        self.context['colg_awards_info'] = colg_awards_info
         return render(self.request, self.template_name, self.context)
 
 

@@ -3,12 +3,12 @@
 {% load static %}
     {% block stylesheets %}
         {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/university.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/college_awards.css' %}">
     {% endblock stylesheets %}
     {% block content %}
    <div class="container z-depth-1 mt-5 light-grey-bg">
-      {% for award in uni_award_list %}
-       <a href="{% url 'uni_awards' award.uni_session %}">{{award.uni_session}}</a>
+      {% for award in colg_award_list %}
+       <a href="{% url 'colg_awards' award.uni_session %}">{{award.uni_session}}</a>
        {% endfor %}
      </div>
     {% endblock content %}

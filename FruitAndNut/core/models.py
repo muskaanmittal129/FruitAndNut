@@ -344,7 +344,7 @@ class TimeTable(models.Model):
 
 
 class Awards(models.Model):
-    uni_session = models.CharField(max_length=255)
+    uni_session = models.CharField(max_length=255,blank=True)
 
     class Meta:
         verbose_name = 'Academic Award'
@@ -358,6 +358,14 @@ class UniversityAwards(models.Model):
     branch = models.CharField(max_length=255)
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
     medal = models.CharField(max_length=255)
+
+
+class CollegeAwards(models.Model):
+    colg_session = models.ForeignKey(Awards, on_delete= models.CASCADE)
+    name = models.CharField(max_length=255)
+    year = models.IntegerField()
+    branch = models.CharField(max_length=255)
+    percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
 
 
 

@@ -3,10 +3,25 @@
 {% load static %}
     {% block stylesheets %}
         {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/college_awards.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/university.css' %}">
     {% endblock stylesheets %}
     {% block content %}
-    <div class="container z-depth-1 mt-5 light-grey-bg">
-        content here
-       </div>
+   <div class="container z-depth-1 mt-5 light-grey-bg">
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>Year</th>
+              <th>Branch</th>
+              <th>Percentage Marks</th>
+          </tr>
+          {% for student in colg_awards_info %}
+          <tr>
+              <td>{{student.name}}</td>
+              <td>{{student.year}}</td>
+              <td>{{student.branch}}</td>
+              <td>{{student.percentage_marks}}</td>
+          </tr>
+          {% endfor %}
+      </table>
+     </div>
     {% endblock content %}
