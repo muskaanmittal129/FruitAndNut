@@ -107,13 +107,13 @@ class PrincipalAdmin(admin.ModelAdmin):
         model = Principal
 
 
-class AcademicCalendarAdmin(admin.ModelAdmin):
+# class AcademicCalendarAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request, obj=None):
-        return False
+#     def has_add_permission(self, request, obj=None):
+#         return False
 
-    class Meta:
-        model = AcademicCalendar
+#     class Meta:
+#         model = AcademicCalendar
 
 
 admin.site.register(RecentEvent, RecentEventAdmin)
@@ -140,7 +140,7 @@ admin.site.register(models.Hostel)
 admin.site.register(models.Mediclaim)
 admin.site.register(models.SocialResponsibility)
 admin.site.register(models.Society)
-admin.site.register(models.AcademicCalendar, AcademicCalendarAdmin)
+admin.site.register(models.AcademicCalendar)
 admin.site.register(models.TimeTable)
 admin.site.register(models.Affiliation)
 admin.site.register(models.Awards)

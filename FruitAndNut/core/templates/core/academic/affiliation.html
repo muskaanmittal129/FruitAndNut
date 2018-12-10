@@ -1,18 +1,27 @@
 {% extends 'core/base/base.html' %}
 {% load staticfiles %}
 {% load static %}
-    {% block stylesheets %}
-        {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/affiliation.css' %}">
-    {% endblock stylesheets %}
-    {% block content %}
-   <div class="container z-depth-1 mt-5 light-grey-bg">
-      <!--lab-section-->
-      <div class="row grey text-center">
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/affiliation.css' %}">
+{% endblock stylesheets %}
+{% block content %}
+<div class="container  mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+    <div class="row grey text-center">
+        <div class="col-12 pd-1">
+            <h3 style="font-weight:lighter">
+                - AFFILIATION -
+            </h3>
+        </div>
+    </div>
+    <div class="row pd-1">
 
-     </div>
-       {% for file in affiliation %}
-          <img src ="{{file.affiliation_image.url}}"/>
-       {% endfor %}
-   </div>
-    {% endblock content %}
+        <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
+            {% for file in affiliation %}
+            <img class="img-fluid" src="{{file.affiliation_image.url}}" alt="Affiliation Chart" />
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

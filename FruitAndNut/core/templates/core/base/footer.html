@@ -4,11 +4,15 @@
 <div class="col-12 footer grey">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="logo">
+      <!-- <div class="logo">
         <img src="{% static 'core/images/Akgec_Logo.png' %}">
+      </div> -->
+      <h4 class="txt">Reach Us</h4>
+      <div class="reach-us">
+        <img src="{% static 'core/images/map_google.png' %}">
       </div>
-      <h6 class="txt">copyright 2018</h6>
     </div>
+
     <div class="col-12 col-md-6 col-lg-3">
       <h4 class="txt">About</h4>
       <p class="txt-light">
@@ -16,7 +20,25 @@
       </p>
     </div>
 
-
+    <div class="col-12 col-md-6 col-lg-3">
+        <h4 class="txt">Contact-Us</h4>
+          {% for contact in footer_contact %}
+               <div class="wrapped">
+                   {% if forloop.counter == 1 %}
+                   <i class="fas fa-map-marker-alt"></i>
+                   {% elif forloop.counter == 2 %}
+                   <i class="fas fa-envelope"></i>
+                   {% elif forloop.counter == 3 %}
+                   <i class="fas fa-phone-volume"></i>
+                   {% elif forloop.counter == 4 %}
+                   <i class="fas fa-clock"></i>
+                   {% endif %}
+                   <li class="inline txt-light">
+                       {{ contact }}
+                   </li>
+               </div>
+          {% endfor %}
+      </div>
 
     <div class="col-12 col-md-6 col-lg-3">
       <h4 class="txt">Related Links</h4>
@@ -29,25 +51,7 @@
 
 
 
-    <div class="col-12 col-md-6 col-lg-3">
-      <h4 class="txt">Contact-Us</h4>
-        {% for contact in footer_contact %}
-             <div class="wrapped">
-                 {% if forloop.counter == 1 %}
-                 <i class="fas fa-map-marker-alt"></i>
-                 {% elif forloop.counter == 2 %}
-                 <i class="fas fa-envelope"></i>
-                 {% elif forloop.counter == 3 %}
-                 <i class="fas fa-phone-volume"></i>
-                 {% elif forloop.counter == 4 %}
-                 <i class="fas fa-clock"></i>
-                 {% endif %}
-                 <li class="inline txt-light">
-                     {{ contact }}
-                 </li>
-             </div>
-        {% endfor %}
-    </div>
+    
     <hr>
     <div class="col-12 si-powered">
       <a href="http://www.silive.in/"><img src="{% static 'core/images/silogo.jpg' %}">powered by Software Incubator</a>
