@@ -67,6 +67,17 @@ body{
     width: 80px;
 }
 
+.footer .reach-us{
+  margin: auto;
+  width: 200Px;
+}
+
+.footer .reach-us img{
+  width: 200px;
+  border-radius: 50%;
+
+}
+
 .footer .txt{
     color: #fff;
     text-align: center;

@@ -32,11 +32,12 @@ gitbody{
 
 .top-nav{
   background-color: #ebedee;
+  margin: 0px !important;
 }
 
 .top-nav img{
   width: 50px;
-  margin: 15px 0 0 50px;
+  margin: 15px 0 0 20px;
 }
 .Akgec-mca
 {
@@ -66,7 +67,9 @@ gitbody{
 .nav-menu {
   list-style: none;
   padding: 0;
+  z-index: 200;
 }
+
 
 ul li {
   display: block;
@@ -87,7 +90,8 @@ ul li a {
 ul li a:hover {
   background: #2c3e50;
   text-decoration: none;
-  color: #fff;
+  color: #ffc107;
+  border-top: 0.5px solid #ffc107;
 }
 
 li:hover > ul {
@@ -122,9 +126,15 @@ ul:after { clear: both; }
   {
     width: 100vw !important;
   }
+
+  .logo{
+    width: 40px;
+  }
+
   .Akgec-mca
   {
-    font-size: 1rem;
+    font-size: 0.75rem;
+    padding: 20px 10px 10px 10px;
   }
   .position-absolute
   {
@@ -135,5 +145,15 @@ ul:after { clear: both; }
 @media screen and (max-width: 768px) {
   #caption-md-hide {
     display: none;
+  }
+
+  .hideOnSmall{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 988px){
+  .mr-4{
+   width: 100%;
   }
 }
