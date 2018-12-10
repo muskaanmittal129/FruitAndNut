@@ -6,7 +6,11 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px"></div>
+     <div style="height:500px">
+         {% for info in placement_record %}
+          <img src ="{{info.image.url}}", alt="Image"/>
+         {% endfor %}
+     </div>
     {% endblock content %}
 
 

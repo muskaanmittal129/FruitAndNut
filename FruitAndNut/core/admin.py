@@ -2,7 +2,8 @@ from django.contrib import admin
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
     Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure, \
-    AcademicCalendar, Affiliation, Awards, UniversityAwards
+    AcademicCalendar, Affiliation, Awards, UniversityAwards, TrainingPlacementDepartment, Recruiters, PlacementRecord,\
+    OurAlumni
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -146,6 +147,10 @@ admin.site.register(models.Affiliation)
 admin.site.register(models.Awards)
 admin.site.register(models.UniversityAwards)
 admin.site.register(models.CollegeAwards)
+admin.site.register(models.TrainingPlacementDepartment)
+admin.site.register(models.Recruiters)
+admin.site.register(models.PlacementRecord)
+admin.site.register(models.OurAlumni)
 
 
 

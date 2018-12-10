@@ -6,7 +6,11 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px"></div>
+     <div style="height:500px">
+         {% for info in TNP_info %}
+          <img src ="{{info.image.url}}", alt="Image"/>
+         {% endfor %}
+     </div>
     {% endblock content %}
 
 
