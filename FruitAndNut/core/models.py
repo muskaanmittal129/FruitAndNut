@@ -149,7 +149,7 @@ class Principal(models.Model):
 
     class Meta:
         verbose_name = 'Principal'
-        verbose_name_plural = 'Prinicipal'
+        verbose_name_plural = 'Principal'
 
     def __str__(self):
         return self.name
@@ -164,16 +164,6 @@ class Infrastructure(models.Model):
         verbose_name_plural = 'Infrastructure'
 
 
-class Testimonial(models.Model):
-    name = models.CharField(max_length=250, blank=False)
-    designation = models.CharField(max_length=250, blank=False)
-    profile_pic =models.ImageField(upload_to='images/alumni/%Y-%m-%d', unique=True)
-    testimonial_message = models.TextField(blank=False)
-
-    def __str__(self):
-        return self.name
-
-
 class LabSection(models.Model):
     lab_name = models.CharField(max_length=250,blank=False)
     image1 = models.ImageField(upload_to='images/labs/%Y-%m-%d', unique=True)
@@ -183,6 +173,10 @@ class LabSection(models.Model):
 
     def __str__(self):
         return self.lab_name
+
+    class Meta:
+        verbose_name = "Lab Section"
+        verbose_name_plural = 'Lab Section'
 
 
 class Notification(models.Model):
@@ -205,7 +199,7 @@ class VisionAndMission(models.Model):
         verbose_name_plural = "Vision And Mission"
 
     def __str__(self):
-        return "Vission And Mission"
+        return "Vision And Mission"
 
 
 # ------------------- R && D models -----------------
@@ -342,30 +336,102 @@ class TimeTable(models.Model):
     section = models.IntegerField()
     image = models.ImageField(upload_to='images/timetable/%Y-%m-%d')
 
-
-class Awards(models.Model):
-    uni_session = models.CharField(max_length=255,blank=True)
-
     class Meta:
-        verbose_name = 'Academic Award'
-        verbose_name_plural = 'Academic Awards'
+        verbose_name = 'Time Table'
+        verbose_name_plural = 'Time Tables'
 
 
 class UniversityAwards(models.Model):
-    uni_session = models.ForeignKey(Awards, on_delete= models.CASCADE)
+    session = models.CharField(max_length=255, default= 1)
     name = models.CharField(max_length=255)
     univ_position =models.IntegerField()
     branch = models.CharField(max_length=255)
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
     medal = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = 'University Award'
+        verbose_name_plural = 'University Awards'
+
+
+
 
 class CollegeAwards(models.Model):
-    colg_session = models.ForeignKey(Awards, on_delete= models.CASCADE)
+    session = models.CharField(max_length=255, default= 1)
     name = models.CharField(max_length=255)
     year = models.IntegerField()
     branch = models.CharField(max_length=255)
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
+
+    class Meta:
+        verbose_name = 'College Award'
+        verbose_name_plural = 'College Awards'
+
+
+# ----------------------------start of placement section-------------------#
+
+
+class TrainingPlacementDepartment(models.Model):
+    name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='images/placement')
+    message = RichTextUploadingField()
+    email = models.EmailField(blank=True)
+
+    class Meta:
+        verbose_name = 'T & P Department'
+        verbose_name_plural = 'T & P Department'
+
+    def __str__(self):
+        return self.name
+
+
+class Recruiters(models.Model):
+    image = models.ImageField(upload_to='images/placement')
+
+    class Meta:
+        verbose_name = 'Recruiters'
+        verbose_name_plural = 'Recruiters'
+
+
+class PlacementRecord(models.Model):
+    image = models.ImageField(upload_to='images/placement')
+
+    class Meta:
+        verbose_name = 'Placement Record'
+        verbose_name_plural = 'Placement Record'
+
+# ------------------ TrainingPlacementDepartment ends ----------------------------#
+
+# -------------------alumni section starts-----------------------#
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=250, blank=False)
+    designation = models.CharField(max_length=250, blank=False)
+    profile_pic = models.ImageField(upload_to='images/testimonial/%Y-%m-%d', unique=True)
+    testimonial_message = models.TextField(blank=False)
+
+    class Meta:
+        verbose_name = 'Testimonial '
+        verbose_name_plural = 'Testimonials'
+
+    def __str__(self):
+        return self.name
+
+
+class OurAlumni(models.Model):
+    name= models.CharField(max_length=250, blank= False)
+    profile_pic = models.ImageField(upload_to='images/alumni/%Y-%m-%d')
+    email =  models.EmailField(blank=True)
+    phone_contact = models.CharField(max_length=255, blank=True)
+
+    class Meta:
+        verbose_name = 'Our Alumni '
+        verbose_name_plural = 'Our Alumni'
+
+# ---------------------------alumni section ends-----------------------#
+
 
 
 

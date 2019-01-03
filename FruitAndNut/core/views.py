@@ -3,7 +3,7 @@ from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
-    Infrastructure, AcademicCalendar, TimeTable, Affiliation, Awards, UniversityAwards
+    Infrastructure, AcademicCalendar, TimeTable, Affiliation, UniversityAwards
 
 
 def get_footer_about():
@@ -259,16 +259,30 @@ class AwardsListView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-        self.context['uni_award_list'] = models.Awards.objects.all()
+        self.context['uni_award_list'] = models.UniversityAwards.objects.all()
         return render(self.request, self.template_name, self.context)
 
-class CollegeAwardsListView(generic.ListView):
-    template_name = 'core/academic/college_awards_list.html'
+
+class CollegeAwardsYearView(generic.ListView):
+    template_name = 'core/academic/college_award_year.html'
     context = {}
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-        self.context['colg_award_list'] = models.Awards.objects.all()
+        self.context['colg_award_list'] = models.CollegeAwards.objects.all()
+        return render(self.request, self.template_name, self.context)
+
+
+class CollegeAwardsView(generic.ListView):
+    template_name = 'core/academic/college_awards.html'
+    context = {}
+    context.update(get_footer())
+
+    def get(self, request, *args, **kwargs):
+        session = kwargs['session']
+        print(session)
+        college_awards_info = models.CollegeAwards.objects.filter(session =session)
+        self.context['college_awards_info'] = college_awards_info
         return render(self.request, self.template_name, self.context)
 
 
@@ -280,7 +294,7 @@ class UniversityAwardsView(generic.ListView):
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
         print(session)
-        univ_awards_info = models.UniversityAwards.objects.filter(uni_session__uni_session = session)
+        univ_awards_info = models.UniversityAwards.objects.filter(session =session)
         self.context['univ_awards_info'] = univ_awards_info
         print(univ_awards_info)
         return render(self.request, self.template_name, self.context)
@@ -294,7 +308,7 @@ class CollegeAwardView(generic.ListView):
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
         print(session)
-        colg_awards_info = models.CollegeAwards.objects.filter(colg_session__uni_session = session)
+        colg_awards_info = models.CollegeAwards.objects.filter(session = session)
         self.context['colg_awards_info'] = colg_awards_info
         return render(self.request, self.template_name, self.context)
 
@@ -354,24 +368,27 @@ class PlacementRecordView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context['placement_record'] = PlacementRecord.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
-class RecruitorView(generic.ListView):
+class RecruiterView(generic.ListView):
     template_name = 'core/placement/recruitors.html'
     context = {}
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context['recruiters_info'] = Recruiters.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
-class TNPCellView(generic.ListView):
+class TrainingPlacemenTDepartmentView(generic.ListView):
     template_name = 'core/placement/tnp_cell.html'
     context = {}
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context['TNP_info'] = TrainingPlacementDepartment.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -432,6 +449,20 @@ class SocietyView(generic.ListView):
 # ---------------------- end of life akgec-mca views ---------------------------
 
 # ---------------------- start of alumni views ---------------------------
+
+
+class TestimonialView(generic.ListView):
+    template_name = 'core/alumni/testimonial.html'
+    context = {}
+    context.update(get_footer())
+
+    def get_testimonial(self):
+        testimonial_info = Testimonial.objects.all()
+        self.context['testimonial_info'] = testimonial_info
+
+    def get(self, request, *args, **kwargs):
+        self.get_testimonial()
+        return render(self.request,self.template_name,self.context)
 
 
 class AlumniView(generic.ListView):
@@ -541,4 +572,3 @@ class MandatoryDisclosureView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 # ---------------------- end of quick links views ---------------------------
-

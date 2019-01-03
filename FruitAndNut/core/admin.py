@@ -1,8 +1,10 @@
 from django.contrib import admin
-from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion,Faculty,Testimonial,LabSection, \
-    Principal, OrganizationChart, Gallery, Event, ImportantFunctionary, VisionAndMission, Infrastructure, \
-    AcademicCalendar, Affiliation, Awards, UniversityAwards
+    Principal, OrganizationChart, Gallery, Events, ImportantFunctionary, VisionAndMission, Infrastructure, \
+    AcademicCalendar, Affiliation, UniversityAwards, TrainingPlacementDepartment, Recruiters, PlacementRecord,\
+    OurAlumni,Conference,CenterOfExcellence,AicteApprovalLetter,ListOfHoliday,MandatoryDisclosure,Hostel,Mediclaim,\
+    SocialResponsibility,Society,TimeTable,CollegeAwards
+
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -107,13 +109,13 @@ class PrincipalAdmin(admin.ModelAdmin):
         model = Principal
 
 
-# class AcademicCalendarAdmin(admin.ModelAdmin):
+class AcademicCalendarAdmin(admin.ModelAdmin):
 
-#     def has_add_permission(self, request, obj=None):
-#         return False
+    def has_add_permission(self, request, obj=None):
+        return False
 
-#     class Meta:
-#         model = AcademicCalendar
+    class Meta:
+        model = AcademicCalendar
 
 
 admin.site.register(RecentEvent, RecentEventAdmin)
@@ -130,22 +132,25 @@ admin.site.register(Gallery)
 admin.site.register(OrganizationChart)
 admin.site.register(Infrastructure)
 admin.site.register(ImportantFunctionary, ImpFunctionaryAdmin)
-admin.site.register(models.Conference),
-admin.site.register(models.CenterOfExcellence),
-admin.site.register(models.AicteApprovalLetter),
-admin.site.register(models.ListOfHoliday),
-admin.site.register(models.MandatoryDisclosure),
-admin.site.register(models.Events)
-admin.site.register(models.Hostel)
-admin.site.register(models.Mediclaim)
-admin.site.register(models.SocialResponsibility)
-admin.site.register(models.Society)
-admin.site.register(models.AcademicCalendar)
-admin.site.register(models.TimeTable)
-admin.site.register(models.Affiliation)
-admin.site.register(models.Awards)
-admin.site.register(models.UniversityAwards)
-admin.site.register(models.CollegeAwards)
+admin.site.register(Conference),
+admin.site.register(CenterOfExcellence),
+admin.site.register(AicteApprovalLetter),
+admin.site.register(ListOfHoliday),
+admin.site.register(MandatoryDisclosure),
+admin.site.register(Events)
+admin.site.register(Hostel)
+admin.site.register(Mediclaim)
+admin.site.register(SocialResponsibility)
+admin.site.register(Society)
+admin.site.register(AcademicCalendar, AcademicCalendarAdmin)
+admin.site.register(TimeTable)
+admin.site.register(Affiliation)
+admin.site.register(UniversityAwards)
+admin.site.register(CollegeAwards)
+admin.site.register(TrainingPlacementDepartment)
+admin.site.register(Recruiters)
+admin.site.register(PlacementRecord)
+admin.site.register(OurAlumni)
 
 
 

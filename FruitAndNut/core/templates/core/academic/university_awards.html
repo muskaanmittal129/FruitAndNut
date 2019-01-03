@@ -1,44 +1,29 @@
 {% extends 'core/base/base.html' %}
 {% load staticfiles %}
 {% load static %}
-{% block stylesheets %}
-{{ block.super }}
-<link rel="stylesheet" type="text/css" href="{% static 'core/css/university.css' %}">
-{% endblock stylesheets %}
-{% block content %}
-<div class="container  mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
-    <div class="row grey text-center">
-        <div class="col-12 pd-1">
-            <h3 style="font-weight:lighter">
-                - AWARDS LIST -
-            </h3>
-        </div>
-    </div>
-
-    <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1 table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col-4">Name</th>
-                    <th scope="col-4">Year</th>
-                    <th scope="col-4">Branch</th>
-                    <th scope="col-4">Percentage Marks</th>
-                    <th scope="col-4">Medal</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for student in univ_awards_info %}
-                <tr>
-                    <td>{{student.name}}</td>
-                    <td>{{student.univ_position}}</td>
-                    <td>{{student.branch}}</td>
-                    <td>{{student.percentage_marks}}</td>
-                    <td>{{student.medal}}</td>
-                </tr>
-                {% endfor %}
-        </table>
-    </div>
-</div>
-
-{% endblock content %}
+    {% block stylesheets %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/university.css' %}">
+    {% endblock stylesheets %}
+    {% block content %}
+   <div class="container z-depth-1 mt-5 light-grey-bg">
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>University Position</th>
+              <th>Branch</th>
+              <th>Percentage Marks</th>
+              <th>Medal</th>
+          </tr>
+          {% for student in univ_awards_info %}
+          <tr>
+              <td>{{student.name}}</td>
+              <td>{{student.univ_position}}</td>
+              <td>{{student.branch}}</td>
+              <td>{{student.percentage_marks}}</td>
+              <td>{{student.medal}}</td>
+          </tr>
+          {% endfor %}
+      </table>
+     </div>
+    {% endblock content %}
