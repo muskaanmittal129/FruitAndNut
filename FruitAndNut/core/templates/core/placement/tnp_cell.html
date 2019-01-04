@@ -1,17 +1,32 @@
 {% extends 'core/base/base.html' %}
 {% load static %}
     {% block stylesheets %}
-    {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
-
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/principal.css' %}">
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px">
-         {% for info in TNP_info %}
-          <img src ="{{info.image.url}}", alt="Image"/>
-         {% endfor %}
+
+     <div class="container z-depth-1 mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+      <!--lab-section-->
+      <div class="row grey text-center">
+        <div class="col-12 pd-1">
+          <h3 style="font-weight:lighter">
+            - T & P CELL-
+          </h3>
+        </div>
+      </div>
+        <div class="row pd-1">
+                {% for info in TNP_info %}
+            <div class="col-lg-10 col-sm-12 mx-auto  pd-1 ContentText m-1">
+              <h3> {{info.name}}</h3><br>
+              <img  class="Element Border50 z-depth-1" src="{{info.image.url}}" alt="T&P CELL">
+                <p _mce_style="text-align: center;" class="rtecenter"><br><span style="font-size:18px;">E-mail:&nbsp;
+                    <a href="mailto:akgecplacement@akgec.org">akgecplacement@akgec.org</a>,</span></p><p _mce_style="text-align: center;" class="rtecenter"><span style="font-size:18px;">&nbsp;<a href="mailto:akgecplacements@gmail.com">akgecplacements@gmail.com</a></span></p>
+
+              <p style="font-size:1.2rem"><i class="fas fa-quote-left"></i> {{info.message|safe}}</i></p>
+            </div>
+            {% endfor %}
+
+        </div>
      </div>
     {% endblock content %}
-
-
-

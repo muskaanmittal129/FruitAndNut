@@ -218,6 +218,10 @@ class CenterOfExcellence(models.Model):
     title = models.CharField(max_length=250, blank=False)
     content = models.TextField(blank=False)
 
+    class Meta:
+        verbose_name = 'Center Of Excellence'
+        verbose_name_plural = "Center Of Excellence"
+
     def __str__(self):
         return self.title
 
@@ -343,10 +347,9 @@ class TimeTable(models.Model):
 
 
 class UniversityAwards(models.Model):
-    session = models.CharField(max_length=255, default= 1)
+    session = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    univ_position =models.IntegerField()
-    branch = models.CharField(max_length=255)
+    univ_position = models.IntegerField()
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
     medal = models.CharField(max_length=255)
 
@@ -356,10 +359,9 @@ class UniversityAwards(models.Model):
 
 
 class CollegeAwards(models.Model):
-    session = models.CharField(max_length=255, default= 1)
+    session = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     year = models.IntegerField()
-    branch = models.CharField(max_length=255)
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
 
     class Meta:
@@ -375,7 +377,7 @@ class TrainingPlacementDepartment(models.Model):
     designation = models.CharField(max_length=255)
     image = models.ImageField(upload_to='images/placement')
     message = RichTextUploadingField()
-    email = models.EmailField(blank=True)
+
 
     class Meta:
         verbose_name = 'T & P Department'

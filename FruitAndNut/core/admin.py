@@ -118,6 +118,24 @@ class AcademicCalendarAdmin(admin.ModelAdmin):
         model = AcademicCalendar
 
 
+class AffiliationAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    class Meta:
+        model = Affiliation
+
+
+class TrainingPlacementDepartmentAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    class Meta:
+        model = TrainingPlacementDepartment
+
+
 admin.site.register(RecentEvent, RecentEventAdmin)
 admin.site.register(FooterRelatedLinks, FooterLinkAdmin)
 admin.site.register(FooterContact, FooterContactAdmin)
@@ -144,10 +162,10 @@ admin.site.register(SocialResponsibility)
 admin.site.register(Society)
 admin.site.register(AcademicCalendar, AcademicCalendarAdmin)
 admin.site.register(TimeTable)
-admin.site.register(Affiliation)
+admin.site.register(Affiliation, AffiliationAdmin)
 admin.site.register(UniversityAwards)
 admin.site.register(CollegeAwards)
-admin.site.register(TrainingPlacementDepartment)
+admin.site.register(TrainingPlacementDepartment, TrainingPlacementDepartmentAdmin)
 admin.site.register(Recruiters)
 admin.site.register(PlacementRecord)
 admin.site.register(OurAlumni)
