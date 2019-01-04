@@ -275,6 +275,7 @@ class FeeStructure(models.Model):
     content = RichTextUploadingField()
 
 
+
 class AdmissionProcess(models.Model):
     content = RichTextUploadingField()
 
@@ -352,8 +353,6 @@ class UniversityAwards(models.Model):
     class Meta:
         verbose_name = 'University Award'
         verbose_name_plural = 'University Awards'
-
-
 
 
 class CollegeAwards(models.Model):

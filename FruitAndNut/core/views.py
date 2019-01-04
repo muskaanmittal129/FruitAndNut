@@ -3,7 +3,7 @@ from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
-    Infrastructure, AcademicCalendar, TimeTable, Affiliation, Awards, UniversityAwards, TrainingPlacementDepartment, \
+    Infrastructure, AcademicCalendar, TimeTable, Affiliation, UniversityAwards, TrainingPlacementDepartment, \
     Recruiters, PlacementRecord, OurAlumni
 
 
