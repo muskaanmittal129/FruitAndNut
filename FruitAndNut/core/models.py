@@ -149,7 +149,7 @@ class Principal(models.Model):
 
     class Meta:
         verbose_name = 'Principal'
-        verbose_name_plural = 'Principal'
+        verbose_name_plural = 'Prinicipal'
 
     def __str__(self):
         return self.name

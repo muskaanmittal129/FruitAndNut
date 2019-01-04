@@ -1,29 +1,17 @@
 {% extends 'core/base/base.html' %}
 {% load static %}
-{% block stylesheets %}
-{{ block.super }}
-<link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+    {% block stylesheets %}
+    {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
 
-{% endblock stylesheets %}
-{% block content %}
-<div style="height:500px">
-    <div class="container  mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
-        <div class="row grey text-center">
-            <div class="col-12 pd-1">
-                <h3 style="font-weight:lighter">
-                    - OUR RECRUITORS -
-                </h3>
-            </div>
-        </div>
-        <div class="row pd-1">
-            <div class="col-12 mt-5 col-md-6 col-lg-4">
-                <div class="card">
-                    <img class="card-img-top" src="{%static 'core/images/slide1.jpg' %}" alt="Thumbnail">
-                    <div class="card-body">
-                        NAME
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endblock stylesheets %}
+    {% block content %}
+     <div style="height:500px">
+         {% for info in recruiters_info %}
+          <img src ="{{info.image.url}}", alt="Image"/>
+         {% endfor %}
+     </div>
     {% endblock content %}
+
+
+

@@ -3,7 +3,8 @@ from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
-    Infrastructure, AcademicCalendar, TimeTable, Affiliation, UniversityAwards
+    Infrastructure, AcademicCalendar, TimeTable, Affiliation, Awards, UniversityAwards, TrainingPlacementDepartment, \
+    Recruiters, PlacementRecord, OurAlumni
 
 
 def get_footer_about():
@@ -572,3 +573,4 @@ class MandatoryDisclosureView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 # ---------------------- end of quick links views ---------------------------
+
