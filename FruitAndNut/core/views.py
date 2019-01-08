@@ -48,7 +48,8 @@ class Home(generic.DetailView):
         self.context["landing_portion"] = LandingPortion.objects.filter(active=True)
 
     def get_notification(self):
-        self.context["notification"] = models.Notification.objects.all()
+        self.context["notify_active"] = models.Notification.objects.filter(active=True)
+        self.context["notify_not_active"] = models.Notification.objects.filter(active=False)
 
     def get(self, *args, **kwargs):
         self.get_recent_event()

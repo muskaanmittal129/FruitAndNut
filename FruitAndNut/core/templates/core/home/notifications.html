@@ -8,16 +8,18 @@
                   <div class="title">Notifications</div>
                 </div>
             <ul>
-              <li>
-                Departmental notice
-             </li>
-             <li>
-               Departmental notice
-            </li>
-            <li>
-              Departmental notice
-           </li>
-            </ul/>
+                {% for notify in notify_active %}
+                <li>
+                    {{ notify.message }}
+                </li>
+                {% endfor %}
+
+                {% for notify in notify_not_active %}
+                <li>
+                    {{ notify.message }}
+                </li>
+                {% endfor %}
+            </ul>
           </div>
           <div class="col-lg-4 col-sm-6  left-border pd-1 QuickLinks ">
             <div class="title text-center Orange grey">

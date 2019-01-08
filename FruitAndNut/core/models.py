@@ -433,19 +433,3 @@ class OurAlumni(models.Model):
 
 # ---------------------------alumni section ends-----------------------#
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

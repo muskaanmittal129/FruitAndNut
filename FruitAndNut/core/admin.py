@@ -3,8 +3,7 @@ from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks,
     Principal, OrganizationChart, Gallery, Events, ImportantFunctionary, VisionAndMission, Infrastructure, \
     AcademicCalendar, Affiliation, UniversityAwards, TrainingPlacementDepartment, Recruiters, PlacementRecord,\
     OurAlumni,Conference,CenterOfExcellence,AicteApprovalLetter,ListOfHoliday,MandatoryDisclosure,Hostel,Mediclaim,\
-    SocialResponsibility,Society,TimeTable,CollegeAwards
-
+    SocialResponsibility,Society,TimeTable,CollegeAwards, Notification
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -169,6 +168,7 @@ admin.site.register(TrainingPlacementDepartment, TrainingPlacementDepartmentAdmi
 admin.site.register(Recruiters)
 admin.site.register(PlacementRecord)
 admin.site.register(OurAlumni)
+admin.site.register(Notification)
 
 
 
