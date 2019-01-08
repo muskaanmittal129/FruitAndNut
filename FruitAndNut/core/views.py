@@ -346,7 +346,7 @@ class InternationalJournalView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-        self.context["inter_journal"] = models.InternationalJournal.objects.all()
+        self.context["inter_journal"] = models.InternationalJournal.objects.all().first()
         return render(self.request, self.template_name, self.context)
 
 

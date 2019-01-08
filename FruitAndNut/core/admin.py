@@ -3,7 +3,7 @@ from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks,
     Principal, OrganizationChart, Gallery, Events, ImportantFunctionary, VisionAndMission, Infrastructure, \
     AcademicCalendar, Affiliation, UniversityAwards, TrainingPlacementDepartment, Recruiters, PlacementRecord,\
     OurAlumni,Conference,CenterOfExcellence,AicteApprovalLetter,ListOfHoliday,MandatoryDisclosure,Hostel,Mediclaim,\
-    SocialResponsibility,Society,TimeTable,CollegeAwards, Notification
+    SocialResponsibility,Society,TimeTable,CollegeAwards, Notification, InternationalJournal
 
 
 class FooterAboutAdmin(admin.ModelAdmin):
@@ -169,7 +169,7 @@ admin.site.register(Recruiters)
 admin.site.register(PlacementRecord)
 admin.site.register(OurAlumni)
 admin.site.register(Notification)
-
+admin.site.register(InternationalJournal)
 
 
 
