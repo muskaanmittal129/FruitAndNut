@@ -3,7 +3,6 @@
     {% block stylesheets %}
     {{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/center_of_exc.css' %}">
-
     {% endblock stylesheets %}
     {% block content %}
     <div class="container mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
@@ -17,7 +16,8 @@
         <div class="row pd-1">
             {% for center in center_of_exc %}
             <div class="col-lg-6 col-sm-12 mx-auto pd-1 m-1">
-                <div class="card bg-light mb-3">
+                <a href="{{center.website_link}}">
+                    <div class="card bg-light mb-3">
                     <div class="card-header">
                         <img class="card-img-top" src="{{ center.logo.url }}" alt="LOGO">
                     </div>
@@ -26,6 +26,7 @@
                         <p class="card-text">{{center.content}}</p>
                     </div>
                 </div>
+                </a>
             </div>
             {% endfor %}
         </div>

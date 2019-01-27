@@ -224,6 +224,7 @@ class CenterOfExcellence(models.Model):
     logo = models.ImageField(upload_to='images/center_of_excellence/%Y-%m-%d')
     title = models.CharField(max_length=250, blank=False)
     content = models.TextField(blank=False)
+    website_link = models.URLField(max_length=250)
 
     class Meta:
         verbose_name = 'Center Of Excellence'
@@ -292,7 +293,7 @@ class MandatoryDisclosure(models.Model):
 
 class Download(models.Model):
     title = models.CharField(max_length=250, blank=False)
-    content = models.FileField(upload_to='files/downloads/%Y-%m-%d')
+    content = models.FileField(upload_to='files/download/%Y-%m-%d')
 
     class Meta:
         verbose_name = 'Download'
