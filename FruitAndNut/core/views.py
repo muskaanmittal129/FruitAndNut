@@ -283,7 +283,7 @@ class CollegeAwardsView(generic.ListView):
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
         print(session)
-        college_awards_info = models.CollegeAwards.objects.filter(session =session)
+        college_awards_info = models.CollegeAwards.objects.filter(session=session)
         self.context['college_awards_info'] = college_awards_info
         return render(self.request, self.template_name, self.context)
 

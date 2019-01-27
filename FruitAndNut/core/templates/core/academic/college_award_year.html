@@ -8,7 +8,7 @@
     {% block content %}
    <div class="container z-depth-1 mt-5 light-grey-bg">
       {% for award in colg_award_list %}
-        Merit Awards for the year<a href="{% url 'college-awards' award.session %}">{{award.session}}</a>
+        Merit Awards for the year<a href="{% url 'college_awards' award.session %}">{{award.session}}</a>
        {% endfor %}
      </div>
     {% endblock content %}
