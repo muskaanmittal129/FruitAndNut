@@ -11,7 +11,9 @@ body{
 .z-1{z-index: 1} .z-2{z-index: 2} .z-3{z-index: 3} .z-4{z-index: 4}
 .B-r2{border-radius: 20px}
 .Orange{color: #ffc107}
-
+.container{
+  background-color: #eee;
+}
 .NotificationsList li
 {
   margin: 10px
@@ -44,7 +46,6 @@ body{
   width: 100%;
   background-color: #696969;
 } */
-li:hover a { background-color: #fff !important; }
 @media query(max-width:480px)
 {s
   .container
