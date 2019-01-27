@@ -25,7 +25,7 @@ body{
 #caption_slider
 {
   z-index: 1;
-  color: #03a9f4;
+  color: #1976d2;
   font-family: 'Open Sans', sans-serif;
   margin-top: 10%;
 
@@ -52,13 +52,13 @@ img {
   background-size: cover;
 }
 
-@media query(max-width:480px)
-{
-  .container
-  {
-    width: 100vw !important;
-  }
-}
+/*@media query(max-width:480px)*/
+/*{*/
+  /*.container*/
+  /*{*/
+    /*width: 100vw !important;*/
+  /*}*/
+/*}*/
 
 @media screen and (max-width: 768px) {
   #caption-md-hide {

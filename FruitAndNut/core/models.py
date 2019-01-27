@@ -2,6 +2,12 @@ from django.db import models
 import datetime as dt
 from django.core.validators import RegexValidator
 from ckeditor_uploader.fields import RichTextUploadingField
+import datetime
+
+year_dropdown = []
+for y in range(2011, (datetime.datetime.now().year + 5)):
+    y= str(y)+'-'+str(y+1)
+    year_dropdown.append((y, y))
 
 # Create your models here.
 
@@ -359,7 +365,7 @@ class UniversityAwards(models.Model):
 
 
 class CollegeAwards(models.Model):
-    session = models.CharField(max_length=255)
+    session = models.CharField(('year'),choices=year_dropdown, default=datetime.datetime.now().year, max_length=10)
     name = models.CharField(max_length=255)
     year = models.IntegerField()
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)
