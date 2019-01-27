@@ -6,7 +6,11 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px"></div>
+     <div style="height:500px">
+         {% for info in aicte %}
+            <a href ="{{info.content.url}}">{{info.title}}</a>
+         {% endfor %}
+     </div>
     {% endblock content %}
 
 

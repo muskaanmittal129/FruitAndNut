@@ -6,7 +6,12 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px"></div>
+     <div style="height:500px">
+         {% for info in list_of_holidays %}
+            <img alt="holidays" src ="{{info.content.url}}">
+         {% endfor %}
+     </div>
+
     {% endblock content %}
 
 

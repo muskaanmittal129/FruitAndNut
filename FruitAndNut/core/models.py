@@ -244,7 +244,11 @@ class InternationalJournal(models.Model):
 
 
 class ListOfHoliday(models.Model):
-    content = models.FileField(upload_to='files/list_of_holidays/%Y-%m-%d')
+    content = models.ImageField(upload_to='images/list_of_holidays/%Y-%m-%d')
+
+    class Meta:
+        verbose_name = 'List Of Holiday'
+        verbose_name_plural = "List Of Holidays"
 
     def __str__(self):
         return "List-Of-Holidays"
@@ -254,6 +258,10 @@ class Naac(models.Model):
     title = models.CharField(max_length=250, blank=False)
     content = models.FileField(upload_to='files/naac/%Y-%m-%d')
 
+    class Meta:
+        verbose_name = 'NAAC'
+        verbose_name_plural = "NAAC"
+
     def __str__(self):
         return self.title
 
@@ -261,6 +269,10 @@ class Naac(models.Model):
 class AicteApprovalLetter(models.Model):
     title = models.CharField(max_length=250, blank=False)
     content = models.FileField(upload_to='files/aicte_approval_letter/%Y-%m-%d')
+
+    class Meta:
+        verbose_name = 'AICTE Approval Letter'
+        verbose_name_plural = "AICTE Approval Letters"
 
     def __str__(self):
         return self.title
@@ -270,12 +282,24 @@ class MandatoryDisclosure(models.Model):
     title = models.CharField(max_length=250, blank=False)
     content = models.FileField(upload_to='files/mandatory_disclosure/%Y-%m-%d')
 
+    class Meta:
+        verbose_name = 'Mandatory Disclosure'
+        verbose_name_plural = "Mandatory Disclosure"
+
     def __str__(self):
         return self.title
 
 
 class Download(models.Model):
-    pass
+    title = models.CharField(max_length=250, blank=False)
+    content = models.FileField(upload_to='files/downloads/%Y-%m-%d')
+
+    class Meta:
+        verbose_name = 'Download'
+        verbose_name_plural = "Downloads"
+
+    def __str__(self):
+        return self.title
 
 # ---------------------  end of Quick Link models ---------------------
 

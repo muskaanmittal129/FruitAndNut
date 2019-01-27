@@ -532,6 +532,7 @@ class DownloadView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["downloads"] = models.Download.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -541,6 +542,7 @@ class AicteApprovalLetterView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["aicte"] = models.AicteApprovalLetter.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
