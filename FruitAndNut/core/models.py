@@ -187,6 +187,7 @@ class LabSection(models.Model):
 
 class Notification(models.Model):
     message = models.TextField()
+    link = models.URLField(max_length=250)
     active = models.BooleanField(default=False)
 
     def __str__(self):

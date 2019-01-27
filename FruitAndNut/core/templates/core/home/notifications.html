@@ -10,13 +10,13 @@
             <ul>
                 {% for notify in notify_active %}
                 <li>
-                    {{ notify.message }}
+                    <a href="{{notify.link}}">{{ notify.message}}</a>
                 </li>
                 {% endfor %}
 
                 {% for notify in notify_not_active %}
                 <li>
-                    {{ notify.message }}
+                    <a href="{{notify.link}}">{{ notify.message}}</a>
                 </li>
                 {% endfor %}
             </ul>
