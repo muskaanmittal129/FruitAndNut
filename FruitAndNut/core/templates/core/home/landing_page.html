@@ -1,17 +1,13 @@
 {% load staticfiles %}
+<link rel = "stylesheet" type="text/css" href="{% static 'core/css/landing_page.css' %}">
 <div class="row justify-content-center"><!--LandingPage-->
-          <div class="col-6 position-absolute " id="caption_slider">
+          <div class="col-lg-6 col-md-6 col-sm-10 position-absolute " id="caption_slider">
             <div class="row pd-1">
-              <div class="col-12 text-center Orange">campus life@</div>
-              <div class="col-12 text-center op-bg B-r2 "><p class=" white-text main_text">AKGEC-MCA</p></div>
-              <div class="col-12 text-center white-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br>
-                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br> Ut enim ad minim veniam, quis nostrud exercitation</div>
-              <div class="col-12 text-center pd-1"><button type="button" class="btn btn-outline-light">Know More</button></div>
+              <div class="col-12 text-center op-bg B-r2 main-text-col "><p class=" white-text main_text">AKGEC-MCA</p></div>
             </div>
           </div>
 
-          <div class="col-12 Slider_container ">
+          <div class="col-12  ">
             <div  id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for portion in landing_portion %}
@@ -22,14 +18,14 @@
                         {% endif %}
                     {% endfor %}
                 </ol>
-                <div class="carousel-inner" style="height: 600px">
+                <div class="carousel-inner " >
                     {% for portion in landing_portion %}
                             {% if forloop.counter == 1 %}
                             <div class="carousel-item active">
                             {% else %}
                             <div class="carousel-item">
                             {% endif %}
-                                 <img class="d-block w-100" src="{{ portion.slider.url }}" alt="slides">
+                                 <img class="img-fluid" src="{{ portion.slider.url }}" alt="slides">
                             </div>
                     {% endfor %}
                 </div>
@@ -42,6 +38,7 @@
                   <span class="sr-only">Next</span>
                 </a>
             </div>
+          </div>
           </div>
 
       </div><!--Corousel-->

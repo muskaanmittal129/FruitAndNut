@@ -1,4 +1,4 @@
-gitbody{
+body{
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
@@ -12,24 +12,6 @@ gitbody{
 .z-1{z-index: 1} .z-2{z-index: 2} .z-3{z-index: 3} .z-4{z-index: 4}
 .B-r2{border-radius: 20px}
 .Orange{color: #ffc107}
-.container
-{
-  /*background: linear-gradient(to right, #039be5,#2196f3);*/
-  margin-top: 50px;
-  background-color: #eee;
-}
-.container{
-  background-color: #fff;
-}
-/* #caption_slider
-{
-  z-index: 1;
-  color: #03a9f4;
-  font-family: 'Open Sans', sans-serif;
-  margin-top: 10%;
-
-} */
-
 .top-nav{
   background-color: #ebedee;
   margin: 0px !important;
@@ -126,19 +108,27 @@ ul:after { clear: both; }
   {
     width: 100vw !important;
   }
-
-  .logo{
-    width: 40px;
+  .affliated-text{
+    font-size: .75rem;
   }
-
+  .top-nav{
+    height: 100px;
+  }
+  .top-nav img{
+    width: 25px;
+    margin: 20px 0 0 -10px;
+  }
   .Akgec-mca
   {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     padding: 20px 10px 10px 10px;
   }
   .position-absolute
   {
     position: relative !important;
+  }
+  .navbar-toggler{
+    margin-left: -50px;
   }
 }
 

@@ -1,14 +1,15 @@
 {% load staticfiles %}
+<link rel = "stylesheet" type="text/css" href="{% static 'core/css/navabar.css' %}">
 <nav class="top-nav row">
-  <div class="col-1">
+  <div class="col-1 position-absolute">
     <img class="logo" src="{% static 'core/images/Akgec_Logo.png' %}">
   </div>
-  <div class="col-11">
+  <div class="col-12">
     <div class="row text-center">
       <div class="col-12 Akgec-mca">
         AJAY KUMAR GARG ENGINEERING COLLEGE-MCA
       </div>
-      <div class="col-12 hideOnSmall">
+      <div class="col-12 affliated-text">
         <p>(Affiliated to Dr. APJ Abdul Kalam Technical University, Lucknow, UP, College Code - 027)</p>
       </div>
     </div>
@@ -43,7 +44,7 @@
         <ul class="nav-menu">
 
           <li><a href="{% url 'affiliation' %}">Affilation to AKTU</a></li>
-          
+
           <li>
             <a href="">Academic Awards &#x25B8</a>
             <ul class="nav-menu">
