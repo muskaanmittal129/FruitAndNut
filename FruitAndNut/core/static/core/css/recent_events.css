@@ -57,13 +57,6 @@ body{
   height: 330px;
 }
 /*recentEvent Details*/
-@media query (max-width:480px)
-{
-  .container
-  {
-    width: 100vw !important;
-  }
-}
 
 @media screen and (max-width: 768px) {
   #caption-md-hide {
