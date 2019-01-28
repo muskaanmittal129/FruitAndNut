@@ -500,6 +500,7 @@ class FeeStructureView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["fee_structure"] = models.FeeStructure.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -509,6 +510,7 @@ class InfoBookletView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["info_booklet"] = models.InfoBooklet.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
@@ -518,6 +520,7 @@ class RefundNormsView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
+        self.context["refund_norms"] = models.RefundNorm.objects.all()
         return render(self.request, self.template_name, self.context)
 
 

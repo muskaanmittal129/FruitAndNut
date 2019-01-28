@@ -310,6 +310,14 @@ class Download(models.Model):
 class FeeStructure(models.Model):
     content = RichTextUploadingField()
 
+    class Meta:
+        verbose_name = 'Fee Structure'
+        verbose_name_plural = "Fee Structure"
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
 
 
 class AdmissionProcess(models.Model):
@@ -319,9 +327,28 @@ class AdmissionProcess(models.Model):
 class InfoBooklet(models.Model):
     content = RichTextUploadingField()
 
+    class Meta:
+        verbose_name = 'Information Booklet'
+        verbose_name_plural = "Information Booklet"
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
+
 
 class RefundNorm(models.Model):
     content = RichTextUploadingField()
+
+    class Meta:
+        verbose_name = 'Refund Norm'
+        verbose_name_plural = "Refund Norm"
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
+
 
 # ---------------------  end of Admission Models --------------------
 
