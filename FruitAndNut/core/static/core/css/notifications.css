@@ -46,8 +46,8 @@ body{
   width: 100%;
   background-color: #696969;
 } */
-@media query(max-width:480px)
-{s
+@media (max-width:480px)
+{ s
   .container
   {
     width: 100vw !important;
