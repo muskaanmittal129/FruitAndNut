@@ -455,7 +455,7 @@ class TimeTable(models.Model):
 
 
 class UniversityAwards(models.Model):
-    session = models.CharField(max_length=255)
+    session = models.CharField(('year'), choices=year_dropdown, default=datetime.datetime.now().year, max_length=10)
     name = models.CharField(max_length=255)
     univ_position = models.IntegerField()
     percentage_marks = models.DecimalField(max_digits=6, decimal_places=3)

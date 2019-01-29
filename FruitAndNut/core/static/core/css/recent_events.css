@@ -39,7 +39,7 @@ body{
 }
 
 /*recentEvent Details*/
-@media query (max-width:480px)
+@media (max-width:480px)
 {
   .container
   {
