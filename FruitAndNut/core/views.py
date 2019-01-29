@@ -271,11 +271,11 @@ class CollegeAwardsYearView(generic.ListView):
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-        self.context['colg_award_list'] = models.CollegeAwards.objects.all()
+        self.context['colg_award_list'] = models.CollegeAwards.objects.values('session').distinct()
         return render(self.request, self.template_name, self.context)
 
 
-class CollegeAwardsView(generic.ListView):
+class CollegeAwardsView(generic.DetailView):
     template_name = 'core/academic/college_awards.html'
     context = {}
     context.update(get_footer())

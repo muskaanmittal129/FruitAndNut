@@ -3,12 +3,14 @@
     {% block stylesheets %}
     {{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
-
     {% endblock stylesheets %}
     {% block content %}
-     {% for obj in social_responsibility %}
-     <div style="height:500px">{{obj.content|safe|escape}}</div>
-    {% endfor %}
+        {% for obj in social_responsibility %}
+            <div style="height:500px">
+                <img src ="{{obj.image.url}}">
+                {{obj.content}}
+            </div>
+        {% endfor %}
     {% endblock content %}
 
 

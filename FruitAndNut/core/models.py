@@ -356,23 +356,72 @@ class RefundNorm(models.Model):
 
 
 class Events(models.Model):
-    content = RichTextUploadingField()
+    image = models.ImageField(upload_to='images/events/%Y-%m-%d')
+    content = models.TextField()
+
+    class Meta:
+        verbose_name = 'Event'
+        verbose_name_plural = 'Events'
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
 
 
 class Hostel(models.Model):
-    content = RichTextUploadingField()
+    image = models.ImageField(upload_to='images/hostel/%Y-%m-%d')
+    content = models.TextField()
+
+    class Meta:
+        verbose_name = 'Hostel'
+        verbose_name_plural = 'Hostel'
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
 
 
 class SocialResponsibility(models.Model):
-    content = RichTextUploadingField()
+    image = models.ImageField(upload_to='images/social_responsibility/%Y-%m-%d')
+    content = models.TextField()
+
+    class Meta:
+        verbose_name = 'Social Responsibility'
+        verbose_name_plural = 'Social Responsibility'
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
 
 
 class Society(models.Model):
-    content = RichTextUploadingField()
+    image = models.ImageField(upload_to='images/social_responsibility/%Y-%m-%d')
+    content = models.TextField()
+
+    class Meta:
+        verbose_name = 'Society'
+        verbose_name_plural = 'Society'
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
 
 
 class Mediclaim(models.Model):
     content = RichTextUploadingField()
+
+    class Meta:
+        verbose_name = 'Mediclaim'
+        verbose_name_plural = 'Mediclaim'
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
 
 
 # ---------------------  end of life-akgec-mca Models --------------------#

@@ -7,7 +7,9 @@
     {% endblock stylesheets %}
     {% block content %}
     {% for obj in events %}
-     <div style="height:500px">{{obj.content|safe|escape}}</div>
+     <div style="height:500px">
+         <img src ="{{obj.image.url}}">
+         {{obj.content}}</div>
     {% endfor %}
     {% endblock content %}
 
