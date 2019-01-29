@@ -8,10 +8,7 @@
     {% block content %}
      <div style="height:500px">
          {% for info in recruiters_info %}
-          <img src ="{{info.image.url}}", alt="Image"/>
+          <img class="img-fluid" src ="{{info.image.url}}", alt="Image"/>
          {% endfor %}
      </div>
     {% endblock content %}
-
-
-
