@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views import generic
 from . import models
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
-    LabSection, ImportantFunctionary, Gallery, Event, EventImages, OrganizationChart, Principal, VisionAndMission,\
+    LabSection, ImportantFunctionary, Gallery, Event, EventImages\
+    , OrganizationChart, Principal, VisionAndMission,\
     Infrastructure, AcademicCalendar, TimeTable, Affiliation, UniversityAwards, TrainingPlacementDepartment, \
     Recruiters, PlacementRecord, OurAlumni
 
@@ -255,13 +256,13 @@ class SyllabusView(generic.ListView):
         return render(self.request, self.template_name, self.context)
 
 
-class AwardsListView(generic.ListView):
+class UniversityAwardsYearView(generic.ListView):
     template_name = 'core/academic/awards_list.html'
     context = {}
     context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-        self.context['uni_award_list'] = models.UniversityAwards.objects.all()
+        self.context['uni_award_list'] = models.UniversityAwards.objects.values('session').distinct()
         return render(self.request, self.template_name, self.context)
 
 
