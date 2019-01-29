@@ -7,9 +7,12 @@
     {% endblock stylesheets %}
     {% block content %}
      {% for obj in society %}
-     <div style="height:500px">{{obj.content|safe|escape}}</div>
+     <div class="container">
+       <div class="row">
+         <div class="col-12 text-center">
+           {{obj.content|safe|escape}}
+         </div>
+       </div>
+     </div>
     {% endfor %}
     {% endblock content %}
-
-
-

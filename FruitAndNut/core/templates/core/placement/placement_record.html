@@ -6,12 +6,13 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px">
+     <div class="container">
+       <div class="row">
+         <div class="col-10 mx-auto pd-1">
          {% for info in placement_record %}
           <img src ="{{info.image.url}}", alt="Image"/>
          {% endfor %}
+         </div>
+       </div>
      </div>
     {% endblock content %}
-
-
-

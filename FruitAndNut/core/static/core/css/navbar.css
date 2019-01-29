@@ -81,11 +81,11 @@ li:hover > ul {
   position: absolute;
 }
 
-li:hover li { float: none; }
+nav li:hover li { float: none; }
 
-li:hover a { background-color: #424242 }
+nav li:hover a { background-color: #424242 }
 
-li:hover li a:hover { background: #212121; }
+nav li:hover li a:hover { background: #212121; }
 
 .main-navigation li ul li { border-top: 0; }
 
