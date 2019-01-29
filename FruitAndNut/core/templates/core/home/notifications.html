@@ -9,7 +9,7 @@
               <div class="col-12 aqua">
                   <div class="title">Notifications</div>
                 </div>
-            <ul>
+            <ol>
                 {% for notify in notify_active %}
                 <li>
                     <a href="{{notify.link}}">{{ notify.message}}</a>
@@ -18,10 +18,10 @@
 
                 {% for notify in notify_not_active %}
                 <li>
-                    <a href="{{notify.link}}">{{ notify.message}}</a>
+                    <i class="far fa-bell"></i> <a href="{{notify.link}}">{{ notify.message}}</a>
                 </li>
                 {% endfor %}
-            </ul>
+            </ol>
           </div>
           <div class="col-lg-4 col-sm-6  left-border pd-1 QuickLinks ">
             <div class="title text-center aqua">

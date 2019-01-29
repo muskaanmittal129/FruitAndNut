@@ -6,12 +6,16 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px">
-          {% for info in downloads %}
-            <a href ="{{info.content.url}}">{{info.title}}</a>
-         {% endfor %}
+     <div class="container shdw" style="margin-bottom:50px">
+       <div class="row">
+         <div class="col-12 grey title">
+           Downloads
+         </div>
+         <div class="col-12 text-center pd-1">
+           {% for info in downloads %}
+             <i class="far fa-dot-circle" style="margin-right:5px"></i><a href ="{{info.content.url}}">{{info.title}}</a>
+          {% endfor %}
+         </div>
+       </div>
      </div>
     {% endblock content %}
-
-
-
