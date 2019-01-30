@@ -35,11 +35,11 @@
                                     </div>
                                 </div>
                                 <div class="col-9 qoute">
-                                    <p><span id="dots">{{testimonial.testimonial_message|truncatewords:20}}</span><span
-                                            id="more">
+                                    <p><span id="dots{{testimonial.id}}" class="dots">{{testimonial.testimonial_message|truncatewords:20}}</span><span
+                                            id="more{{testimonial.id}}" class="more">
                                         {{testimonial.testimonial_message}}
                                            </span></p>
-                                    <button class="Aqua btn" onclick="myFunction()" id="myBtn_{{testimonial.id}}">Read more</button>
+                                    <button class="Aqua btn" onclick="myFunction({{testimonial.id}})" id="{{testimonial.id}}">Read more</button>
                                 </div>
 
                             </div>
@@ -50,11 +50,20 @@
         </div>
     </div>
     <!--script-->
-    <script>
-        function myFunction() {
-            var dots = document.getElementById("dots");
-            var moreText = document.getElementById("more");
-            var btnText = document.getElementById("myBtn_{{ testimonial.id }}");
+
+
+  {% endfor %}
+    {% endblock content %}
+
+
+{% block javascript %}
+    {{ block.super }}
+        <script>
+        function myFunction(id) {
+            console.log(id);
+            var dots = document.getElementById("dots"+id);
+            var moreText = document.getElementById("more"+id);
+            var btnText = document.getElementById(id);
 
             if (dots.style.display === "none") {
                 dots.style.display = "inline";
@@ -68,5 +77,4 @@
             }
         }
     </script>
-  {% endfor %}
-    {% endblock content %}
+    {% endblock javascript %}

@@ -109,6 +109,9 @@ class OrganizationChart(models.Model):
         verbose_name = "Organization Chart"
         verbose_name_plural = "Organization Chart"
 
+    def __str__(self):
+        return self.image
+
 
 class Gallery(models.Model):
     images = models.ImageField(upload_to='images/gallery/%Y-%m-%d')
@@ -116,6 +119,9 @@ class Gallery(models.Model):
     class Meta:
         verbose_name = "Gallery"
         verbose_name_plural = "Gallery"
+
+    def __str__(self):
+        return self.images
 
 
 class Event(models.Model):
@@ -125,6 +131,9 @@ class Event(models.Model):
         verbose_name = "Event"
         verbose_name_plural = "Events"
 
+    def __str__(self):
+        return self.event_name
+
 
 class EventImages(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
@@ -133,6 +142,9 @@ class EventImages(models.Model):
     class Meta:
         verbose_name = "Event Image"
         verbose_name_plural = "Event Images"
+
+    def __str__(self):
+        return self.event
 
 
 class ImportantFunctionary(models.Model):

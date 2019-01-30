@@ -9,6 +9,9 @@ class FooterAboutAdmin(admin.ModelAdmin):
     search_fields = ['text_data']
     list_display = ('text_data',)
 
+    # def has_add_permission(self, request, obj=None):
+    #     return False
+
     class Meta:
         model = models.FooterAbout
 
@@ -17,6 +20,9 @@ class FooterAboutAdmin(admin.ModelAdmin):
 class FooterContactAdmin(admin.ModelAdmin):
     search_fields = ['text_data']
     list_display = ('text_data',)
+
+    # def has_add_permission(self, request, obj=None):
+    #     return False
 
     class Meta:
         model = models.FooterContact
