@@ -11,14 +11,12 @@
           <tr>
               <th>Name</th>
               <th>Year</th>
-              <th>Branch</th>
               <th>Percentage Marks</th>
           </tr>
           {% for student in college_awards_info %}
           <tr>
               <td>{{student.name}}</td>
               <td>{{student.year}}</td>
-              <td>{{student.branch}}</td>
               <td>{{student.percentage_marks}}</td>
           </tr>
           {% endfor %}
