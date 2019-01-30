@@ -6,5 +6,12 @@
 
     {% endblock stylesheets %}
     {% block content %}
+    {% for alumni in alumni_info%}
+        {{alumni.name}}
+        {{alumni.profile_pic}}
+        {{alumni.email}}
+        {{alumni.phone_contact}}
+        {{alumni.designation}}
+    {% endfor %}
 
     {% endblock content %}

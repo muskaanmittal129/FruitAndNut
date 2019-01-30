@@ -554,6 +554,7 @@ class OurAlumni(models.Model):
     profile_pic = models.ImageField(upload_to='images/alumni/%Y-%m-%d')
     email =  models.EmailField(blank=True)
     phone_contact = models.CharField(max_length=255, blank=True)
+    designation = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = 'Our Alumni '
