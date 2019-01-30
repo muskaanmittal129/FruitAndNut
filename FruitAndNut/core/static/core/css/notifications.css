@@ -14,9 +14,19 @@ body{
 .container{
   background-color: #eee;
 }
+.NotificationsList ol{
+  list-style: none;
+}
+ol li a {
+  color: #424242;
+}
 .NotificationsList li
 {
-  margin: 10px
+  margin: 10px;
+}
+.fa-bell{
+  margin-right: 5px;
+  color: #ffc107;
 }
 .QuickLinks li{
   padding: 10px;

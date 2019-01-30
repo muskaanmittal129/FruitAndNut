@@ -68,9 +68,17 @@
             <li class="nav-li"><a  href="{% url 'conferences' %}">Conferences</a></li>
         </ul>
       </li>
-      <li class="nav-li" class="mr-4"><a href="#">Admission</a>
+      <li class="nav-li" class="mr-4"><a href="#">Admission </a>
         <ul class="nav-menu">
-            <li class="nav-li"><a  href="{% url 'admission_process' %}">Admission Process</a></li>
+            <li class="nav-li">
+              <a  href="{% url 'admission_process' %}">Admission Process &#x25B8</a>
+              <ul class="nav-menu">
+                <li class="nav-li">
+                  <a href="{% url 'colg_award_list' %}">Direct Admission</a>
+                </li>
+                <li class="nav-li"><a href="{% url 'awards_list' %}">Through UPSEE</a></li>
+              </ul>
+            </li>
             <li class="nav-li"><a  href="{% url 'fee_structure' %}">Fee Structure</a></li>
             <li class="nav-li"><a  href="{% url 'refund_norms' %}">Refund Norms</a></li>
             <li class="nav-li"><a  href="{% url 'info_booklet' %}">Information Booklet</a></li>
