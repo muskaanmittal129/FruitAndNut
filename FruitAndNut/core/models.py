@@ -1,5 +1,6 @@
 from django.db import models
 import datetime as dt
+from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from ckeditor_uploader.fields import RichTextUploadingField
 import datetime
@@ -108,6 +109,9 @@ class OrganizationChart(models.Model):
         verbose_name = "Organization Chart"
         verbose_name_plural = "Organization Chart"
 
+    def __str__(self):
+        return self.image
+
 
 class Gallery(models.Model):
     images = models.ImageField(upload_to='images/gallery/%Y-%m-%d')
@@ -115,6 +119,9 @@ class Gallery(models.Model):
     class Meta:
         verbose_name = "Gallery"
         verbose_name_plural = "Gallery"
+
+    def __str__(self):
+        return self.images
 
 
 class Event(models.Model):
@@ -124,6 +131,9 @@ class Event(models.Model):
         verbose_name = "Event"
         verbose_name_plural = "Events"
 
+    def __str__(self):
+        return self.event_name
+
 
 class EventImages(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
@@ -132,6 +142,9 @@ class EventImages(models.Model):
     class Meta:
         verbose_name = "Event Image"
         verbose_name_plural = "Event Images"
+
+    def __str__(self):
+        return self.event
 
 
 class ImportantFunctionary(models.Model):
@@ -187,13 +200,20 @@ class LabSection(models.Model):
 
 class Notification(models.Model):
     message = models.TextField()
-    link = models.URLField(max_length=250)
+    link = models.URLField(max_length=250, blank= True)
+    file = models.FileField(upload_to='files/notification//%Y-%m-%d', blank=True )
     active = models.BooleanField(default=False)
 
     def __str__(self):
         if len(self.message) > 20:
             return self.message[0:20]
         return self.message
+
+    def clean(self):
+        if not self.link and not self.file:
+            raise ValidationError({'Add at least one field '})
+        elif self.link and self.file:
+            raise ValidationError({'Either add link or add file'})
 
 
 class VisionAndMission(models.Model):
@@ -534,6 +554,7 @@ class OurAlumni(models.Model):
     profile_pic = models.ImageField(upload_to='images/alumni/%Y-%m-%d')
     email =  models.EmailField(blank=True)
     phone_contact = models.CharField(max_length=255, blank=True)
+    designation = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = 'Our Alumni '

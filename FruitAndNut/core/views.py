@@ -469,16 +469,16 @@ class TestimonialView(generic.ListView):
 
 
 class AlumniView(generic.ListView):
-    template_name = 'core/alumni/testimonial.html'
+    template_name = 'core/alumni/our_alumni.html'
     context = {}
     context.update(get_footer())
 
-    def get_testimonial(self):
-        testimonial_info = Testimonial.objects.all()
-        self.context['testimonial_info'] = testimonial_info
+    def get_alumni(self):
+        alumni_info = OurAlumni.objects.all()
+        self.context['alumni_info'] = alumni_info
 
     def get(self, request, *args, **kwargs):
-        self.get_testimonial()
+        self.get_alumni()
         return render(self.request,self.template_name,self.context)
 
 # ---------------------- end of alumni views ---------------------------

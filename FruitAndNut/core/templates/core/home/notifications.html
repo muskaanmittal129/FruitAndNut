@@ -11,15 +11,27 @@
                 </div>
             <ol>
                 {% for notify in notify_active %}
+                {% if notify.link %}
                 <li>
-                    <a href="{{notify.link}}">{{ notify.message}}</a>
+                    <i class="far fa-bell "></i><a href="{{notify.link}}">{{ notify.message}}</a>
                 </li>
+                {% elif notify.file %}
+                <li>
+                    <i class="far fa-bell "></i><a href="{{notify.file.url}}">{{ notify.message}}</a>
+                </li>
+                {% endif %}
                 {% endfor %}
 
                 {% for notify in notify_not_active %}
+                    {% if notify.link %}
                 <li>
-                    <i class="far fa-bell"></i> <a href="{{notify.link}}">{{ notify.message}}</a>
+                    </i><a href="{{notify.link}}">{{ notify.message}}</a>
                 </li>
+                {% elif notify.file %}
+                <li>
+                    </i><a href="{{notify.file.url}}">{{ notify.message}}</a>
+                </li>
+                {% endif %}
                 {% endfor %}
             </ol>
           </div>
