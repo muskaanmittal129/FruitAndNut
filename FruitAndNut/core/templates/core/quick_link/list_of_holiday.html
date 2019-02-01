@@ -1,4 +1,5 @@
 {% extends 'core/base/base.html' %}
+{% block title %}List Of Holidays | AKGEC-MCA{% endblock %}
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
@@ -6,13 +7,23 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px">
-         {% for info in list_of_holidays %}
-            <img alt="holidays" src ="{{info.content.url}}">
+    <div class="container shdw" style="margin-bottom:50px">
+       <div class="row">
+         <div class="col-12 grey title">
+           LIST OF HOLIDAYS
+         </div>
+         <div class="col-12 media pd-1">
+             {% for info in list_of_holidays %}
+            <img class="img-fluid" alt="holidays" src ="{{info.content.url}}">
          {% endfor %}
+         </div>
+       </div>
      </div>
-
     {% endblock content %}
+
+
+
+
 
 
 

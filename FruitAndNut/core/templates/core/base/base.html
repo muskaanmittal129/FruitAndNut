@@ -1,7 +1,11 @@
 {% load staticfiles %}
 <html lang="en">
 <head>
-    <title>AKGEC-MCA</title>
+    <title>
+        {% block title %}
+        AKGEC-MCA
+        {% endblock %}
+    </title>
     {% block header %}
         {% include 'core/base/header.html' %}
     {% endblock header %}
