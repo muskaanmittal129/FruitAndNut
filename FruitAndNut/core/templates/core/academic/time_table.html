@@ -1,4 +1,5 @@
 {% extends 'core/base/base.html' %}
+{% block title %}TimeTable | AKGEC-MCA{% endblock %}
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
@@ -6,22 +7,23 @@
 
     {% endblock stylesheets %}
     {% block content %}
-    <div class="container mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+    <div class="container shdw" style="margin-bottom:50px">
+       <div class="row">
+         <div class="col-12 grey text-center title">
+           - TimeTable -
+         </div>
+         <div class="col-12 pd-1">
+         </div>
+           <ol style="list-style: none" class="text-center">
+               <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
+           {% for t in timetable %}
 
-        <div class="row grey text-center">
-          <div class="col-12 pd-1">
-            <h3 style="font-weight:lighter">
-              - TIME TABLE -
-            </h3>
-          </div>
-        </div>
-          <div class="row pd-1">
-                {% for t in timetable %}
-              <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
-                  <!--<p>MCA</p>-->
-                  <a href="{{t.image.url}}" alt="Time_Tables">MCA {{t.year}} year, Section{{t.section}}</a>
-              </div>
+                  <li><i class="far fa-dot-circle" style="margin-right:5px"></i>
+                      <a href="{{t.image.url}}" alt="Time_Tables">MCA {{t.year}} year, Section{{t.section}}</a></li>
+
               {% endfor %}
-          </div>
+                    </div>
+           </ol>
+         </div>
        </div>
     {% endblock content %}
