@@ -1,18 +1,22 @@
 {% extends 'core/base/base.html' %}
-{% load staticfiles %}
+{% block title %}Affiliation to AKTU | AKGEC-MCA{% endblock %}
 {% load static %}
     {% block stylesheets %}
-        {{ block.super }}
+    {{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/affiliation.css' %}">
+
     {% endblock stylesheets %}
     {% block content %}
-   <div class="container z-depth-1 mt-5 light-grey-bg">
-      <!--lab-section-->
-      <div class="row grey text-center">
-
-     </div>
-       {% for file in affiliation %}
-          <img src ="{{file.affiliation_image.url}}"/>
+    <div class="container shdw" style="margin-bottom:50px">
+       <div class="row">
+         <div class="col-12 grey title">
+           AFFILIATION TO AKTU
+         </div>
+         <div class="col-12 media pd-1">
+              {% for file in affiliation %}
+          <img class="img-fluid" alt="affiliation" src ="{{file.affiliation_image.url}}"/>
        {% endfor %}
-   </div>
+         </div>
+       </div>
+     </div>
     {% endblock content %}

@@ -1,4 +1,5 @@
 {% extends 'core/base/base.html' %}
+ {% block title %}AICTE Approval Letters | AKGEC-MCA{% endblock %}
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
@@ -6,10 +7,20 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px">
+    <div class="container shdw" style="margin-bottom:50px">
+       <div class="row">
+         <div class="col-12 grey title text-center">
+           - AICTE Approval Letters -
+         </div>
+         <div class="col-12 pd-1">
+         </div>
+             <ol style="list-style: none">
          {% for info in aicte %}
-            <a href ="{{info.content.url}}">{{info.title}}</a>
+             <li><i class="far fa-dot-circle" style="margin-right:5px"></i><a href ="{{info.content.url}}"> Year {{info.title}}</a></li>
          {% endfor %}
+              </ol>
+         </div>
+       </div>
      </div>
     {% endblock content %}
 
