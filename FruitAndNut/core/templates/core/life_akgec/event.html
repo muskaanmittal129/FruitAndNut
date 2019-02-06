@@ -2,17 +2,39 @@
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/event.css' %}">
 
     {% endblock stylesheets %}
     {% block content %}
     {% for obj in events %}
-     <div class="container">
+     <div class="container light-grey-bg shdw" style="margin-bottom:50px">
        <div class="row" >
-         <div class="col-12 text-center">
-         <img class="img-fluid" src ="{{obj.image.url}}">
-         {{obj.content}}
+         <div class="col-12 grey title text-center">
+            <h3 style="font-weight:lighter">
+                - EVENTS -
+            </h3>
          </div>
+         <div class="col-6 text-center"><!--event-->
+           <div class="row pd-1">
+             <div class="col-12 event-image">
+               <img class="img-fluid" src ="{{obj.image.url}}">
+             </div>
+             <div class="col-12 aqua">
+               <h4 style="font-weight:lighter">{{obj.content}}</h4>
+             </div>
+           </div>
+         </div><!--event - ends-->
+         <div class="col-6 text-center"><!--event-->
+           <div class="row pd-1">
+             <div class="col-12 event-image">
+               <img class="img-fluid" src ="{{obj.image.url}}">
+             </div>
+             <div class="col-12 aqua">
+               <h4 style="font-weight:lighter">{{obj.content}}</h4>
+             </div>
+           </div>
+         </div><!--event - ends-->
+
         </div>
        </div>
     {% endfor %}

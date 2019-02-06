@@ -2,15 +2,21 @@
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/mediclaim.css' %}">
 
     {% endblock stylesheets %}
 
     {% block content %}
      {% for obj in medicliam %}
-     <div style="height:500px">{{obj.content}}</div>
+     <div class="container light-grey-bg shdw">
+       <div class="row" >
+         <div class="col-12 grey title text-center">
+            <h3 style="font-weight:lighter">
+                - EVENTS -
+            </h3>
+         </div>
+       {{obj.content}}
+       </div>
+     </div>
     {% endfor %}
     {% endblock content %}
-
-
-

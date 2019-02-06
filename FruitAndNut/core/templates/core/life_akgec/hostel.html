@@ -2,14 +2,22 @@
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/hostel.css' %}">
 
     {% endblock stylesheets %}
     {% block content %}
     {% for obj in hostel%}
-     <div class="container">
+     <div class="container light-grey-bg shdw">
        <div class="row">
+         <div class="col-12 grey title text-center">
+            <h3 style="font-weight:lighter">
+                - AKGEC-MCA HOSTELS -
+            </h3>
+         </div>
          <div class="col-12 text-center">
+           The college provides well furnished hostel accommodation to its students. The six campus hostels are spread over four complexes namely, the Junior Girls Hostel Complex, the Girls Hostel Complex, the Junior Boys Hostel Complex and the Senior Boys Hostel Complex. The three girls hostel have double and triple seater rooms and accommodate about 600 students. The Junior Boys Hostel having double occupancy rooms can accommodate about 300 students and is reserved for first year students. The Senior Boys Hostel Complex has two hostels with single and triple seater accommodation and houses about 600 students.
+
+Each hostel complex has its separate mess with well equipped kitchen and dining area providing hygienic, nutritious and wholesome meals. Hostels have gymnasium as well as indoor and outdoor sports facilities. The hostels also have a TV room and library with magazines and fiction / general reading books. Hostels are equipped with eco-friendly solar water heating systems. Hostels also have canteens and provision stores for minor item of daily requirement. The hostels thus provide reasonable levels of comfort, hygienic food, recreation facilities and an environment conducive for pursuit of academic and all round development.
            <img class="img-fluid" src ="{{obj.image.url}}">
            {{obj.content}}
          </div>
