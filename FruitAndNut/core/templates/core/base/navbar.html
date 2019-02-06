@@ -74,9 +74,9 @@
               <a  href="{% url 'admission_process' %}">Admission Process &#x25B8</a>
               <ul class="nav-menu">
                 <li class="nav-li">
-                  <a href="{% url 'colg_award_list' %}">Direct Admission</a>
+                  <a href="{% url 'admission_process' %}">Direct Admission</a>
                 </li>
-                <li class="nav-li"><a href="{% url 'awards_list' %}">Through UPSEE</a></li>
+                <li class="nav-li"><a href="{% url 'admission_process' %}">Through UPSEE</a></li>
               </ul>
             </li>
             <li class="nav-li"><a  href="{% url 'fee_structure' %}">Fee Structure</a></li>
@@ -101,7 +101,14 @@
         <ul class="nav-menu">
             <li class="nav-li"><a  href="{% url 'society' %}">Societies</a></li>
             <li class="nav-li"><a  href="{% url 'event' %}">Events</a></li>
-            <li class="nav-li"><a  href="{% url 'social_responsibility' %}">Social Responsibities</a></li>
+            <li class="nav-li"><a  href="{% url 'social_responsibility' %}">Social Responsibities &#x25B8</a>
+              <ul class="nav-menu">
+                <li class="nav-li"><a href="{% url 'social_responsibility' %}">Adarsh Vikas Kendra</a></li>
+                <li class="nav-li"><a href="{% url 'social_responsibility' %}">Blood Donation Camp</a></li>
+                <li class="nav-li"><a href="{% url 'social_responsibility' %}">Environment Sustenance & Eco Friendliness</a></li>
+                <li class="nav-li"><a href="{% url 'social_responsibility' %}">Skill Development Program for Village School Students</a></li>
+              </ul>
+            </li>
             <li class="nav-li"><a  href="{% url 'hostel' %}">Hostels</a></li>
             <li class="nav-li"><a  href="{% url 'mediclaim' %}">Mediclaim</a></li>
         </ul>
