@@ -6,9 +6,33 @@
 
     {% endblock stylesheets %}
     {% block content %}
-     <div style="height:500px">
-         {% for info in recruiters_info %}
-          <img class="img-fluid" src ="{{info.image.url}}", alt="Image"/>
-         {% endfor %}
+     <div class="container shdw" style="margin-bottom:50px">
+        <div class="row">
+          <div class="col-12 ">
+            <div class="row">
+              <div class="col-lg-3 col-sm-12">
+                {% for info in recruiters_info %}
+                 <img class="img-fluid" src ="{{info.image.url}}", alt="Image"/>
+                {% endfor %}
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                {% for info in recruiters_info %}
+                 <img class="img-fluid" src ="{{info.image.url}}", alt="Image"/>
+                {% endfor %}
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                {% for info in recruiters_info %}
+                 <img class="img-fluid" src ="{{info.image.url}}", alt="Image"/>
+                {% endfor %}
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                {% for info in recruiters_info %}
+                 <img class="img-fluid" src ="{{info.image.url}}", alt="Image"/>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
      </div>
     {% endblock content %}

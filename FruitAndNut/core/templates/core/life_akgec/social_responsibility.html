@@ -6,12 +6,13 @@
     {% endblock stylesheets %}
     {% block content %}
         {% for obj in social_responsibility %}
-            <div style="height:500px">
-                <img src ="{{obj.image.url}}">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 text-center">
+                <img class="img-fluid" src ="{{obj.image.url}}">
                 {{obj.content}}
+                </div>
+              </div>
             </div>
         {% endfor %}
     {% endblock content %}
-
-
-

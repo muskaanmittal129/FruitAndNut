@@ -1,0 +1,42 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+.pd-1{padding: 10px;} .mt-2{margin-top: 10px} .light-grey-bg{background-color: #eceff1;}
+.grey{background-color: #424242;color: #fff;}.aqua{background-color: #00bcd4;color: #fff;}
+.white-text{color: #fff;} .white-bg{background-color: #fff; color: #212121}
+ .left-border{border-left: 2px solid #696969;}
+.shdw{box-shadow: 0px 5px 8px #eee;}
+.z-1{z-index: 1} .z-2{z-index: 2} .z-3{z-index: 3} .z-4{z-index: 4}
+.B-r2{border-radius: 20px}
+.Orange{color: #ffc107}
+.container{
+  background-color: #eee;
+}
+
+.alumni_card{
+  background-color: #fff;
+  box-shadow: 0px 5px 8px #eee;
+  margin:10px;
+}
+.alumni_card:hover {
+  box-shadow: 5px 5px 5px #9e9e9e;
+  transition: .4s;
+}
+.email-text{
+  font-size: 14px;
+}
+/* .divider
+{
+  height: 2px;
+  width: 100%;
+  background-color: #696969;
+} */
+@media (max-width:480px)
+{ s
+  .container
+  {
+    width: 100vw !important;
+  }
+}

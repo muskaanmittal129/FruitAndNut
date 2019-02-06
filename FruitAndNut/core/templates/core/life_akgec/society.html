@@ -2,14 +2,20 @@
 {% load static %}
     {% block stylesheets %}
     {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/society.css' %}">
 
     {% endblock stylesheets %}
     {% block content %}
      {% for obj in society %}
-     <div class="container">
-       <div class="row">
-         <div class="col-12 text-center">
+     <div class="container shdw" style="margin-bottom:50px" >
+       <div class="row" >
+         <div class="col-12 grey title text-center">
+            <h3 style="font-weight:lighter">
+                - SOCITIES -
+            </h3>
+         </div>
+         <div class="col-12">
+           <img class="img-fluid" src="{{obj.image.url}}" alt="">
            {{obj.content|safe|escape}}
          </div>
        </div>
