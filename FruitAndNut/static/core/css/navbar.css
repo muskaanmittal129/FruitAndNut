@@ -1,0 +1,159 @@
+gitbody{
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+.pd-1{padding: 10px;} .light-grey-bg{background-color: #eceff1;} .mr-4{margin-right: 40px;}
+.grey{background-color: #424242;color: #fff;}
+.white-text{color: #fff;} .white-bg{background-color: #fff; color: #212121}
+.op-bg{background: rgba(33,33,33,.7); border: 1px solid #ffc107}
+.fs{font-size: 2.5rem}
+.shdw{box-shadow: 2px 2px 8px #eee;}
+.z-1{z-index: 1} .z-2{z-index: 2} .z-3{z-index: 3} .z-4{z-index: 4}
+.B-r2{border-radius: 20px}
+.Orange{color: #ffc107}
+.container
+{
+  /*background: linear-gradient(to right, #039be5,#2196f3);*/
+  margin-top: 50px;
+  background-color: #eee;
+}
+.container{
+  background-color: green;
+}
+/* #caption_slider
+{
+  z-index: 1;
+  color: #03a9f4;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 10%;
+
+} */
+
+.top-nav{
+  background-color: #ebedee;
+  margin: 0px !important;
+}
+
+.top-nav img{
+  width: 50px;
+  margin: 15px 0 0 20px;
+}
+.Akgec-mca
+{
+  font-size: 2rem;
+}
+.navbar
+{
+  background:linear-gradient(to top ,#03a9f4, #00bcd4) #00bcd4;
+  padding: 0px 40px 0px 50px !important;
+  z-index: 10;
+  box-shadow: 0px 2px 10px 0px #757575;
+}
+
+.navbar .navbar-brand{
+  padding: 0px 50px 0 0px;
+}
+
+.navbar .navbar-brand img
+{
+    width: 35px;
+}
+
+.main-navigation{
+  margin: 0px !important;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  z-index: 200;
+}
+
+
+ul li {
+  display: block;
+  position: relative;
+  float: left;
+}
+
+li ul { display: none; }
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+  padding: 10px;
+}
+
+ul li a:hover {
+  background: #2c3e50;
+  text-decoration: none;
+  color: #ffc107;
+  border-top: 0.5px solid #ffc107;
+}
+
+li:hover > ul {
+  display: block;
+  position: absolute;
+}
+
+li:hover li { float: none; }
+
+li:hover a { background-color: #424242 }
+
+li:hover li a:hover { background: #212121; }
+
+.main-navigation li ul li { border-top: 0; }
+
+ul ul ul {
+  left: 100%;
+  top: 0;
+}
+
+ul:before,
+ul:after {
+  content: " ";
+  display: table;
+}
+
+ul:after { clear: both; }
+
+@media (max-width:480px)
+{
+  .container
+  {
+    width: 100vw !important;
+  }
+
+  .logo{
+    width: 40px;
+  }
+
+  .Akgec-mca
+  {
+    font-size: 0.75rem;
+    padding: 20px 10px 10px 10px;
+  }
+  .position-absolute
+  {
+    position: relative !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #caption-md-hide {
+    display: none;
+  }
+
+  .hideOnSmall{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 988px){
+  .mr-4{
+   width: 100%;
+  }
+}
