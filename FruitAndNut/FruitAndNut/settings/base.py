@@ -118,7 +118,7 @@ CKEDITOR_CONFIGS = {
         'width': 700,
     },
 }
-
+FILE_UPLOAD_PERMISSIONS = 0o644
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

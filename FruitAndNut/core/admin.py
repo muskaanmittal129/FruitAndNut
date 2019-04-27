@@ -75,8 +75,8 @@ class QuickLinkAdmin(admin.ModelAdmin):
 # 1. Vision and mission
 class VisionMissionAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request, obj=None):
-        return False
+    #def has_add_permission(self, request, obj=None):
+     #   return False
 
     class Meta:
         model = models.VisionAndMission
@@ -85,8 +85,8 @@ class VisionMissionAdmin(admin.ModelAdmin):
 # 2. Principal
 class PrincipalAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request, obj=None):
-        return False
+    #def has_add_permission(self, request, obj=None):
+        #return False
 
     class Meta:
         model = models.Principal
@@ -142,8 +142,8 @@ class ImpFunctionaryAdmin(admin.ModelAdmin):
 # 1. AffiliationAKTU
 class AffiliationAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request, obj=None):
-        return False
+    #def has_add_permission(self, request, obj=None):
+     #   return False
 
     class Meta:
         model = models.Affiliation
@@ -161,9 +161,8 @@ class TimeTableAdmin(admin.ModelAdmin):
 
 # 4. Academic Calender
 class AcademicCalendarAdmin(admin.ModelAdmin):
-
-    def has_add_permission(self, request, obj=None):
-        return False
+   # def has_add_permission(self, request, obj=None):
+      #  return False
 
     class Meta:
         model = models.AcademicCalendar
@@ -228,8 +227,8 @@ class InformationBookletAdmin(admin.ModelAdmin):
 # 1. T&P Cell
 class TrainingPlacementDepartmentAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request, obj=None):
-        return False
+    #def has_add_permission(self, request, obj=None):
+       # return False
 
     class Meta:
         model = models.TrainingPlacementDepartment

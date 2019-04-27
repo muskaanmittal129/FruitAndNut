@@ -110,7 +110,7 @@ class OrganizationChart(models.Model):
         verbose_name_plural = "Organization Chart"
 
     def __str__(self):
-        return self.image
+        return str(self.image)
 
 
 class Gallery(models.Model):
@@ -121,7 +121,7 @@ class Gallery(models.Model):
         verbose_name_plural = "Gallery"
 
     def __str__(self):
-        return self.images
+        return str(self.images)
 
 
 class Event(models.Model):
@@ -144,7 +144,7 @@ class EventImages(models.Model):
         verbose_name_plural = "Event Images"
 
     def __str__(self):
-        return self.event
+        return str(self.event)
 
 
 class ImportantFunctionary(models.Model):
@@ -191,7 +191,7 @@ class LabSection(models.Model):
     lab_description = models.TextField(blank=False)
 
     def __str__(self):
-        return self.lab_name
+        return str(self.lab_name)
 
     class Meta:
         verbose_name = "Lab Section"
