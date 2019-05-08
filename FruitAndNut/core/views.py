@@ -92,7 +92,7 @@ class LabView(generic.ListView):
         self.context['lab_info'] = lab_info
 
     def get(self, *args, **kwargs):
-        return render(self.request,self.template_name, self.context)
+        return render(self.request, self.template_name, self.context)
 
 
 class GalleryView(generic.ListView):
@@ -108,7 +108,7 @@ class GalleryView(generic.ListView):
         self.context['gallery_info'] = gallery_info
 
     def get(self, request, *args, **kwargs):
-        return render(self.request,self.template_name, self.context)
+        return render(self.request, self.template_name, self.context)
 
 
 # class RecentEventView(generic.ListView):
@@ -136,7 +136,7 @@ class ImportantFunctionaryView(generic.ListView):
         self.context['imp_functionaries'] = imp_functionary
 
     def get(self, request, *args, **kwargs):
-        return render(self.request,self.template_name,self.context)
+        return render(self.request, self.template_name, self.context)
 
 
 class OrganizationChartView(generic.ListView):
@@ -155,7 +155,7 @@ class OrganizationChartView(generic.ListView):
         self.context['organization_chart'] = organization_chart
 
     def get(self, request, *args, **kwargs):
-        return render(self.request,self.template_name,self.context)
+        return render(self.request, self.template_name, self.context)
 
 
 class PrincipalView(generic.ListView):
@@ -530,7 +530,7 @@ class TestimonialView(generic.ListView):
         self.context['testimonial_info'] = testimonial_info
 
     def get(self, request, *args, **kwargs):
-        return render(self.request,self.template_name,self.context)
+        return render(self.request, self.template_name, self.context)
 
 
 class AlumniView(generic.ListView):
@@ -546,7 +546,7 @@ class AlumniView(generic.ListView):
 
     def get(self, request, *args, **kwargs):
         self.get_alumni()
-        return render(self.request,self.template_name,self.context)
+        return render(self.request, self.template_name, self.context)
 
 # ---------------------- end of alumni views ---------------------------
 
