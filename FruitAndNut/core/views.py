@@ -40,7 +40,12 @@ def get_footer():
 class Home(generic.DetailView):
     template_name = 'core/home/home.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_recent_event()
+        self.get_landing_porting()
+        self.get_notification()
 
     def get_recent_event(self):
         self.context["event_info"] = RecentEvent.objects.filter(active=True)
@@ -53,9 +58,6 @@ class Home(generic.DetailView):
         self.context["notify_not_active"] = models.Notification.objects.filter(active=False)
 
     def get(self, *args, **kwargs):
-        self.get_recent_event()
-        self.get_landing_porting()
-        self.get_notification()
         return render(self.request, self.template_name, self.context)
 
 
@@ -64,42 +66,48 @@ class Home(generic.DetailView):
 class FacultyView(generic.ListView):
     template_name = 'core/about/faculty.htm'
     context ={}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_faculty()
 
     def get_faculty(self):
         faculty_info = Faculty.objects.all()
         self.context['faculty_info'] = faculty_info
 
     def get(self, request, *args, **kwargs):
-        self.get_faculty()
-        return render(self.request,self.template_name,self.context)
+        return render(self.request, self.template_name, self.context)
 
 
 class LabView(generic.ListView):
     template_name = 'core/about/Labs.htm'
     context ={}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_lab()
 
     def get_lab(self):
         lab_info = LabSection.objects.all()
         self.context['lab_info'] = lab_info
 
     def get(self, *args, **kwargs):
-        self.get_lab()
         return render(self.request,self.template_name, self.context)
 
 
 class GalleryView(generic.ListView):
     template_name = 'core/about/gallery.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_gallery()
 
     def get_gallery(self):
         gallery_info = Gallery.objects.all()
         self.context['gallery_info'] = gallery_info
 
     def get(self, request, *args, **kwargs):
-        self.get_gallery()
         return render(self.request,self.template_name, self.context)
 
 
@@ -118,38 +126,45 @@ class GalleryView(generic.ListView):
 class ImportantFunctionaryView(generic.ListView):
     template_name = 'core/about/important_functionary.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_imp_functionary()
 
     def get_imp_functionary(self):
         imp_functionary = ImportantFunctionary.objects.order_by('priority')
         self.context['imp_functionaries'] = imp_functionary
 
     def get(self, request, *args, **kwargs):
-        self.get_imp_functionary()
         return render(self.request,self.template_name,self.context)
 
 
 class OrganizationChartView(generic.ListView):
     template_name = 'core/about/organization_chart.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_organization_chart()
 
     def get_organization_chart(self):
         try:
             organization_chart = OrganizationChart.objects.all()[0]
         except:
             organization_chart = None
-        self.context['organization_chart'] =  organization_chart
+        self.context['organization_chart'] = organization_chart
 
     def get(self, request, *args, **kwargs):
-        self.get_organization_chart()
         return render(self.request,self.template_name,self.context)
 
 
 class PrincipalView(generic.ListView):
     template_name = 'core/about/principal.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_principal()
 
     def get_principal(self):
         try:
@@ -159,28 +174,31 @@ class PrincipalView(generic.ListView):
         self.context['principal'] = principal
 
     def get(self, request, *args, **kwargs):
-        self.get_principal()
         return render(self.request, self.template_name, self.context)
 
 
 class VisionMissionView(generic.ListView):
     template_name = 'core/about/vision_and_mission.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_content()
 
     def get_content(self):
         content = VisionAndMission.objects.all()
         self.context['content'] = content
 
     def get(self, request, *args, **kwargs):
-        self.get_content()
         return render(self.request, self.template_name, self.context)
 
 
 class FacultyIncentiveView(generic.ListView):
     template_name = 'core/about/faculty_incentives.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
@@ -189,14 +207,16 @@ class FacultyIncentiveView(generic.ListView):
 class InfrastructureView(generic.ListView):
     template_name = 'core/about/infrastructure.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_infrastructure()
 
     def get_infrastructure(self):
         infra_info = Infrastructure.objects.all()
         self.context['infra_info'] = infra_info
 
     def get(self, request, *args, **kwargs):
-        self.get_infrastructure()
         return render(self.request, self.template_name, self.context)
 
 
@@ -208,14 +228,16 @@ class InfrastructureView(generic.ListView):
 class AffiliationView(generic.ListView):
     template_name = 'core/academic/affiliation.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_affiliation()
 
     def get_affiliation(self):
         affiliation = Affiliation.objects.all()
         self.context['affiliation'] = affiliation
 
     def get(self, request, *args, **kwargs):
-        self.get_affiliation()
         return render(self.request, self.template_name, self.context)
 
 
@@ -224,33 +246,40 @@ class TimeTableView(generic.ListView):
     context = {}
     context.update(get_footer())
 
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_timetable()
+
     def get_timetable(self):
         timetable = TimeTable.objects.all()
         self.context['timetable'] = timetable
 
     def get(self, request, *args, **kwargs):
-        self.get_timetable()
         return render(self.request, self.template_name, self.context)
 
 
 class AcademicCalendarView(generic.ListView):
     template_name = 'core/academic/calender.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_calender()
 
     def get_calender(self):
         calender_info = AcademicCalendar.objects.all()
         self.context['calender_info'] = calender_info
 
     def get(self, request, *args, **kwargs):
-        self.get_calender()
         return render(self.request, self.template_name, self.context)
 
 
 class SyllabusView(generic.ListView):
     template_name = 'core/academic/syllabus.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
@@ -259,7 +288,9 @@ class SyllabusView(generic.ListView):
 class UniversityAwardsYearView(generic.ListView):
     template_name = 'core/academic/awards_list.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context['uni_award_list'] = models.UniversityAwards.objects.values('session').distinct()
@@ -269,7 +300,9 @@ class UniversityAwardsYearView(generic.ListView):
 class CollegeAwardsYearView(generic.ListView):
     template_name = 'core/academic/college_award_year.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context['colg_award_list'] = models.CollegeAwards.objects.values('session').distinct()
@@ -279,7 +312,9 @@ class CollegeAwardsYearView(generic.ListView):
 class CollegeAwardsView(generic.DetailView):
     template_name = 'core/academic/college_awards.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
@@ -292,7 +327,9 @@ class CollegeAwardsView(generic.DetailView):
 class UniversityAwardsView(generic.ListView):
     template_name = 'core/academic/university_awards.html'
     context ={}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
@@ -306,7 +343,9 @@ class UniversityAwardsView(generic.ListView):
 class CollegeAwardView(generic.ListView):
     template_name = 'core/academic/college_awards.html'
     context ={}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         session = kwargs['session']
@@ -324,7 +363,9 @@ class CollegeAwardView(generic.ListView):
 class CenterOfExcView(generic.ListView):
     template_name = 'core/r_and_d/center_of_exc.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["center_of_exc"] = models.CenterOfExcellence.objects.all()
@@ -334,7 +375,9 @@ class CenterOfExcView(generic.ListView):
 class ConferencesView(generic.ListView):
     template_name = 'core/r_and_d/conferences.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["conferences"] = models.Conference.objects.all()
@@ -344,7 +387,9 @@ class ConferencesView(generic.ListView):
 class InternationalJournalView(generic.ListView):
     template_name = 'core/r_and_d/international_journal.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["inter_journal"] = models.InternationalJournal.objects.all().first()
@@ -354,7 +399,9 @@ class InternationalJournalView(generic.ListView):
 class ResearchAndIndustrialView(generic.ListView):
     template_name = 'core/r_and_d/research_and_industrial.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["ricc"] = models.ResearchAndIndustrial.objects.all()
@@ -368,7 +415,9 @@ class ResearchAndIndustrialView(generic.ListView):
 class PlacementRecordView(generic.ListView):
     template_name = 'core/placement/placement_record.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context['placement_record'] = PlacementRecord.objects.all()
@@ -378,7 +427,9 @@ class PlacementRecordView(generic.ListView):
 class RecruiterView(generic.ListView):
     template_name = 'core/placement/recruitors.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context['recruiters_info'] = Recruiters.objects.all()
@@ -388,7 +439,9 @@ class RecruiterView(generic.ListView):
 class TrainingPlacemenTDepartmentView(generic.ListView):
     template_name = 'core/placement/tnp_cell.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context['TNP_info'] = TrainingPlacementDepartment.objects.all()
@@ -403,7 +456,9 @@ class TrainingPlacemenTDepartmentView(generic.ListView):
 class EventView(generic.ListView):
     template_name = 'core/life_akgec/event.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["events"] = models.Events.objects.all()
@@ -413,7 +468,9 @@ class EventView(generic.ListView):
 class HostelView(generic.ListView):
     template_name = 'core/life_akgec/hostel.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["hostel"] = models.Hostel.objects.all()
@@ -423,7 +480,9 @@ class HostelView(generic.ListView):
 class MediclaimView(generic.ListView):
     template_name = 'core/life_akgec/mediclaim.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["medicliam"] = models.Mediclaim.objects.all()
@@ -433,7 +492,9 @@ class MediclaimView(generic.ListView):
 class SocialResponsibilityView(generic.ListView):
     template_name = 'core/life_akgec/social_responsibility.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["social_responsibility"] = models.SocialResponsibility.objects.all()
@@ -443,7 +504,9 @@ class SocialResponsibilityView(generic.ListView):
 class SocietyView(generic.ListView):
     template_name = 'core/life_akgec/society.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["society"] = models.Society.objects.all()
@@ -457,21 +520,25 @@ class SocietyView(generic.ListView):
 class TestimonialView(generic.ListView):
     template_name = 'core/alumni/testimonial.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
+        self.get_testimonial()
 
     def get_testimonial(self):
         testimonial_info = Testimonial.objects.all()
         self.context['testimonial_info'] = testimonial_info
 
     def get(self, request, *args, **kwargs):
-        self.get_testimonial()
         return render(self.request,self.template_name,self.context)
 
 
 class AlumniView(generic.ListView):
     template_name = 'core/alumni/our_alumni.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get_alumni(self):
         alumni_info = OurAlumni.objects.all()
@@ -489,7 +556,9 @@ class AlumniView(generic.ListView):
 class AdmissionProcessView(generic.ListView):
     template_name = 'core/admission/admission_process.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         return render(self.request, self.template_name, self.context)
@@ -498,7 +567,9 @@ class AdmissionProcessView(generic.ListView):
 class FeeStructureView(generic.ListView):
     template_name = 'core/admission/fee_structure.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["fee_structure"] = models.FeeStructure.objects.all()
@@ -508,7 +579,9 @@ class FeeStructureView(generic.ListView):
 class InfoBookletView(generic.ListView):
     template_name = 'core/admission/info_booklet.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["info_booklet"] = models.InfoBooklet.objects.all()
@@ -518,7 +591,9 @@ class InfoBookletView(generic.ListView):
 class RefundNormsView(generic.ListView):
     template_name = 'core/admission/refund_norms.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["refund_norms"] = models.RefundNorm.objects.all()
@@ -533,7 +608,9 @@ class RefundNormsView(generic.ListView):
 class DownloadView(generic.ListView):
     template_name = 'core/quick_link/download.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["downloads"] = models.Download.objects.all()
@@ -543,7 +620,9 @@ class DownloadView(generic.ListView):
 class AicteApprovalLetterView(generic.ListView):
     template_name = 'core/quick_link/aicte_approval_letter.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["aicte"] = models.AicteApprovalLetter.objects.all()
@@ -553,7 +632,9 @@ class AicteApprovalLetterView(generic.ListView):
 class ListOfHolidayView(generic.ListView):
     template_name = 'core/quick_link/list_of_holiday.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["list_of_holidays"] = models.ListOfHoliday.objects.all()
@@ -563,7 +644,9 @@ class ListOfHolidayView(generic.ListView):
 class NaacView(generic.ListView):
     template_name = 'core/quick_link/naac.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["naac"] = models.Naac.objects.all()
@@ -573,7 +656,9 @@ class NaacView(generic.ListView):
 class MandatoryDisclosureView(generic.ListView):
     template_name = 'core/quick_link/mandatory_disclosure.html'
     context = {}
-    context.update(get_footer())
+
+    def __init__(self):
+        self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
         self.context["mandatory_disclosure"] = models.MandatoryDisclosure.objects.all()
