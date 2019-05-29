@@ -1,0 +1,39 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+    {% block stylesheets %}
+    {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/avk.css' %}">
+    {% endblock stylesheets %}
+    {% block content %}
+        
+        <div class="container z-depth-1 mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+          <div class="row grey text-center">
+            <div class="col-12 pd-1">
+              <h3 style="font-weight:lighter">
+                - ADARSH VIKAS KENDRA -
+              </h3>
+            </div>
+          </div>
+
+          <div class="row pd-1">
+            
+              <div class="col-lg-10 col-sm-12 mx-auto  pd-1 ContentText m-1">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img class="img-fluid" src="{% static 'core/images/Avk.jpg' %}" alt="adarsh vikas image">
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                      <img class="img-fluid" src="{% static 'core/images/Avk-2.jpg' %}" alt="adarsh vikas image">
+                    </div>
+                  <div class="col-12 mt-4" style="text-align: justify;text-justify: inter-word;">
+                    <p>
+                        The college is running a primary school named “Adarsh Vikas Kendra” to provide free primary education to children of economically weaker sections of society. These children are provided free uniforms, books, bags and are regularly attending classes conducted in the campus. These children are also being provided fully nutritious free meal (lunch) during the day by the college. The college has also made arrangements to provide them basic knowledge of computers. A TV set with TATA sky connection has also been provided to the school by the college. Various indoor and outdoor games are conducted to keep them physically fit. All required game equipments are provided by college. The school has a well maintained library of story books in Hindi and English both. The students can borrow these books for their home. Every year the school kids give a dance performance in college function for celebration of Diwali Night. Recently School students had a visit to National Rail Museum and India Gate.
+
+                        The primary school has completed 10 years in its mission of education for children of labour. There are about 20 students presently enrolled in the school. The school is being managed by wives of faculty members on a voluntary basis. Presently Mrs. Nidhi Singh is conducting the classes for children.
+                    </p>
+                  </div>
+                </div>
+              </div>
+          </div>  
+        </div>
+    {% endblock content %}
