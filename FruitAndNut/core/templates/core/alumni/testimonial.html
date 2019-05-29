@@ -7,16 +7,20 @@
     <link rel="icon" href="./img/Akgec_Logo.png" sizes="16x16" type="image/png">
     {% endblock stylesheets %}
     {% block content %}
-{% for testimonial in testimonial_info %}
-    <div class="container z-depth-1 mt-5">
-        <div class="row">
-            <div class="col-lg-12 grey text-center">
-                <div class=" Testimonial">Testimonial</div>
-            </div>
+
+    <div class="container z-depth-1  mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+            <div class="row grey text-center">
+                    <div class="col-12 pd-1">
+                        <h3 style="font-weight:lighter">
+                            - TESTIMONIALS -
+                        </h3>
+                    </div>
+                </div>
+        <div class="row pd-1">
+         {% for testimonial in testimonial_info %}
             <div class="col-lg-12 testimonial-section">
                 <div class="row">
                     <div class="col-12 pd-2">
-
                         <div class="card">
                             <div class="row">
                                 <div class="col-3">
@@ -47,12 +51,13 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     <!--script-->
 
 
-  {% endfor %}
+  
     {% endblock content %}
 
 

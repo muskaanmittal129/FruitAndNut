@@ -1,0 +1,35 @@
+{% extends 'core/base/base.html' %}
+{% load static %}
+    {% block stylesheets %}
+    {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'core/css/bdc.css' %}">
+    {% endblock stylesheets %}
+    {% block content %}
+        
+        <div class="container z-depth-1 mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+            <div class="row grey text-center">
+                <div class="col-12 pd-1">
+                  <h3 style="font-weight:lighter">
+                    - BLOOD DONATION CODE -
+                  </h3>
+                </div>
+            </div>
+
+              <div class="row pd-1">
+                  <div class="col-lg-10 col-sm-12 mx-auto  pd-1 ContentText m-1">
+                    <p class="mt-4" style="text-align: justify;text-justify: inter-word;">
+                        Ajay Kumar Garg Engineering College, in keeping with its policy of commitment towards society and to sensitize the students accordingly, organized its annual Blood Donation Camp in collaboration with Rotary Club Sahibabad & Vardaan Multispecialty Hospital Blood Bank on 23 April, 2019. 323 units of blood were donated by the students, faculty and staff of AKGEC while contributing towards thenoble cause.
+
+                        The camp was inaugurated by Shri Subhash Jain, District Governor of Rotary Clubs located in Noida, Ghaziabad, Modinagar and some parts of Delhi. Shri Rakesh Chharia, President Rotary Club Sahibabad and delegates from Vardaan Multispecialty Hospital Blood Bank & Rotary Club also graced the inaugural ceremony.
+                        
+                        Student conveners Akhil Gupta, Vatsalya Yadav, Anurag Pratap and Mitali Singh with their team of student volunteers from all years and branches managed the camp with full dedication under the guidance of Dean Student Welfare.
+                        
+                        With a motive to encourage students to step forward and donate blood, Team Footprints had organized Blood Donation Poster Making competition on 14 April, 2019. Ingenious and motivating ideas were artistically drawn on the canvas and every single idea alluringly highlighted the necessity and significance of blood donation. About 300 students participated in the competition. Selected posters were displayed in the college exhibition arcade.
+                          
+                    </p>
+                  </div>
+              </div>
+              
+        </div>
+        
+    {% endblock content %}

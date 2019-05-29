@@ -6,9 +6,20 @@
         <link rel="stylesheet" type="text/css" href="{% static 'core/css/university.css' %}">
     {% endblock stylesheets %}
     {% block content %}
-   <div class="container z-depth-1 mt-5 light-grey-bg">
-      {% for award in colg_award_list %}
-        Merit Awards for the year<a href="{% url 'college_awards' award.session %}">{{award.session}}</a>
-       {% endfor %}
-     </div>
+    <div class="container z-depth-1 mt-5 light-grey-bg" style="min-height:300px; box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+        <div class="row grey text-center">
+            <div class="col-12 pd-1">
+              <h3 style="font-weight:lighter">
+              - COLLEGE AWARDS -
+              </h3>
+            </div>
+          </div>
+        <div class="row pd-1">  
+            <div class="col-10 mx-auto">
+              {% for award in colg_award_list %}
+                Merit Awards for the year<a href="{% url 'college_awards' award.session %}">{{award.session}}</a>
+              {% endfor %}
+            </div>  
+        </div>
+   </div>
     {% endblock content %}

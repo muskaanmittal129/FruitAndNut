@@ -16,17 +16,19 @@
         <div class="row pd-1">
             {% for center in center_of_exc %}
             <div class="col-lg-6 col-sm-12 mx-auto pd-1 m-1">
-                <a href="{{center.website_link}}">
+                
                     <div class="card bg-light mb-3">
                     <div class="card-header">
                         <img class="card-img-top" src="{{ center.logo.url }}" alt="LOGO">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{center.title}}</h5>
+                        <a href="{{center.website_link}}">
+                            <h5 class="card-title text-center">{{center.title}}</h5>
+                        </a>
                         <p class="card-text">{{center.content}}</p>
                     </div>
                 </div>
-                </a>
+               
             </div>
             {% endfor %}
         </div>

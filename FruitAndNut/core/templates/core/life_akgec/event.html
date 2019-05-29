@@ -6,26 +6,31 @@
 
     {% endblock stylesheets %}
     {% block content %}
-    {% for obj in events %}
-     <div class="container light-grey-bg shdw" style="margin-bottom:50px">
+    
+    <div class="container z-depth-1 mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+      
        <div class="row" >
          <div class="col-12 grey title text-center">
             <h3 style="font-weight:lighter">
                 - EVENTS -
             </h3>
          </div>
-         <div class="col-6 text-center"><!--event-->
-           <div class="row pd-1">
+       </div>  
+       <div class="row pd-1" >
+         {% for obj in events %}
+         <div class="col-4 text-center "><!--event-->
+           <div class="row pd-1 ">
              <div class="col-12 event-image">
                <img class="img-fluid" src ="{{obj.image.url}}">
              </div>
-             <div class="col-12 aqua">
+             <div class="col-12 aqua" style="height: 40px;">
                <h4 style="font-weight:lighter">{{obj.content}}</h4>
              </div>
            </div>
          </div><!--event - ends-->
+         {% endfor %}
 
         </div>
        </div>
-    {% endfor %}
+    
     {% endblock content %}
