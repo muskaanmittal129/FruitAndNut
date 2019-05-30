@@ -335,7 +335,7 @@ admin.site.register(models.Conference),
 
 
 # Admission
-
+admin.site.register(models.AdmissionProcess),
 admin.site.register(models.FeeStructure),
 admin.site.register(models.RefundNorm),
 admin.site.register(models.InfoBooklet),

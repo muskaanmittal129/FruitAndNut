@@ -17,7 +17,9 @@
         <div class="row pd-1">
     
             <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1">
-                
+             {% for info in admission_process %}
+		{{info.content|safe}}
+	     {% endfor %}   
             </div>
         </div>
     </div>
