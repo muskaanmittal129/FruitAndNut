@@ -343,6 +343,15 @@ class FeeStructure(models.Model):
 class AdmissionProcess(models.Model):
     content = RichTextUploadingField()
 
+    class Meta:
+        verbose_name = 'Admission Process'
+        verbose_name_plural = "Admission Process"
+
+    def __str__(self):
+        if len(self.content) > 20:
+            return self.content[0:20]
+        return self.content
+
 
 class InfoBooklet(models.Model):
     content = RichTextUploadingField()

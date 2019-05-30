@@ -561,7 +561,7 @@ class AdmissionProcessView(generic.ListView):
         self.context.update(get_footer())
 
     def get(self, request, *args, **kwargs):
-	#self.context["admission_process"]=models.AdmissionProcess.objects.all()
+        self.context["admission_process"]=models.AdmissionProcess.objects.all()
         return render(self.request, self.template_name, self.context)
 
 
