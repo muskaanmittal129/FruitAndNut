@@ -29,7 +29,7 @@
                         <div class="col-10 mx-auto">
                           <div class="card-body text-center">
                             <h5 class="card-title mt-3p">{{ faculty.name}}</h5>
-                            <p class="card-text">{{ faculty.designation }}<br> {{faculty.qualification_phd}}, {{faculty.qualification_pg}}, {{faculty.qualification_ug}}</p>
+                            <p class="card-text">{{ faculty.designation }}<br> {{faculty.qualification_phd}} {{faculty.qualification_pg}} {{faculty.qualification_ug}}</p>
                           </div>
                         </div>
                       </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <embed src ="{{ faculty.faculty_pdf.url }}" width="100%" height="100%" id="faculty-pdf" >
+                    <embed src ="{{ faculty.faculty_pdf.url }}" width="100%" height="500vh" id="faculty-pdf" >
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
