@@ -1,27 +1,27 @@
-{% extends 'core/base/base.html' %}
-{% block title %}NAAC | AKGEC-MCA{% endblock %}
-{% load static %}
-    {% block stylesheets %}
-    {{ block.super }}
-        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">
+<!--{% extends 'core/base/base.html' %}-->
+<!--{% block title %}NAAC | AKGEC-MCA{% endblock %}-->
+<!--{% load static %}-->
+<!--    {% block stylesheets %}-->
+<!--    {{ block.super }}-->
+<!--        <link rel="stylesheet" type="text/css" href="{% static 'core/css/' %}">-->
 
-    {% endblock stylesheets %}
-    {% block content %}
-    <div class="container shdw" style="margin-bottom:50px">
-       <div class="row">
-         <div class="col-12 grey title text-center">
-           - NAAC -
-         </div>
-         <div class="col-12 pd-1">
-             <ol style="list-style: none">
-            {% for info in naac %}
+<!--    {% endblock stylesheets %}-->
+<!--    {% block content %}-->
+<!--    <div class="container shdw" style="margin-bottom:50px">-->
+<!--       <div class="row">-->
+<!--         <div class="col-12 grey title text-center">-->
+<!--           - NAAC - -->
+<!--         </div>-->
+<!--         <div class="col-12 pd-1">-->
+<!--             <ol style="list-style: none">-->
+<!--            {% for info in naac %}-->
 
-                <li> <i class="far fa-dot-circle" style="margin-right:5px"></i><a href ="{{info.content.url}}">{{info.title}}</a></li>
+<!--                <li> <i class="far fa-dot-circle" style="margin-right:5px"></i><a href ="{{info.content.url}}">{{info.title}}</a></li>-->
 
-         {% endfor %}
-                 </ol>
-         </div>
-       </div>
-     </div>
-    {% endblock content %}
+<!--         {% endfor %}-->
+<!--                 </ol>-->
+<!--         </div>-->
+<!--       </div>-->
+<!--     </div>-->
+<!--    {% endblock content %}-->
 

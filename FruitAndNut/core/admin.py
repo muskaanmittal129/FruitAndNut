@@ -303,7 +303,7 @@ admin.site.register(models.Notification)
 admin.site.register(models.AicteApprovalLetter),
 admin.site.register(models.ListOfHoliday),
 admin.site.register(models.MandatoryDisclosure),
-admin.site.register(models.Naac),
+# admin.site.register(models.Naac),
 admin.site.register(models.Download)
 
 
