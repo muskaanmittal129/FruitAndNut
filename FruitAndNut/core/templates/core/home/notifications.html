@@ -1,4 +1,4 @@
-<!-- {% load staticfiles %}
+<!-- {% load static %}
 <link rel = "stylesheet" type="text/css" href="{% static 'core/css/notifications.css' %}"> -->
 <div class="container shdw">
     <div class="row">
@@ -53,6 +53,9 @@
                 <li>
                   <a href="{% url 'aicte_approval_letter' %}"><i class="fas fa-synagogue align-middle"></i>AICTE Approval Letters</a>
                 </li>
+                <li>
+                  <a href="{% url 'mandatory_disclosure' %}"><i class="fas fa-certificate align-middle"></i>Mandatory Disclosure</a>
+               </li>
                <li>
                   <a href="{% url 'list_of_holiday' %}"><i class="fas fa-holly-berry align-middle"></i>List of Holidays</a>
               </li>

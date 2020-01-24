@@ -1,10 +1,13 @@
-{% load staticfiles %}
+{% load static %}
 <link rel = "stylesheet" type="text/css" href="{% static 'core/css/navabar.css' %}">
 <nav class="top-nav row">
-  <div class="col-1 position-absolute">
-    <img class="logo" src="{% static 'core/images/Akgec_Logo.png' %}">
+
+  <div class="col-1">
+    <a href="{% url 'home' %}">
+      <img class="logo" src="{% static 'core/images/Akgec_Logo.png' %}">
+  </a>
   </div>
-  <div class="col-12">
+  <div class="col-11">
     <div class="row text-center">
       <div class="col-12 Akgec-mca">
         AJAY KUMAR GARG ENGINEERING COLLEGE-MCA
@@ -45,15 +48,15 @@
 
           <li class="nav-li"><a href="{% url 'affiliation' %}">Affilation to AKTU</a></li>
 
-          <li>
-            <a href="">Academic Awards &#x25B8</a>
-            <ul class="nav-menu">
-              <li class="nav-li">
-                <a href="{% url 'colg_award_list' %}">College Awards</a>
-              </li>
-              <li class="nav-li"><a href="{% url 'awards_list' %}">University Awards</a></li>
-            </ul>
-          </li>
+<!--          <li>-->
+<!--            <a href="">Academic Awards &#x25B8</a>-->
+<!--            <ul class="nav-menu">-->
+<!--              <li class="nav-li">-->
+<!--                <a href="{% url 'colg_award_list' %}">College Awards</a>-->
+<!--              </li>-->
+<!--              <li class="nav-li"><a href="{% url 'awards_list' %}">University Awards</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
           <li class="nav-li"><a href="{% url 'time_table' %}">Time Table</a></li>
           <li class="nav-li"><a href="{% url 'calender' %}">Academic Calendar</a></li>
           <li class="nav-li"><a href="https://aktu.ac.in/syllabus.html">Syllabus</a></li>
