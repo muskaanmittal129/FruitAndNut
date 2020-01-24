@@ -459,7 +459,7 @@ class Mediclaim(models.Model):
 
 class Affiliation(models.Model):
     affiliation_image= models.ImageField(upload_to='images/affiliation')
-
+    content = RichTextUploadingField(blank=True)
     class Meta:
         verbose_name = 'Affiliation'
         verbose_name_plural = 'Affiliation'

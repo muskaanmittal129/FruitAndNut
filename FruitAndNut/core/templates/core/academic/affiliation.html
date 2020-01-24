@@ -15,6 +15,9 @@
          <div class="col-12 media pd-1">
               {% for file in affiliation %}
           <img class="img-fluid" alt="affiliation" src ="{{file.affiliation_image.url}}"/>
+             <div>
+                  {{file.content|safe}}
+             </div>
        {% endfor %}
          </div>
        </div>

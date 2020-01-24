@@ -665,5 +665,14 @@ class MandatoryDisclosureView(generic.ListView):
         self.context["mandatory_disclosure"] = models.MandatoryDisclosure.objects.all()
         return render(self.request, self.template_name, self.context)
 
+def view404(request,*args,**kwargs):
+    error_code = 404
+    error_message = 'Page Not Found'
+    return render(request, 'core/base/error.html', {'error_code':error_code, 'error_message':error_message})
+
+def view500(request,*args,**kwargs):
+    error_code = 500
+    error_message = 'Internal Server Error'
+    return render(request, 'core/base/error.html', {'error_code':error_code, 'error_message':error_message})
 # ---------------------- end of quick links views ---------------------------
 
