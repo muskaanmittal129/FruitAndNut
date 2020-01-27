@@ -1,0 +1,152 @@
+{% load static %}
+   <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div id='c'>
+        <button class="btn contactbtn" type="button" data-toggle="modal" data-target="#exampleModal"></button>
+    </div>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()" class="contact-form" *ngIf="form_show">
+                <div class="form-group">
+                  <label for="email" class="col-form-label">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder="Enter email" autocomplete="off">
+                   <span id="email_error" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+
+                  <label for="contact" class="col-form-label">Contact No.</label>
+                    <input name="contact" id="contact" maxlength="10" size="10" class="form-control mt-1 shadow-sm"
+                           type="text" placeholder="Your Contact" formControlName="contact" maxlength="10" size="10" autocomplete="off">
+                   <span id="contact_error" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1" class="col-form-label">Your Message:</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="exampleFormControlTextarea1" placeholder="Message"></textarea>
+                  <span id="message_error" class="text-danger"></span>
+                </div>
+                <div class="text-center text-danger" id="status"></div>
+                <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="{{ key }}"></div>
+                        <span id="captcha_error" class="text-danger"></span>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="return validateForm()" >Submit</button>
+        </div>
+
+    </div>
+  </div>
+     </div>
+<!--<script src="{%static 'core/js/jquery-cdn.js' %}"></script>-->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+         <script>
+            function validateForm() {
+                document.getElementById('email_error').innerHTML = "";
+                document.getElementById('contact_error').innerHTML = "";
+                document.getElementById('message_error').innerHTML = "";
+                document.getElementById('captcha_error').innerHTML = "";
+                var email =  document.getElementById('email').value;
+                console.log(email);
+                if (email == "") {
+                    document.getElementById('email_error').innerHTML = "Cannot be empty";
+                    return false;
+                } else {
+                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    if(!re.test(email)){
+                        document.getElementById('email_error').innerHTML = "Invalid";
+                        return false;
+                    }
+                }
+                var contact =  document.getElementById('contact').value;
+                if (contact == "") {
+                    document.getElementById('contact_error').innerHTML = "Cannot be empty";
+                    return false;
+                }
+                else {
+                    var re = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
+                    if(!re.test(contact)){
+                        document.getElementById('contact_error').innerHTML = "Invalid";
+                        console.log(contact);
+                        return false;
+                    }
+                }
+                var message =  document.getElementById('exampleFormControlTextarea1').value;
+                if (message == "") {
+                    document.getElementById('message_error').innerHTML = "Cannot be empty";
+                    return false;
+                }
+                var v = grecaptcha.getResponse();
+                if(v.length == 0)
+                {
+                    document.getElementById('captcha_error').innerHTML="Cannot be empty";
+                    return false;
+                }
+                document.getElementById('status').innerHTML = "Sending...";
+                var email;
+                var contact;
+                var message;
+                email = $('#email').val();
+                contact = $('#contact').val();
+                message = $('#exampleFormControlTextarea1').val();
+                console.log(message);
+                console.log(email);
+                console.log(contact);
+
+                $.ajax({
+                    url: '{% url 'save_contact' %}',
+                    data: {
+                        'email': email,
+                        'contact': contact,
+                        'message': message,
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data['done'] == 1){
+                            document.getElementById('status').innerHTML = data['message'];
+                            document.getElementById('status').style.color = "green";
+                            document.getElementById('status').classList = "text-center";
+                            setTimeout(function() {
+                                document.getElementById('status').innerHTML = "";
+                            }, 2000);
+                        }
+                        else if(data['done'] == 0){
+                            document.getElementById('status').innerHTML = data['message'];
+                            document.getElementById('status').style.color = "red";
+                            document.getElementById('status').classList = "text-center";
+                            setTimeout(function() {
+                                document.getElementById('status').innerHTML = "";
+                            }, 2000);
+                        }
+                    }
+                });
+
+                $( '#contact-form' ).each(function(){
+               this.reset();
+                grecaptcha.reset();
+                });
+            }
+        </script>
+<script>
+ $(document).ready(function() {
+    $('.modal').on('hidden.bs.modal', function(){
+        $(this).find('form')[0].reset();
+        grecaptcha.reset();
+     });
+});
+</script>
