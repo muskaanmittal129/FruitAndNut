@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import View
 from . import models
+from django.template.loader import render_to_string
+from django.core.mail import send_mail, EmailMessage
+from django.http import JsonResponse
+import json
+from FruitAndNut.settings.base import RECAPTCHA_PUBLIC_KEY, RECEIVER_EMAIL, EMAIL_HOST_USER
 from .models import RecentEvent, FooterAbout, FooterContact, FooterRelatedLinks, LandingPortion, Faculty,Testimonial,\
     LabSection, ImportantFunctionary, Gallery, Event, EventImages\
     , OrganizationChart, Principal, VisionAndMission,\
@@ -58,13 +64,14 @@ class Home(generic.DetailView):
         self.context["notify_not_active"] = models.Notification.objects.filter(active=False)
 
     def get(self, *args, **kwargs):
+        self.context["key"] = RECAPTCHA_PUBLIC_KEY
         return render(self.request, self.template_name, self.context)
 
 
 # ----------------    start about page urls  ----------------------
 
 class FacultyView(generic.ListView):
-    template_name = 'core/about/faculty.htm'
+    template_name = 'core/about/faculty.html'
     context ={}
 
     def __init__(self):
@@ -665,10 +672,47 @@ class MandatoryDisclosureView(generic.ListView):
         self.context["mandatory_disclosure"] = models.MandatoryDisclosure.objects.all()
         return render(self.request, self.template_name, self.context)
 
+
+class SaveContactView(View):
+    def get(self, request):
+        data_to_frontend = dict()
+        email = request.GET.get('email')
+        contact = request.GET.get('contact')
+        message = request.GET.get('message')
+        if email == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'Email cannot be empty..'
+        elif contact == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'contact cannot be empty..'
+        elif message == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'message cannot be empty..'
+        else:
+            data_to_frontend['done'] = 1
+            data_to_frontend['message'] = 'Request successfully registered.'
+            subject = "A registration on MCA Website"
+            message_to_show = str(email) + 'has registered'
+            details = render_to_string('core/home/email_template.html', {
+                'email': email,
+                'contact': contact,
+                'message': message,
+            })
+            from_mail = EMAIL_HOST_USER
+            to_mail = [RECEIVER_EMAIL]
+            try:
+                send_mail(subject, message_to_show, from_mail, to_mail, html_message=details, fail_silently=False)
+            except:
+                data_to_frontend['done'] = 0
+                data_to_frontend['message'] = 'Request failed due to internal error.'
+        return JsonResponse(data_to_frontend)
+
+
 def view404(request,*args,**kwargs):
     error_code = 404
     error_message = 'Page Not Found'
     return render(request, 'core/base/error.html', {'error_code':error_code, 'error_message':error_message})
+
 
 def view500(request,*args,**kwargs):
     error_code = 500

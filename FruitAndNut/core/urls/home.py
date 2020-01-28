@@ -3,6 +3,7 @@ from .. import views
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
+    path('savecontact/', views.SaveContactView.as_view(), name='save_contact'),
     path('', include('core.urls.about')),
     path('', include('core.urls.academic')),
     path('', include('core.urls.r_and_d')),
