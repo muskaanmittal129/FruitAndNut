@@ -9,39 +9,62 @@
 <div class="container mt-5" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
 
     <div class="row gallery">
-        <div class="col-lg-3 grey text-center">
+        <div class="col-md-3 grey text-center ">
             <div class="gallery-txt">Gallery</div>
 
             <div class="img-slider row">
                 {% for gallery in gallery_info %}
-                <div class="img-preview col-4">
-                    <img id="imagePreview" src="{{gallery.images.url}}" onclick="openImg(this)">
+                <div id="smallImg" class="img-preview col-4" onclick="openText(this)">
+                    <img id="imagePreview" src="{{gallery.images.url}}" onclick="openImg(this)" >
+                    {% if gallery.description %}
+                    <p id="textPreview" style="display: none;">{{gallery.description}}</p>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
 
         </div>
-        <div class="col-lg-9 hideOnSmall img-gallery">
+        <div style="padding: 0!important;" class="col-md-9 hideOnSmall img-gallery">
             <div class="img-view">
-                <img id="imageView">
+                <img id="imageView"> 
+                
+                <p class="text-center description_bg" id="img-text" ></p>
+                
             </div>
+            
         </div>
     </div>
 </div>
 <!--script-->
 <script>
-    function preview() {
+    function preview() {  
         var firstImg = document.getElementById("imagePreview");
         var dispImg = document.getElementById("imageView");
         dispImg.src = firstImg.src;
+        var text = document.getElementById("img-text");
+        text.classList.add("display_none");
 
-    }
+        }
 
     function openImg(imgs) {
         var largeImg = document.getElementById("imageView");
         largeImg.src = imgs.src;
-    }
+       }
+    function openText(texts) {
+        var x = texts.textContent;
+        if(texts.textContent.trim() === "")
+        {var text = document.getElementById("img-text");
+        text.classList.remove("display_block");
+        text.classList.add("display_none");
+        }
 
-    window.onload = preview;
+        else{var text = document.getElementById("img-text");
+            text.classList.remove("display_none");
+            text.classList.add("display_block");
+            text.textContent=x;
+            }
+        }
+        
+      window.onload = preview;
 </script>
 {% endblock content %}

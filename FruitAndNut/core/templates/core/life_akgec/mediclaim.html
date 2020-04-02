@@ -8,14 +8,16 @@
 
     {% block content %}
      {% for obj in medicliam %}
-     <div class="container light-grey-bg shdw">
+     <div class="container light-grey-bg shdw" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
        <div class="row" >
          <div class="col-12 grey title text-center">
             <h3 style="font-weight:lighter">
-                - MEDICLIAM -
+                - MEDICLAIM -
             </h3>
          </div>
-       {{obj.content|safe}}
+      <div class="row pd-1">
+       <div class="col-lg-10 col-sm-12 mx-auto pd-1 m-1" style="text-align: justify!important; padding:10px 1rem;">{{obj.content|safe}}</div>
+      </div>
        </div>
      </div>
     {% endfor %}

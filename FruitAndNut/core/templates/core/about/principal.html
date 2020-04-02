@@ -6,7 +6,7 @@
     {% endblock stylesheets %}
     {% block content %}
 
-     <div class="container z-depth-1 mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
+     <div class="container principal_box mt-5 light-grey-bg" style="box-shadow: 0px 2px 5px 0px #bdbdbd; margin-bottom:50px">
       <!--lab-section-->
       <div class="row grey text-center">
         <div class="col-12 pd-1">
@@ -15,7 +15,7 @@
           </h3>
         </div>
       </div>
-        <div class="row pd-1">
+        <!-- <div class="row pd-1">
 
             <div class="col-lg-10 col-sm-12 mx-auto  pd-1 ContentText m-1">
               <h3> {{principal.name}}</h3><br>
@@ -24,6 +24,22 @@
               <p style="font-size:1.2rem"><i class="fas fa-quote-left"></i> {{principal.message|safe}}</i></p>
             </div>
 
+        </div> -->
+        <div class="mx-auto">
+          <div class="row principal_content">
+            <div class="col-md-6 col-sm-12 principal_img" style="padding: 0!important;">
+              <img class="img-fluid" src="{{principal.image.url}}" alt="principal">
+            </div>
+            <div class="col-md-6 col-sm-12" style="padding: 2.5rem 3rem!important; background: linear-gradient(to top ,#03a9f4, #00bcd4) #00bcd4;">
+              <div><img class="img-fluid" src="../../../static/core/images/comma_1.png" alt="comma"></div>
+              <div  style="font-weight: 700; font-size: 1.5rem; padding-top: 1rem;">{{principal.name}}</div>
+              <div>{{principal.designation}}</div>
+              <div style="padding-top: 1rem;  text-align: justify;">{{principal.education}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-auto mt-5" style="text-align: justify;">
+          {{principal.message}}
         </div>
      </div>
     {% endblock content %}

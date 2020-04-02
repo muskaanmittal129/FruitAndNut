@@ -31,11 +31,17 @@ body{
   box-shadow: 0 2px 15px #212121;
   transition: box-shadow 0.3s ease-in-out;
 }
-@media (max-width:480px)
+
+
+@media only screen and(max-width: 425px)
 {
   .ContentText
   {
     font-size: 1rem;
-    margin-right: 0px;
+    
   }
+  .principal_box{
+    margin-left: 1rem!important;
+  }
+ 
 }

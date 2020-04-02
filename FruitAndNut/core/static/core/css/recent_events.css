@@ -22,7 +22,7 @@ body{
 {
   padding-left: 120px;
   font-size: 30px;
-  letter-spacing: 2px;
+  letter-spacing: 2px; 
 }
 /*recentEvent Details*/
 .RecentDetails
@@ -36,6 +36,9 @@ body{
 }
 .event-description{
   padding: 20px;
+  font-size: 1rem!important;
+  font-weight: 400!important;
+  text-align: justify!important;
 }
 
 /*recentEvent Details*/

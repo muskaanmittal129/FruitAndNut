@@ -25,13 +25,13 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                           <img class="img-fluid" src="{{ event.recent_event_slider.url }}">
                         </div>
                           {% endif %}
-                          {% endfor %}
+                          {% endfor %} 
                       </div>
                   </div><!--slider-->
 
               </div>
               <div class="col-sm-12 col-lg-5 white-bg RecentDetails">
-                <marquee direction="up">
+                <div>
                   {% for event in event_info %}
                   {% if forloop.counter0 == 0 %}
                     <div class="row pd-1 "><!--details and dates-->
@@ -40,7 +40,8 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                       <p>{{event.date_of_event}}</p>
                     </div>
                     <div class="col-8 event-description">
-                    <h4>{{event.description}} </h4>
+                    <p>{{event.description}} </p>
+                    <!-- <p>Dr. R.K. Agarwal has an exceptionally brilliant academic background with B.Tech from IIT Kanpur, M.S. from CIT, Cranfield, UK and PhD from IISc Bangalore. During his illustrious career of nearly three decades in the Indian Air Force and Defence Research & Development Organization</p> -->
                     </div>
                     </div>
                   {% else %}
@@ -50,12 +51,12 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                     <p>{{event.date_of_event}}</p>
                   </div>
                   <div class="col-8 event-description">
-                    <h4>{{event.description}} </h4>
+                    <p>{{event.description}} </p>
                   </div>
                 </div>
                   {% endif %}
                   {% endfor %}
-                  </marquee>
+                  </div>
                 </div>
               </div>
             </div>

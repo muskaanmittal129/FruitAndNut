@@ -115,6 +115,7 @@ class OrganizationChart(models.Model):
 
 class Gallery(models.Model):
     images = models.ImageField(upload_to='images/gallery/%Y-%m-%d')
+    description = models.CharField(max_length=250, blank=True, null=True)
 
     class Meta:
         verbose_name = "Gallery"
@@ -163,6 +164,8 @@ class ImportantFunctionary(models.Model):
 
 class Principal(models.Model):
     name = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100, blank=True, null=True)
+    education = models.CharField(max_length=100, blank=True, null=True)
     image = models.ImageField(upload_to='images/principal')
     message = RichTextUploadingField()
 
